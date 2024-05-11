@@ -28,7 +28,7 @@ public class ModCreativeModeTabs {
                 pOutput.accept(ModBlocks.BURGER_ORE.get());
                 pOutput.accept(ModItems.BURGER_DETECTOR.get());
                 pOutput.accept(ModBlocks.BURGER_SOUND.get());
-                pOutput.accept(ModBlocks.BURGER_STAIRS.get());
+                //pOutput.accept(ModBlocks.BURGER_STAIRS.get());
             })
             .build());
 
