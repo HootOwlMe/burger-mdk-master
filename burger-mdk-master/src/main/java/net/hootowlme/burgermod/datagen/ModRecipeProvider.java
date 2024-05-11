@@ -60,16 +60,21 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
                 .unlockedBy(getHasName(ModItems.BURGER.get()),has(ModItems.BURGER.get()))
                 .save(pRecipeOutput);
 
-        ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, ModItems.BURGER.get(),9)
-                .requires(ModBlocks.BURGER_BLOCK.get())
-                .unlockedBy(getHasName(ModBlocks.BURGER_BLOCK.get()), has(ModBlocks.BURGER_BLOCK.get())).save(pRecipeOutput);
+        ShapelessRecipeBuilder.shapeless(RecipeCategory.FOOD, ModItems.BURGER.get(),9)
+               .requires(ModBlocks.BURGER_BLOCK.get())
+               .unlockedBy(getHasName(ModBlocks.BURGER_BLOCK.get()), has(ModBlocks.BURGER_BLOCK.get())).save(pRecipeOutput);
 
-        ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, ModItems.BURGER.get(),1)
-                .requires(Items.COOKED_BEEF)
-                .requires(Items.BREAD)
-                .requires(Items.BREAD)
-                .unlockedBy(getHasName(Items.COOKED_BEEF), has(Items.COOKED_BEEF)).save(pRecipeOutput);
+        /*
+        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModItems.BURGER.get())
+                .pattern(" b ")
+                .pattern(" n ")
+                .pattern(" b ")
+                .define('b',Items.BREAD)
+                .define('n',ModItems.BURGER.get())
+                .unlockedBy(getHasName(Items.BREAD),has(Items.BREAD))
+                .save(pRecipeOutput);
 
+        */
     }
 
     protected static void oreSmelting(Consumer<FinishedRecipe> pRecipeOutput, List<ItemLike> pIngredients, RecipeCategory pCategory, ItemLike pResult, float pExperience, int pCookingTIme, String pGroup) {
