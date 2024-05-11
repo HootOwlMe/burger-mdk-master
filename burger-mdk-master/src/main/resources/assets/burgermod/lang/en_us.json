@@ -1,0 +1,21 @@
+{
+    "item.burgermod.burger": "Cheese Burger",
+    "item.burgermod.fries": "French Fries",
+    "creativetab.burger_tab": "Five Guys + Honey",
+    "block.burgermod.burger_block": "Block of Burger",
+    "item.burgermod.grease": "Grease",
+    "block.burgermod.burger_ore": "Burger Ore",
+    "item.burgermod.burger_detector": "Burger Detector",
+    "block.burgermod.burger_sound": "Edible Block of Burger",
+    "block.burgermod.burger_stairs": "Burger Stairs",
+    "block.burgermod.burger_button": "Burger Button",
+    "block.burgermod.burger_slab":"Burger Slab",
+    "block.burgermod.burger_wall":"Burger Wall",
+    "block.burgermod.burger_pressure_plate": "Burger Pressure Plate",
+    "block.burgermod.burger_fence": "Burger Fence",
+    "block.burgermod.burger_fence_gate": "Burger Fence Gate",
+    "block.burgermod.burger_door": "Burger Door",
+    "block.burgermod.burger_trapdoor": "Burger Trapdoor"
+
+
+}
