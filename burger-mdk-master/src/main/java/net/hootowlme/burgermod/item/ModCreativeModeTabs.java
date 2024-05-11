@@ -28,7 +28,18 @@ public class ModCreativeModeTabs {
                 pOutput.accept(ModBlocks.BURGER_ORE.get());
                 pOutput.accept(ModItems.BURGER_DETECTOR.get());
                 pOutput.accept(ModBlocks.BURGER_SOUND.get());
-                //pOutput.accept(ModBlocks.BURGER_STAIRS.get());
+
+                pOutput.accept(ModBlocks.BURGER_STAIRS.get());
+                pOutput.accept(ModBlocks.BURGER_DOOR.get());
+                pOutput.accept(ModBlocks.BURGER_SLAB.get());
+                pOutput.accept(ModBlocks.BURGER_TRAPDOOR.get());
+                pOutput.accept(ModBlocks.BURGER_FENCE.get());
+                pOutput.accept(ModBlocks.BURGER_FENCE_GATE.get());
+                pOutput.accept(ModBlocks.BURGER_WALL.get());
+                pOutput.accept(ModBlocks.BURGER_BUTTON.get());
+                pOutput.accept(ModBlocks.BURGER_PRESSURE_PLATE.get());
+                pOutput.accept(ModItems.BURGER_SWORD.get());
+
             })
             .build());
 

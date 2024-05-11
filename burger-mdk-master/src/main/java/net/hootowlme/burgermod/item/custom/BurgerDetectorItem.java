@@ -3,6 +3,7 @@ package net.hootowlme.burgermod.item.custom;
 import net.hootowlme.burgermod.BurgerMod;
 import net.hootowlme.burgermod.block.ModBlocks;
 import net.hootowlme.burgermod.util.ModTags;
+import net.minecraft.ChatFormatting;
 import net.minecraft.client.resources.language.I18n;
 import net.minecraft.core.BlockPos;
 import net.minecraft.network.chat.Component;
@@ -64,7 +65,7 @@ public class BurgerDetectorItem extends Item {
 
     @Override
     public void appendHoverText(ItemStack pStack, @Nullable Level pLevel, List<Component> pTooltipComponents, TooltipFlag pIsAdvanced) {
-        pTooltipComponents.add(Component.literal("Burger Ore Below You? This will tell you!"));
+        pTooltipComponents.add(Component.literal("Burger Ore Below You? This will tell you!").withStyle(ChatFormatting.getById(4)));
         super.appendHoverText(pStack, pLevel, pTooltipComponents, pIsAdvanced);
     }
 

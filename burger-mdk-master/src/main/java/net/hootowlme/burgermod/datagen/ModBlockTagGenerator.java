@@ -49,5 +49,15 @@ public class ModBlockTagGenerator extends BlockTagsProvider {
 
                 );
 
+        this.tag(BlockTags.FENCES)
+                .add(ModBlocks.BURGER_FENCE.get());
+
+        this.tag(BlockTags.FENCE_GATES)
+                .add(ModBlocks.BURGER_FENCE_GATE.get());
+
+        this.tag(BlockTags.WALLS)
+                .add(ModBlocks.BURGER_WALL.get());
+
+
     }
 }

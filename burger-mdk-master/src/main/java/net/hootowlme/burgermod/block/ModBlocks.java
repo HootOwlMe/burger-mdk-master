@@ -36,7 +36,7 @@ public class ModBlocks {
 
 
 
-    /*public static final RegistryObject<Block> BURGER_STAIRS = registerBlock("burger_stairs",
+    public static final RegistryObject<Block> BURGER_STAIRS = registerBlock("burger_stairs",
            () -> new StairBlock(() -> ModBlocks.BURGER_BLOCK.get().defaultBlockState(),BlockBehaviour.Properties.copy(Blocks.OAK_STAIRS).sound(SoundType.SLIME_BLOCK)));
 
     public static final RegistryObject<Block> BURGER_BUTTON = registerBlock("burger_button",
@@ -60,13 +60,13 @@ public class ModBlocks {
             () -> new FenceGateBlock(BlockBehaviour.Properties.copy(Blocks.HAY_BLOCK).sound(SoundType.SLIME_BLOCK), SoundEvents.GHAST_SCREAM, SoundEvents.LLAMA_SPIT));
 
     public static final RegistryObject<Block>  BURGER_DOOR = registerBlock("burger_door",
-            () -> new DoorBlock(BlockBehaviour.Properties.copy(Blocks.HAY_BLOCK).sound(SoundType.SLIME_BLOCK), BlockSetType.OAK));
+            () -> new DoorBlock(BlockBehaviour.Properties.copy(Blocks.HAY_BLOCK).sound(SoundType.SLIME_BLOCK).noOcclusion(), BlockSetType.OAK));
 
     public static final RegistryObject<Block> BURGER_TRAPDOOR = registerBlock("burger_trapdoor",
-            () -> new TrapDoorBlock(BlockBehaviour.Properties.copy(Blocks.HAY_BLOCK).sound(SoundType.SLIME_BLOCK), BlockSetType.OAK));
+            () -> new TrapDoorBlock(BlockBehaviour.Properties.copy(Blocks.HAY_BLOCK).sound(SoundType.SLIME_BLOCK).noOcclusion(), BlockSetType.OAK));
 
 
-        */
+
     public static void register(IEventBus eventBus){
         BLOCKS.register(eventBus);
     }

@@ -15,7 +15,8 @@
     "block.burgermod.burger_fence": "Burger Fence",
     "block.burgermod.burger_fence_gate": "Burger Fence Gate",
     "block.burgermod.burger_door": "Burger Door",
-    "block.burgermod.burger_trapdoor": "Burger Trapdoor"
+    "block.burgermod.burger_trapdoor": "Burger Trapdoor",
+    "item.burgermod.burger_sword":"Burger Sword"
 
 
 }

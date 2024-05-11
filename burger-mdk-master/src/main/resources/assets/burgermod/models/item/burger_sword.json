@@ -1,0 +1,22 @@
+{
+
+  "parent": "minecraft:item/handheld",
+  "loader": "forge:separate_transforms",
+  "base": {
+
+    "parent": "burgermod:item/burger_sword_3d"
+
+  },
+  "perspectives": {
+    "gui": {
+      "parent": "burgermod:item/burger_sword_3d"
+    },
+    "ground": {
+      "parent": "burgermod:item/burger_sword_2d"
+    },
+    "fixed": {
+      "parent": "burgermod:item/burger_sword_2d"
+    }
+  }
+
+}

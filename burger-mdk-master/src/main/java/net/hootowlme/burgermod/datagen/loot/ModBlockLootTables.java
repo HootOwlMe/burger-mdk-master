@@ -32,6 +32,20 @@ public class ModBlockLootTables extends BlockLootSubProvider {
         this.dropSelf(ModBlocks.BURGER_BLOCK.get());
         this.dropSelf(ModBlocks.BURGER_SOUND.get());
 
+        this.dropSelf(ModBlocks.BURGER_FENCE.get());
+        this.dropSelf(ModBlocks.BURGER_STAIRS.get());
+        this.dropSelf(ModBlocks.BURGER_BUTTON.get());
+        this.dropSelf(ModBlocks.BURGER_PRESSURE_PLATE.get());
+        this.dropSelf(ModBlocks.BURGER_TRAPDOOR.get());
+        this.dropSelf(ModBlocks.BURGER_WALL.get());
+        this.dropSelf(ModBlocks.BURGER_FENCE_GATE.get());
+
+        this.add(ModBlocks.BURGER_SLAB.get(),
+                block -> createSlabItemTable(ModBlocks.BURGER_SLAB.get()));
+
+        this.add(ModBlocks.BURGER_DOOR.get(),
+                block -> createDoorTable(ModBlocks.BURGER_DOOR.get()));
+
         this.add(ModBlocks.BURGER_ORE.get(),
                 block -> createCopperLikeOreDrops(ModBlocks.BURGER_ORE.get(), ModItems.BURGER.get()));
 
