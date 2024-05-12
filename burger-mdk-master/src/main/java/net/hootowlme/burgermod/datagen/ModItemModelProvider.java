@@ -10,6 +10,7 @@ import net.minecraft.world.level.block.Block;
 import net.minecraftforge.client.model.generators.ItemModelBuilder;
 import net.minecraftforge.client.model.generators.ItemModelProvider;
 import net.minecraftforge.common.data.ExistingFileHelper;
+import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
 
@@ -38,6 +39,8 @@ public class ModItemModelProvider extends ItemModelProvider {
         simplerBlockItem(ModBlocks.BURGER_SLAB);
         simplerBlockItem(ModBlocks.BURGER_PRESSURE_PLATE);
         simplerBlockItem(ModBlocks.BURGER_FENCE_GATE);
+
+        simplerBlockItem(ModBlocks.WHITE_PRESSURE_PLATE);
 
 
         trapdoorItem(ModBlocks.BURGER_TRAPDOOR);

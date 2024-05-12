@@ -40,6 +40,11 @@ public class ModCreativeModeTabs {
                 pOutput.accept(ModBlocks.BURGER_PRESSURE_PLATE.get());
                 pOutput.accept(ModItems.BURGER_SWORD.get());
 
+                pOutput.accept(ModBlocks.RESTAURANT_LOW.get());
+                pOutput.accept(ModBlocks.WHITE_BLOCK.get());
+                pOutput.accept(ModBlocks.WHITE_PRESSURE_PLATE.get());
+                pOutput.accept(ModBlocks.FLOOR_BLOCK.get());
+
             })
             .build());
 

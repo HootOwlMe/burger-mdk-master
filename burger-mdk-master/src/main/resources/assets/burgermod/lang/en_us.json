@@ -16,7 +16,11 @@
     "block.burgermod.burger_fence_gate": "Burger Fence Gate",
     "block.burgermod.burger_door": "Burger Door",
     "block.burgermod.burger_trapdoor": "Burger Trapdoor",
-    "item.burgermod.burger_sword":"Burger Sword"
+    "item.burgermod.burger_sword":"Burger Sword",
+    "block.burgermod.restaurant_low": "Five Guys Lower Exterior Block",
+    "block.burgermod.white_block": "White Block",
+    "block.burgermod.restaurant_floor": "Restaurant Floor Block",
+    "block.burgermod.white_pressure_plate": "White Pressure Plate"
 
 
 }

@@ -21,8 +21,11 @@ public class ModBlockStateProvider extends BlockStateProvider {
     protected void registerStatesAndModels() {
 
         blockWithItem(ModBlocks.BURGER_BLOCK);
+        blockWithItem(ModBlocks.RESTAURANT_LOW);
         blockWithItem(ModBlocks.BURGER_ORE);
         blockWithItem(ModBlocks.BURGER_SOUND);
+        blockWithItem(ModBlocks.WHITE_BLOCK);
+        blockWithItem(ModBlocks.FLOOR_BLOCK);
 
         stairsBlock(((StairBlock) ModBlocks.BURGER_STAIRS.get()), blockTexture(ModBlocks.BURGER_BLOCK.get()));
         slabBlock(((SlabBlock) ModBlocks.BURGER_SLAB.get()), blockTexture(ModBlocks.BURGER_BLOCK.get()), blockTexture(ModBlocks.BURGER_BLOCK.get()));
@@ -33,6 +36,9 @@ public class ModBlockStateProvider extends BlockStateProvider {
         fenceBlock(((FenceBlock) ModBlocks.BURGER_FENCE.get()), blockTexture(ModBlocks.BURGER_BLOCK.get()));
         fenceGateBlock(((FenceGateBlock) ModBlocks.BURGER_FENCE_GATE.get()), blockTexture(ModBlocks.BURGER_BLOCK.get()));
         wallBlock(((WallBlock) ModBlocks.BURGER_WALL.get()), blockTexture(ModBlocks.BURGER_BLOCK.get()));
+
+        pressurePlateBlock(((PressurePlateBlock) ModBlocks.WHITE_PRESSURE_PLATE.get()), blockTexture((ModBlocks.WHITE_BLOCK.get())));
+
 
 
         doorBlockWithRenderType(((DoorBlock) ModBlocks.BURGER_DOOR.get()), modLoc("block/burger_door_bottom"), modLoc("block/burger_door_top"), "cutout");

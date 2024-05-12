@@ -31,7 +31,12 @@ public class ModBlockTagGenerator extends BlockTagsProvider {
                 .add(ModBlocks.BURGER_ORE.get());
 
         this.tag(BlockTags.NEEDS_STONE_TOOL)
-                .add(ModBlocks.BURGER_BLOCK.get());
+                .add(ModBlocks.BURGER_BLOCK.get())
+                .add(ModBlocks.RESTAURANT_LOW.get())
+                .add(ModBlocks.WHITE_BLOCK.get())
+                .add(ModBlocks.FLOOR_BLOCK.get())
+                .add(ModBlocks.WHITE_PRESSURE_PLATE.get())
+        ;
 
         this.tag(BlockTags.NEEDS_DIAMOND_TOOL)
                 .add(ModBlocks.BURGER_SOUND.get());
@@ -41,7 +46,11 @@ public class ModBlockTagGenerator extends BlockTagsProvider {
 
         this.tag(BlockTags.MINEABLE_WITH_PICKAXE)
                 .add(ModBlocks.BURGER_ORE.get(),
-                        ModBlocks.BURGER_SOUND.get()
+                        ModBlocks.BURGER_SOUND.get(),
+                        ModBlocks.RESTAURANT_LOW.get(),
+                        ModBlocks.WHITE_BLOCK.get(),
+                        ModBlocks.FLOOR_BLOCK.get(),
+                        ModBlocks.WHITE_PRESSURE_PLATE.get()
                 );
 
         this.tag(BlockTags.MINEABLE_WITH_HOE)

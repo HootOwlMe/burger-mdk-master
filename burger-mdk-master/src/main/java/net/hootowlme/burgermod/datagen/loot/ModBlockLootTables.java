@@ -30,7 +30,13 @@ public class ModBlockLootTables extends BlockLootSubProvider {
     protected void generate() {
 
         this.dropSelf(ModBlocks.BURGER_BLOCK.get());
+        this.dropSelf(ModBlocks.RESTAURANT_LOW.get());
+        this.dropSelf(ModBlocks.WHITE_BLOCK.get());
         this.dropSelf(ModBlocks.BURGER_SOUND.get());
+        this.dropSelf(ModBlocks.FLOOR_BLOCK.get());
+
+        this.dropSelf(ModBlocks.WHITE_PRESSURE_PLATE.get());
+
 
         this.dropSelf(ModBlocks.BURGER_FENCE.get());
         this.dropSelf(ModBlocks.BURGER_STAIRS.get());

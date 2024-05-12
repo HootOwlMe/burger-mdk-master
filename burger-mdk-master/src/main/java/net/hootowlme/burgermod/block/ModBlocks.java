@@ -21,11 +21,25 @@ import java.util.function.Supplier;
 
 public class ModBlocks {
 
+    //YOU NEED TO FILL IN ALL:
+    // datagen -> loot -> ModBlockLootTables
+    // ModBlockStateProvider
+    // ModCreativeModeTabs
+    // lang -> en_us
+    // textures -> block
+    // ModBlockTagGenerator
+
     public static  final DeferredRegister<Block> BLOCKS =
             DeferredRegister.create(ForgeRegistries.BLOCKS, BurgerMod.MOD_ID);
 
     public static final RegistryObject<Block> BURGER_BLOCK = registerBlock("burger_block",
             () -> new Block(BlockBehaviour.Properties.copy(Blocks.HAY_BLOCK).sound(SoundType.SLIME_BLOCK)));
+
+    public static final RegistryObject<Block> WHITE_BLOCK = registerBlock("white_block",
+            () -> new Block(BlockBehaviour.Properties.copy(Blocks.QUARTZ_BLOCK)));
+
+    public static final RegistryObject<Block> FLOOR_BLOCK = registerBlock("restaurant_floor",
+            () -> new Block(BlockBehaviour.Properties.copy(Blocks.QUARTZ_BLOCK)));
 
     public static final RegistryObject<Block> BURGER_SOUND = registerBlock("burger_sound",
             () -> new BurgerSoundBlock(BlockBehaviour.Properties.copy(Blocks.IRON_BLOCK)));
@@ -34,7 +48,8 @@ public class ModBlocks {
             () -> new DropExperienceBlock(BlockBehaviour.Properties.copy(Blocks.LAPIS_ORE)
                     .strength(1f).requiresCorrectToolForDrops(), UniformInt.of(1, 9999)));
 
-
+    public static final RegistryObject<Block> RESTAURANT_LOW = registerBlock("restaurant_low",
+            () -> new Block(BlockBehaviour.Properties.copy(Blocks.QUARTZ_BLOCK)));
 
     public static final RegistryObject<Block> BURGER_STAIRS = registerBlock("burger_stairs",
            () -> new StairBlock(() -> ModBlocks.BURGER_BLOCK.get().defaultBlockState(),BlockBehaviour.Properties.copy(Blocks.OAK_STAIRS).sound(SoundType.SLIME_BLOCK)));
@@ -52,6 +67,10 @@ public class ModBlocks {
     public static final RegistryObject<Block> BURGER_PRESSURE_PLATE = registerBlock("burger_pressure_plate",
             () -> new PressurePlateBlock(PressurePlateBlock.Sensitivity.EVERYTHING, BlockBehaviour.Properties.copy(Blocks.HAY_BLOCK).sound(SoundType.SLIME_BLOCK),
                     BlockSetType.OAK));
+
+    public static final RegistryObject<Block> WHITE_PRESSURE_PLATE = registerBlock("white_pressure_plate",
+            () -> new PressurePlateBlock(PressurePlateBlock.Sensitivity.MOBS, BlockBehaviour.Properties.copy(Blocks.QUARTZ_BLOCK),
+                    BlockSetType.GOLD));
 
     public static final RegistryObject<Block> BURGER_FENCE = registerBlock("burger_fence",
             () -> new FenceBlock(BlockBehaviour.Properties.copy(Blocks.HAY_BLOCK).sound(SoundType.SLIME_BLOCK)));
