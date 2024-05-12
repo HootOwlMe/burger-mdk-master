@@ -51,6 +51,15 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
                 .unlockedBy(getHasName(ModItems.BURGER.get()),has(ModItems.BURGER.get()))
                 .save(pRecipeOutput);
 
+        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModItems.BURGER_SWORD.get())
+                .pattern(" b ")
+                .pattern(" b ")
+                .pattern(" n ")
+                .define('b',ModItems.BURGER.get())
+                .define('n',ModItems.BURGER_DETECTOR.get())
+                .unlockedBy(getHasName(ModItems.BURGER_DETECTOR.get()),has(ModItems.BURGER_DETECTOR.get()))
+                .save(pRecipeOutput);
+
         ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModBlocks.BURGER_SOUND.get())
                 .pattern("bbb")
                 .pattern("bnb")
