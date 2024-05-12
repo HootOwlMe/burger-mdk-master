@@ -51,7 +51,7 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
                 .unlockedBy(getHasName(ModItems.BURGER.get()),has(ModItems.BURGER.get()))
                 .save(pRecipeOutput);
 
-        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModItems.BURGER_SWORD.get())
+        ShapedRecipeBuilder.shaped(RecipeCategory.COMBAT, ModItems.BURGER_SWORD.get())
                 .pattern(" b ")
                 .pattern(" b ")
                 .pattern(" n ")
@@ -60,7 +60,7 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
                 .unlockedBy(getHasName(ModItems.BURGER_DETECTOR.get()),has(ModItems.BURGER_DETECTOR.get()))
                 .save(pRecipeOutput);
 
-        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModBlocks.BURGER_SOUND.get())
+        ShapedRecipeBuilder.shaped(RecipeCategory.FOOD, ModBlocks.BURGER_SOUND.get())
                 .pattern("bbb")
                 .pattern("bnb")
                 .pattern("bbb")
@@ -69,21 +69,59 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
                 .unlockedBy(getHasName(ModItems.BURGER.get()),has(ModItems.BURGER.get()))
                 .save(pRecipeOutput);
 
+        ShapedRecipeBuilder.shaped(RecipeCategory.TOOLS, ModItems.BURGER_AXE.get())
+                .pattern(" bb")
+                .pattern(" nb")
+                .pattern(" n ")
+                .define('b', ModItems.BURGER.get())
+                .define('n',Items.STICK)
+                .unlockedBy(getHasName(ModItems.BURGER.get()),has(ModItems.BURGER.get()))
+                .save(pRecipeOutput);
+
+        ShapedRecipeBuilder.shaped(RecipeCategory.TOOLS, ModItems.BURGER_SHOVEL.get())
+                .pattern(" b ")
+                .pattern(" n ")
+                .pattern(" n ")
+                .define('b', ModItems.BURGER.get())
+                .define('n',Items.STICK)
+                .unlockedBy(getHasName(ModItems.BURGER.get()),has(ModItems.BURGER.get()))
+                .save(pRecipeOutput);
+
+        ShapedRecipeBuilder.shaped(RecipeCategory.TOOLS, ModItems.BURGER_PICKAXE.get())
+                .pattern("bbb")
+                .pattern(" n ")
+                .pattern(" n ")
+                .define('b', ModItems.BURGER.get())
+                .define('n',Items.STICK)
+                .unlockedBy(getHasName(ModItems.BURGER.get()),has(ModItems.BURGER.get()))
+                .save(pRecipeOutput);
+
+        ShapedRecipeBuilder.shaped(RecipeCategory.TOOLS, ModItems.BURGER_HOE.get())
+                .pattern(" bb")
+                .pattern(" n ")
+                .pattern(" n ")
+                .define('b', ModItems.BURGER.get())
+                .define('n',Items.STICK)
+                .unlockedBy(getHasName(ModItems.BURGER.get()),has(ModItems.BURGER.get()))
+                .save(pRecipeOutput);
+
         ShapelessRecipeBuilder.shapeless(RecipeCategory.FOOD, ModItems.BURGER.get(),9)
                .requires(ModBlocks.BURGER_BLOCK.get())
                .unlockedBy(getHasName(ModBlocks.BURGER_BLOCK.get()), has(ModBlocks.BURGER_BLOCK.get())).save(pRecipeOutput);
 
-        /*
-        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModItems.BURGER.get())
+ /*
+        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModItems.THROWABLE_BURGER.get())
                 .pattern(" b ")
                 .pattern(" n ")
                 .pattern(" b ")
-                .define('b',Items.BREAD)
+                .define('b',Items.DIRT)
                 .define('n',ModItems.BURGER.get())
-                .unlockedBy(getHasName(Items.BREAD),has(Items.BREAD))
+                .unlockedBy(getHasName(ModItems.BURGER.get()),has(ModItems.BURGER.get()))
                 .save(pRecipeOutput);
 
-        */
+  */
+
+
     }
 
     protected static void oreSmelting(Consumer<FinishedRecipe> pRecipeOutput, List<ItemLike> pIngredients, RecipeCategory pCategory, ItemLike pResult, float pExperience, int pCookingTIme, String pGroup) {

@@ -12,7 +12,7 @@
       "parent": "burgermod:item/burger_sword_3d"
     },
     "ground": {
-      "parent": "burgermod:item/burger_sword_2d"
+      "parent": "burgermod:item/burger_sword_3d"
     },
     "fixed": {
       "parent": "burgermod:item/burger_sword_2d"

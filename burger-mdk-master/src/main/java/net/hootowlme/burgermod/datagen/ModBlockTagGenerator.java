@@ -38,7 +38,9 @@ public class ModBlockTagGenerator extends BlockTagsProvider {
                 .add(ModBlocks.WHITE_PRESSURE_PLATE.get())
         ;
 
-        this.tag(BlockTags.NEEDS_DIAMOND_TOOL)
+        this.tag(BlockTags.NEEDS_DIAMOND_TOOL);
+
+        this.tag(ModTags.Blocks.NEEDS_BURGER_TOOL)
                 .add(ModBlocks.BURGER_SOUND.get());
 
         //this.tag(Tags.Blocks.NEEDS_NETHERITE_TOOL)

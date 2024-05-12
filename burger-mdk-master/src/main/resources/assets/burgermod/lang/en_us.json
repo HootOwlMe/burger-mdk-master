@@ -20,7 +20,14 @@
     "block.burgermod.restaurant_low": "Five Guys Lower Exterior Block",
     "block.burgermod.white_block": "White Block",
     "block.burgermod.restaurant_floor": "Restaurant Floor Block",
-    "block.burgermod.white_pressure_plate": "White Pressure Plate"
+    "block.burgermod.white_pressure_plate": "White Pressure Plate",
+
+    "item.burgermod.burger_hoe": "Burger Hoe",
+    "item.burgermod.burger_pickaxe": "Burger Pickaxe",
+    "item.burgermod.burger_shovel": "Burger Shovel",
+    "item.burgermod.burger_axe": "Burger Axe"
+
+    //"item.burgermod.throwable_burger": "Throwable Burger"
 
 
 }

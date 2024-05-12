@@ -28,6 +28,12 @@ public class ModItemModelProvider extends ItemModelProvider {
         simpleItem(ModItems.BURGER_DETECTOR);
         simpleItem(ModItems.GREASE);
         simpleItem(ModItems.FRIES);
+        //simpleItem(ModItems.THROWABLE_BURGER);
+
+        handheldItem(ModItems.BURGER_AXE);
+        handheldItem(ModItems.BURGER_PICKAXE);
+        handheldItem(ModItems.BURGER_HOE);
+        handheldItem(ModItems.BURGER_SHOVEL);
 
 
         simpleBlockItem(ModBlocks.BURGER_DOOR);
@@ -79,6 +85,14 @@ public class ModItemModelProvider extends ItemModelProvider {
 
         this.withExistingParent(ForgeRegistries.BLOCKS.getKey(block.get()).getPath(),mcLoc("block/button_inventory"))
                 .texture("texture", new ResourceLocation(BurgerMod.MOD_ID, "block/" + ForgeRegistries.BLOCKS.getKey(baseBlock.get()).getPath()));
+
+    }
+
+    private ItemModelBuilder handheldItem(RegistryObject<Item> item){
+
+        return withExistingParent(item.getId().getPath(),
+        new ResourceLocation("item/handheld")).texture("layer0",
+                new ResourceLocation(BurgerMod.MOD_ID,"item/" + item.getId().getPath()));
 
     }
 
