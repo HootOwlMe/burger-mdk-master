@@ -25,7 +25,12 @@
     "item.burgermod.burger_hoe": "Burger Hoe",
     "item.burgermod.burger_pickaxe": "Burger Pickaxe",
     "item.burgermod.burger_shovel": "Burger Shovel",
-    "item.burgermod.burger_axe": "Burger Axe"
+    "item.burgermod.burger_axe": "Burger Axe",
+
+    "item.burgermod.burger_chestplate": "Burger Chestplate",
+    "item.burgermod.burger_leggings": "Burger Leggings",
+    "item.burgermod.burger_boots": "Burger Boots",
+    "item.burgermod.burger_helmet": "Burger Helmet"
 
     //"item.burgermod.throwable_burger": "Throwable Burger"
 

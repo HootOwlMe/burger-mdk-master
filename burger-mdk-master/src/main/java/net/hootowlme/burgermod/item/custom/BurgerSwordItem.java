@@ -52,6 +52,7 @@ public class BurgerSwordItem extends SwordItem {
         int yPos = positionClicked.getY();
         int zPos = positionClicked.getZ();
 
+
         if(!pContext.getLevel().isClientSide()){
 
 

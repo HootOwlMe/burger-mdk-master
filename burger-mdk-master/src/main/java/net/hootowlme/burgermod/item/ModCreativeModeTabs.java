@@ -43,6 +43,11 @@ public class ModCreativeModeTabs {
                 pOutput.accept(ModItems.BURGER_HOE.get());
                 pOutput.accept(ModItems.BURGER_PICKAXE.get());
                 pOutput.accept(ModItems.BURGER_SHOVEL.get());
+
+                pOutput.accept(ModItems.BURGER_HELMET.get());
+                pOutput.accept(ModItems.BURGER_CHESTPLATE.get());
+                pOutput.accept(ModItems.BURGER_BOOTS.get());
+                pOutput.accept(ModItems.BURGER_LEGGINGS.get());
                 //pOutput.accept(ModItems.THROWABLE_BURGER.get());
 
                 pOutput.accept(ModBlocks.RESTAURANT_LOW.get());
