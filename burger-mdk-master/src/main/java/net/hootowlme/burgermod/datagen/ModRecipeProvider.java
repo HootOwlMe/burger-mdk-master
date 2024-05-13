@@ -87,6 +87,42 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
                 .unlockedBy(getHasName(ModItems.BURGER.get()),has(ModItems.BURGER.get()))
                 .save(pRecipeOutput);
 
+
+
+        ShapedRecipeBuilder.shaped(RecipeCategory.TOOLS, ModItems.BURGER_HELMET.get())
+                .pattern("bbb")
+                .pattern("b b")
+                .pattern("   ")
+                .define('b', ModItems.BURGER.get())
+                .unlockedBy(getHasName(ModItems.BURGER.get()),has(ModItems.BURGER.get()))
+                .save(pRecipeOutput);
+
+        ShapedRecipeBuilder.shaped(RecipeCategory.TOOLS, ModItems.BURGER_LEGGINGS.get())
+                .pattern("bbb")
+                .pattern("b b")
+                .pattern("b b")
+                .define('b', ModItems.BURGER.get())
+                .unlockedBy(getHasName(ModItems.BURGER.get()),has(ModItems.BURGER.get()))
+                .save(pRecipeOutput);
+
+        ShapedRecipeBuilder.shaped(RecipeCategory.TOOLS, ModItems.BURGER_CHESTPLATE.get())
+                .pattern("b b")
+                .pattern("bbb")
+                .pattern("bbb")
+                .define('b', ModItems.BURGER.get())
+                .unlockedBy(getHasName(ModItems.BURGER.get()),has(ModItems.BURGER.get()))
+                .save(pRecipeOutput);
+
+        ShapedRecipeBuilder.shaped(RecipeCategory.TOOLS, ModItems.BURGER_BOOTS.get())
+                .pattern("   ")
+                .pattern("b b")
+                .pattern("b b")
+                .define('b', ModItems.BURGER.get())
+                .unlockedBy(getHasName(ModItems.BURGER.get()),has(ModItems.BURGER.get()))
+                .save(pRecipeOutput);
+
+
+
         ShapedRecipeBuilder.shaped(RecipeCategory.TOOLS, ModItems.BURGER_PICKAXE.get())
                 .pattern("bbb")
                 .pattern(" n ")

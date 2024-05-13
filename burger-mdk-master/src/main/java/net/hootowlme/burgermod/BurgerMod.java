@@ -4,10 +4,17 @@ import com.mojang.logging.LogUtils;
 import net.hootowlme.burgermod.block.ModBlocks;
 import net.hootowlme.burgermod.item.ModCreativeModeTabs;
 import net.hootowlme.burgermod.item.ModItems;
+import net.minecraft.network.chat.Component;
+import net.minecraft.world.entity.ai.attributes.AttributeModifier;
+import net.minecraft.world.entity.player.Inventory;
+import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.CreativeModeTabs;
 import net.minecraftforge.api.distmarker.Dist;
+import net.minecraftforge.common.ForgeMod;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.BuildCreativeModeTabContentsEvent;
+import net.minecraftforge.event.TickEvent;
+import net.minecraftforge.event.entity.player.EntityItemPickupEvent;
 import net.minecraftforge.event.server.ServerStartingEvent;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
@@ -38,6 +45,28 @@ public class BurgerMod {
 
         //ModLoadingContext.get().registerConfig(ModConfig.Type.COMMON, Config.SPEC);
     }
+
+    @SubscribeEvent
+    public void PlayerTickEvent(TickEvent.PlayerTickEvent event){
+
+        Player player = event.player;
+        AttributeModifier blockReachDown = new AttributeModifier(player.getName().getString(), -150, AttributeModifier.Operation.ADDITION);
+        AttributeModifier blockReachUp = new AttributeModifier(player.getName().getString(), 150, AttributeModifier.Operation.ADDITION);
+
+        boolean holdingBurgerSword = (player.getMainHandItem().getItem() == ModItems.BURGER_SWORD.get());
+
+        if(!holdingBurgerSword){
+            if (player.getAttribute(ForgeMod.BLOCK_REACH.get()).getValue() > 5){
+                player.getAttribute(ForgeMod.BLOCK_REACH.get()).addTransientModifier(blockReachDown);
+            }
+        }else{
+            if (player.getAttribute(ForgeMod.BLOCK_REACH.get()).getValue() < 5){
+                player.getAttribute(ForgeMod.BLOCK_REACH.get()).addTransientModifier(blockReachUp);
+            }
+        }
+
+    }
+
 
     private void commonSetup(final FMLCommonSetupEvent event) {
 
