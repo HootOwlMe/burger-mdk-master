@@ -1,14 +1,21 @@
 package net.hootowlme.burgermod.item;
 
 import net.hootowlme.burgermod.BurgerMod;
+import net.hootowlme.burgermod.item.custom.BurgerArmor;
 import net.hootowlme.burgermod.item.custom.BurgerDetectorItem;
 import net.hootowlme.burgermod.item.custom.BurgerSwordItem;
 import net.hootowlme.burgermod.item.custom.FuelItem;
+import net.minecraft.ChatFormatting;
+import net.minecraft.network.chat.Component;
 import net.minecraft.world.item.*;
+import net.minecraft.world.level.Level;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
+import org.jetbrains.annotations.Nullable;
+
+import java.util.List;
 
 public class ModItems {
 
@@ -50,14 +57,15 @@ public class ModItems {
 
     public static final RegistryObject<Item> BURGER_SWORD = ITEMS.register("burger_sword",() -> new BurgerSwordItem(Tiers.NETHERITE,14,2.5F,new Item.Properties().durability(420).fireResistant()));
 
-    public static final RegistryObject<Item> BURGER_CHESTPLATE = ITEMS.register("burger_chestplate",() -> new ArmorItem(ModArmorMaterials.BURGER,ArmorItem.Type.CHESTPLATE,new Item.Properties().durability(4200)));
-    public static final RegistryObject<Item> BURGER_HELMET = ITEMS.register("burger_helmet",() -> new ArmorItem(ModArmorMaterials.BURGER,ArmorItem.Type.HELMET,new Item.Properties().durability(4200)));
-    public static final RegistryObject<Item> BURGER_BOOTS = ITEMS.register("burger_boots",() -> new ArmorItem(ModArmorMaterials.BURGER,ArmorItem.Type.BOOTS,new Item.Properties().durability(4200)));
-    public static final RegistryObject<Item> BURGER_LEGGINGS = ITEMS.register("burger_leggings",() -> new ArmorItem(ModArmorMaterials.BURGER,ArmorItem.Type.LEGGINGS,new Item.Properties().durability(4200)));
+    public static final RegistryObject<Item> BURGER_CHESTPLATE = ITEMS.register("burger_chestplate",() -> new BurgerArmor(ModArmorMaterials.BURGER,ArmorItem.Type.CHESTPLATE,new Item.Properties().durability(4200)));
+    public static final RegistryObject<Item> BURGER_HELMET = ITEMS.register("burger_helmet",() -> new BurgerArmor(ModArmorMaterials.BURGER,ArmorItem.Type.HELMET,new Item.Properties().durability(4200)));
+    public static final RegistryObject<Item> BURGER_BOOTS = ITEMS.register("burger_boots",() -> new BurgerArmor(ModArmorMaterials.BURGER,ArmorItem.Type.BOOTS,new Item.Properties().durability(4200)));
+    public static final RegistryObject<Item> BURGER_LEGGINGS = ITEMS.register("burger_leggings",() -> new BurgerArmor(ModArmorMaterials.BURGER,ArmorItem.Type.LEGGINGS,new Item.Properties().durability(4200)));
 
     public static void register(IEventBus eventBus) {
         ITEMS.register(eventBus);
     }
+
 
 
 }
