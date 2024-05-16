@@ -71,6 +71,8 @@ public class ModItemModelProvider extends ItemModelProvider {
         wallItem(ModBlocks.BURGER_WALL, ModBlocks.BURGER_BLOCK);
 
         simplerBlockItem(ModBlocks.BURGER_STAIRS);
+        simplerBlockItem(ModBlocks.RESTAURANT_TOP);
+        simplerBlockItem(ModBlocks.RED_STAIRS);
         simplerBlockItem(ModBlocks.BURGER_SLAB);
         simplerBlockItem(ModBlocks.BURGER_PRESSURE_PLATE);
         simplerBlockItem(ModBlocks.BURGER_FENCE_GATE);

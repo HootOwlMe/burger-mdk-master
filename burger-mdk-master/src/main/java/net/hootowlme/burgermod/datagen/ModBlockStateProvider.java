@@ -6,6 +6,7 @@ import net.minecraft.data.PackOutput;
 import net.minecraft.world.level.block.*;
 import net.minecraftforge.client.model.generators.BlockStateProvider;
 import net.minecraftforge.common.data.ExistingFileHelper;
+import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.registries.RegistryObject;
 
 public class ModBlockStateProvider extends BlockStateProvider {
@@ -26,6 +27,11 @@ public class ModBlockStateProvider extends BlockStateProvider {
         blockWithItem(ModBlocks.BURGER_SOUND);
         blockWithItem(ModBlocks.WHITE_BLOCK);
         blockWithItem(ModBlocks.FLOOR_BLOCK);
+        blockWithItem(ModBlocks.RESTAURANT_CEILING);
+
+
+        stairsBlock(((StairBlock) ModBlocks.RED_STAIRS.get()), blockTexture(ModBlocks.RED_STAIRS.get()));
+        stairsBlockWithRenderType(((StairBlock) ModBlocks.RESTAURANT_TOP.get()), modLoc("block/red_texture"), modLoc("block/white_block"), modLoc("block/white_block"), "cutout");
 
         stairsBlock(((StairBlock) ModBlocks.BURGER_STAIRS.get()), blockTexture(ModBlocks.BURGER_BLOCK.get()));
         slabBlock(((SlabBlock) ModBlocks.BURGER_SLAB.get()), blockTexture(ModBlocks.BURGER_BLOCK.get()), blockTexture(ModBlocks.BURGER_BLOCK.get()));

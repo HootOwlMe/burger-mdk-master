@@ -51,6 +51,9 @@ public class ModCreativeModeTabs {
                 //pOutput.accept(ModItems.THROWABLE_BURGER.get());
 
                 pOutput.accept(ModBlocks.RESTAURANT_LOW.get());
+                pOutput.accept(ModBlocks.RESTAURANT_TOP.get());
+                pOutput.accept(ModBlocks.RED_STAIRS.get());
+                pOutput.accept(ModBlocks.RESTAURANT_CEILING.get());
                 pOutput.accept(ModBlocks.WHITE_BLOCK.get());
                 pOutput.accept(ModBlocks.WHITE_PRESSURE_PLATE.get());
                 pOutput.accept(ModBlocks.FLOOR_BLOCK.get());

@@ -30,7 +30,10 @@
     "item.burgermod.burger_chestplate": "Burger Chestplate",
     "item.burgermod.burger_leggings": "Burger Leggings",
     "item.burgermod.burger_boots": "Burger Boots",
-    "item.burgermod.burger_helmet": "Burger Helmet"
+    "item.burgermod.burger_helmet": "Burger Helmet",
+    "block.burgermod.restaurant_ceiling": "Restaurant Ceiling",
+    "block.burgermod.restaurant_top": "Restaurant Roof Corner",
+    "block.burgermod.red_stairs": "Red Stairs"
 
     //"item.burgermod.throwable_burger": "Throwable Burger"
 

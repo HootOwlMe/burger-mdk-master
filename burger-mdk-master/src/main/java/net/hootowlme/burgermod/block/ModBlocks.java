@@ -51,8 +51,19 @@ public class ModBlocks {
     public static final RegistryObject<Block> RESTAURANT_LOW = registerBlock("restaurant_low",
             () -> new Block(BlockBehaviour.Properties.copy(Blocks.QUARTZ_BLOCK)));
 
+
+
+    public static final RegistryObject<Block> RESTAURANT_CEILING = registerBlock("restaurant_ceiling",
+            () -> new Block(BlockBehaviour.Properties.copy(Blocks.QUARTZ_BLOCK)));
+
+    public static final RegistryObject<Block> RESTAURANT_TOP = registerBlock("restaurant_top",
+            () -> new StairBlock(() -> ModBlocks.RESTAURANT_LOW.get().defaultBlockState(),BlockBehaviour.Properties.copy(Blocks.QUARTZ_STAIRS)));
+
     public static final RegistryObject<Block> BURGER_STAIRS = registerBlock("burger_stairs",
            () -> new StairBlock(() -> ModBlocks.BURGER_BLOCK.get().defaultBlockState(),BlockBehaviour.Properties.copy(Blocks.OAK_STAIRS).sound(SoundType.SLIME_BLOCK)));
+
+    public static final RegistryObject<Block> RED_STAIRS = registerBlock("red_stairs",
+            () -> new StairBlock(() -> ModBlocks.RESTAURANT_LOW.get().defaultBlockState(),BlockBehaviour.Properties.copy(Blocks.OAK_STAIRS)));
 
     public static final RegistryObject<Block> BURGER_BUTTON = registerBlock("burger_button",
             () -> new ButtonBlock(BlockBehaviour.Properties.copy(Blocks.STONE_BUTTON).sound(SoundType.SLIME_BLOCK),

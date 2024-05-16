@@ -33,6 +33,9 @@ public class ModBlockTagGenerator extends BlockTagsProvider {
         this.tag(BlockTags.NEEDS_STONE_TOOL)
                 .add(ModBlocks.BURGER_BLOCK.get())
                 .add(ModBlocks.RESTAURANT_LOW.get())
+                .add(ModBlocks.RED_STAIRS.get())
+                .add(ModBlocks.RESTAURANT_TOP.get())
+                .add(ModBlocks.RESTAURANT_CEILING.get())
                 .add(ModBlocks.WHITE_BLOCK.get())
                 .add(ModBlocks.FLOOR_BLOCK.get())
                 .add(ModBlocks.WHITE_PRESSURE_PLATE.get())
@@ -50,6 +53,8 @@ public class ModBlockTagGenerator extends BlockTagsProvider {
                 .add(ModBlocks.BURGER_ORE.get(),
                         ModBlocks.BURGER_SOUND.get(),
                         ModBlocks.RESTAURANT_LOW.get(),
+                        ModBlocks.RESTAURANT_CEILING.get(),
+                        ModBlocks.RED_STAIRS.get(),
                         ModBlocks.WHITE_BLOCK.get(),
                         ModBlocks.FLOOR_BLOCK.get(),
                         ModBlocks.WHITE_PRESSURE_PLATE.get()
