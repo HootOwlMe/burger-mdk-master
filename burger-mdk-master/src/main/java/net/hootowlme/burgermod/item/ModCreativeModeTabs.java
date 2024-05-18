@@ -40,6 +40,8 @@ public class ModCreativeModeTabs {
                 pOutput.accept(ModBlocks.BURGER_PRESSURE_PLATE.get());
                 pOutput.accept(ModItems.BURGER_SWORD.get());
                 pOutput.accept(ModItems.BURGER_AXE.get());
+                pOutput.accept(ModBlocks.BLACK_BLOCK.get());
+                pOutput.accept(ModBlocks.BLACK_FENCE.get());
                 pOutput.accept(ModItems.BURGER_HOE.get());
                 pOutput.accept(ModItems.BURGER_PICKAXE.get());
                 pOutput.accept(ModItems.BURGER_SHOVEL.get());

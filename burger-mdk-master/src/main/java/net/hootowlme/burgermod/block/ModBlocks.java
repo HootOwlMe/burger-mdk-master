@@ -28,6 +28,7 @@ public class ModBlocks {
     // lang -> en_us
     // textures -> block
     // ModBlockTagGenerator
+    // ModItemModelProvider (if needed)
 
     public static  final DeferredRegister<Block> BLOCKS =
             DeferredRegister.create(ForgeRegistries.BLOCKS, BurgerMod.MOD_ID);
@@ -50,6 +51,13 @@ public class ModBlocks {
 
     public static final RegistryObject<Block> RESTAURANT_LOW = registerBlock("restaurant_low",
             () -> new Block(BlockBehaviour.Properties.copy(Blocks.QUARTZ_BLOCK)));
+
+
+    public static final RegistryObject<Block> BLACK_BLOCK = registerBlock("black_block",
+            () -> new Block(BlockBehaviour.Properties.copy(Blocks.HAY_BLOCK).sound(SoundType.STONE)));
+
+    public static final RegistryObject<Block> BLACK_FENCE = registerBlock("black_fence",
+            () -> new FenceBlock(BlockBehaviour.Properties.copy(Blocks.HAY_BLOCK).sound(SoundType.STONE)));
 
 
 

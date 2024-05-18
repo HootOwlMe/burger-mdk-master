@@ -5,10 +5,12 @@ import net.hootowlme.burgermod.block.ModBlocks;
 import net.hootowlme.burgermod.item.ModCreativeModeTabs;
 import net.hootowlme.burgermod.item.ModItems;
 import net.minecraft.network.chat.Component;
+import net.minecraft.world.entity.ai.attributes.Attribute;
 import net.minecraft.world.entity.ai.attributes.AttributeModifier;
 import net.minecraft.world.entity.player.Inventory;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.CreativeModeTabs;
+import net.minecraft.world.level.storage.loot.functions.SetAttributesFunction;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.common.ForgeMod;
 import net.minecraftforge.common.MinecraftForge;
@@ -53,40 +55,45 @@ public class BurgerMod {
         AttributeModifier blockReachDown = new AttributeModifier(player.getName().getString(), -150, AttributeModifier.Operation.ADDITION);
         AttributeModifier blockReachUp = new AttributeModifier(player.getName().getString(), 150, AttributeModifier.Operation.ADDITION);
 
+        if (!event.player.level().isClientSide()){
+            boolean holdingBurgerSword = (player.getMainHandItem().getItem() == ModItems.BURGER_SWORD.get());
 
-
-        boolean holdingBurgerSword = (player.getMainHandItem().getItem() == ModItems.BURGER_SWORD.get());
-
-        if(!holdingBurgerSword){
-            if (player.getAttribute(ForgeMod.BLOCK_REACH.get()).getValue() > 5){
-                player.getAttribute(ForgeMod.BLOCK_REACH.get()).addTransientModifier(blockReachDown);
+            if(!holdingBurgerSword){
+                if (player.getAttribute(ForgeMod.BLOCK_REACH.get()).getValue() > 5){
+                    player.getAttribute(ForgeMod.BLOCK_REACH.get()).addTransientModifier(blockReachDown);
+                }
+            }else{
+                if (player.getAttribute(ForgeMod.BLOCK_REACH.get()).getValue() < 5){
+                    player.getAttribute(ForgeMod.BLOCK_REACH.get()).addTransientModifier(blockReachUp);
+                }
             }
-        }else{
-            if (player.getAttribute(ForgeMod.BLOCK_REACH.get()).getValue() < 5){
-                player.getAttribute(ForgeMod.BLOCK_REACH.get()).addTransientModifier(blockReachUp);
+
+            AttributeModifier burgerGravityDown = new AttributeModifier(player.getName().getString(), -0.01, AttributeModifier.Operation.ADDITION);
+            AttributeModifier burgerGravityUp = new AttributeModifier(player.getName().getString(), 0.01, AttributeModifier.Operation.ADDITION);
+
+            boolean wearingBurgerSet = (
+                    (player.getInventory().getArmor(2).getItem() == ModItems.BURGER_CHESTPLATE.get())
+                            && (player.getInventory().getArmor(1).getItem() == ModItems.BURGER_LEGGINGS.get())
+                            && (player.getInventory().getArmor(0).getItem() == ModItems.BURGER_BOOTS.get())
+                            && (player.getInventory().getArmor(3).getItem() == ModItems.BURGER_HELMET.get()));
+
+            if(wearingBurgerSet){
+
+                if (player.getAttribute(ForgeMod.ENTITY_GRAVITY.get()).getValue() > 0.04) {
+                    player.getAttribute(ForgeMod.ENTITY_GRAVITY.get()).addTransientModifier(burgerGravityDown);
+                }
+
+            }else{
+
+                if (player.getAttribute(ForgeMod.ENTITY_GRAVITY.get()).getValue() < 0.08){
+                    player.getAttribute(ForgeMod.ENTITY_GRAVITY.get()).addTransientModifier(burgerGravityUp);
+                }
+                if (player.getAttribute(ForgeMod.ENTITY_GRAVITY.get()).getValue() > 0.08){
+                    player.getAttribute(ForgeMod.ENTITY_GRAVITY.get()).addTransientModifier(burgerGravityDown);
+                }
+
             }
         }
-
-        AttributeModifier gravityDown = new AttributeModifier(player.getName().getString(), -0.04, AttributeModifier.Operation.ADDITION);
-        AttributeModifier gravityUp= new AttributeModifier(player.getName().getString(), 0.04, AttributeModifier.Operation.ADDITION);
-
-        boolean wearingBurgerSet = (
-                (player.getInventory().getArmor(2).getItem() == ModItems.BURGER_CHESTPLATE.get())
-                && (player.getInventory().getArmor(1).getItem() == ModItems.BURGER_LEGGINGS.get())
-                && (player.getInventory().getArmor(0).getItem() == ModItems.BURGER_BOOTS.get())
-                && (player.getInventory().getArmor(3).getItem() == ModItems.BURGER_HELMET.get()));
-
-        if(!wearingBurgerSet){
-            if (player.getAttribute(ForgeMod.ENTITY_GRAVITY.get()).getValue() < 0.08){
-                player.getAttribute(ForgeMod.ENTITY_GRAVITY.get()).addTransientModifier(gravityUp);
-            }
-        }else{
-            if (player.getAttribute(ForgeMod.ENTITY_GRAVITY.get()).getValue() >= 0.08){
-                player.getAttribute(ForgeMod.ENTITY_GRAVITY.get()).addTransientModifier(gravityDown);
-            }
-        }
-
-
 
     }
 

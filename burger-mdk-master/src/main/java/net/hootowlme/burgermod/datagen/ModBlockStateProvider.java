@@ -29,6 +29,8 @@ public class ModBlockStateProvider extends BlockStateProvider {
         blockWithItem(ModBlocks.FLOOR_BLOCK);
         blockWithItem(ModBlocks.RESTAURANT_CEILING);
 
+        fenceBlock(((FenceBlock) ModBlocks.BLACK_FENCE.get()), blockTexture(ModBlocks.BLACK_BLOCK.get()));
+        blockWithItem(ModBlocks.BLACK_BLOCK);
 
         stairsBlock(((StairBlock) ModBlocks.RED_STAIRS.get()), blockTexture(ModBlocks.RED_STAIRS.get()));
         stairsBlockWithRenderType(((StairBlock) ModBlocks.RESTAURANT_TOP.get()), modLoc("block/red_texture"), modLoc("block/white_block"), modLoc("block/white_block"), "cutout");

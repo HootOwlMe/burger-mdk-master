@@ -63,6 +63,7 @@ public class ModItemModelProvider extends ItemModelProvider {
         handheldItem(ModItems.BURGER_SHOVEL);
 
 
+        fenceItem(ModBlocks.BLACK_FENCE, ModBlocks.BLACK_BLOCK);
 
 
         simpleBlockItem(ModBlocks.BURGER_DOOR);

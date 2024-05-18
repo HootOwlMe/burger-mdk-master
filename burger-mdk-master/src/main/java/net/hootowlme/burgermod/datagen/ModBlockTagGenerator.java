@@ -35,6 +35,8 @@ public class ModBlockTagGenerator extends BlockTagsProvider {
                 .add(ModBlocks.RESTAURANT_LOW.get())
                 .add(ModBlocks.RED_STAIRS.get())
                 .add(ModBlocks.RESTAURANT_TOP.get())
+                .add(ModBlocks.BLACK_BLOCK.get())
+                .add(ModBlocks.BLACK_FENCE.get())
                 .add(ModBlocks.RESTAURANT_CEILING.get())
                 .add(ModBlocks.WHITE_BLOCK.get())
                 .add(ModBlocks.FLOOR_BLOCK.get())
@@ -55,6 +57,8 @@ public class ModBlockTagGenerator extends BlockTagsProvider {
                         ModBlocks.RESTAURANT_LOW.get(),
                         ModBlocks.RESTAURANT_CEILING.get(),
                         ModBlocks.RED_STAIRS.get(),
+                        ModBlocks.BLACK_BLOCK.get(),
+                        ModBlocks.BLACK_FENCE.get(),
                         ModBlocks.WHITE_BLOCK.get(),
                         ModBlocks.FLOOR_BLOCK.get(),
                         ModBlocks.WHITE_PRESSURE_PLATE.get()
