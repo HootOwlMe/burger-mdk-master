@@ -11,7 +11,7 @@ import java.util.function.Supplier;
 
 
 public enum ModArmorMaterials implements ArmorMaterial {
-    BURGER("burger", 35, new int[]{5,7,5,4}, 100, SoundEvents.ARMOR_EQUIP_CHAIN, 5f,2f, () -> Ingredient.of(ModItems.BURGER.get()));
+    BURGER("burger", 35, new int[]{4,9,7,4}, 100, SoundEvents.ARMOR_EQUIP_CHAIN, 6f,2f, () -> Ingredient.of(ModItems.BURGER.get()));
 
     private final String name;
     private final int durabilityMultiplier;

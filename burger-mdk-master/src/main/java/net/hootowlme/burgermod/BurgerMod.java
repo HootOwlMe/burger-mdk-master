@@ -4,6 +4,7 @@ import com.mojang.logging.LogUtils;
 import net.hootowlme.burgermod.block.ModBlocks;
 import net.hootowlme.burgermod.item.ModCreativeModeTabs;
 import net.hootowlme.burgermod.item.ModItems;
+import net.hootowlme.burgermod.loot.ModLootModifiers;
 import net.minecraft.network.chat.Component;
 import net.minecraft.world.entity.ai.attributes.Attribute;
 import net.minecraft.world.entity.ai.attributes.AttributeModifier;
@@ -40,6 +41,7 @@ public class BurgerMod {
 
         ModItems.register(modEventBus);
         ModBlocks.register(modEventBus);
+        ModLootModifiers.register(modEventBus);
 
         modEventBus.addListener(this::commonSetup);
         MinecraftForge.EVENT_BUS.register(this);

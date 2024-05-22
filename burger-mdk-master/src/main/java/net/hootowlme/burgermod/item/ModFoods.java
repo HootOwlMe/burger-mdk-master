@@ -7,7 +7,7 @@ import net.minecraft.world.food.FoodProperties;
 public class ModFoods {
 
     public static final FoodProperties BURGER = new FoodProperties.Builder().alwaysEat().meat().nutrition(5)
-            .saturationMod(2).effect(() -> new MobEffectInstance(MobEffects.MOVEMENT_SLOWDOWN, 400),0.9f).build();
+            .saturationMod(2).effect(() -> new MobEffectInstance(MobEffects.MOVEMENT_SLOWDOWN, 350),0.9f).build();
 
     public static final FoodProperties FRIES = new FoodProperties.Builder().alwaysEat().meat().nutrition(3)
             .saturationMod(1).effect(() -> new MobEffectInstance(MobEffects.LEVITATION, 100, 0),1f)
