@@ -5,6 +5,7 @@ import net.hootowlme.burgermod.block.ModBlocks;
 import net.hootowlme.burgermod.item.ModItems;
 import net.hootowlme.burgermod.loot.AddBlockModifier;
 import net.hootowlme.burgermod.loot.AddItemModifier;
+import net.hootowlme.burgermod.loot.AddSusSandItemModifier;
 import net.minecraft.data.PackOutput;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.level.block.Blocks;
@@ -22,14 +23,6 @@ public class ModGlobalLootModifiersProvider extends GlobalLootModifierProvider {
     @Override
     protected void start() {
 
-        /*
-        add("burger_block_from_Netherite_Block", new AddBlockModifier(new LootItemCondition[] {
-                LootItemBlockStatePropertyCondition.hasBlockStateProperties(Blocks.NETHERITE_BLOCK).build(),
-                LootItemRandomChanceCondition.randomChance(0.5f).build()}
-                , ModBlocks.BURGER_BLOCK.get()));
-
-         */
-
 
         add("burger_block_from_netherite_block", new AddItemModifier(new LootItemCondition[] {
                 LootItemBlockStatePropertyCondition.hasBlockStateProperties(Blocks.NETHERITE_BLOCK).build(),
@@ -41,10 +34,15 @@ public class ModGlobalLootModifiersProvider extends GlobalLootModifierProvider {
                 new LootTableIdCondition.Builder(new ResourceLocation("entities/villager")).build()},
                 ModItems.BURGER.get()));
 
+
         add("burger_sword_from_end_city", new AddItemModifier(new LootItemCondition[] {
                 new LootTableIdCondition.Builder(new ResourceLocation("chests/end_city_treasure")).build(),
                 LootItemRandomChanceCondition.randomChance(0.01f).build()},
                 ModItems.BURGER_SWORD.get()));
+
+        add("burger_ore_from_suspicious_sand", new AddSusSandItemModifier(new LootItemCondition[] {
+                new LootTableIdCondition.Builder(new ResourceLocation("archaeology/desert_pyramid")).build()},
+                ModBlocks.BURGER_ORE.get().asItem()));
 
     }
 
