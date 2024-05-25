@@ -2,12 +2,18 @@ package net.hootowlme.burgermod.datagen;
 
 import net.hootowlme.burgermod.BurgerMod;
 import net.hootowlme.burgermod.block.ModBlocks;
+import net.hootowlme.burgermod.block.custom.BurgerCropBlock;
 import net.minecraft.data.PackOutput;
+import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.level.block.*;
+import net.minecraft.world.level.block.state.BlockState;
 import net.minecraftforge.client.model.generators.BlockStateProvider;
+import net.minecraftforge.client.model.generators.ConfiguredModel;
 import net.minecraftforge.common.data.ExistingFileHelper;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.registries.RegistryObject;
+
+import java.util.function.Function;
 
 public class ModBlockStateProvider extends BlockStateProvider {
 
@@ -52,8 +58,28 @@ public class ModBlockStateProvider extends BlockStateProvider {
         doorBlockWithRenderType(((DoorBlock) ModBlocks.BURGER_DOOR.get()), modLoc("block/burger_door_bottom"), modLoc("block/burger_door_top"), "cutout");
         trapdoorBlockWithRenderType(((TrapDoorBlock) ModBlocks.BURGER_TRAPDOOR.get()), modLoc("block/burger_trapdoor"),true, "cutout");
 
+        makeBurgerCrop((CropBlock) ModBlocks.BURGER_CROP.get(), "burger_stage", "burger_stage");
 
 
+
+    }
+
+    public void makeBurgerCrop(CropBlock block, String modelName, String textureName){
+
+        Function<BlockState, ConfiguredModel[]> function = blockState -> burgerStates(blockState, block, modelName, textureName);
+        getVariantBuilder(block).forAllStates(function);
+    }
+
+
+
+
+    private ConfiguredModel[] burgerStates(BlockState state, CropBlock block, String modelName, String textureName){
+        ConfiguredModel[] models = new ConfiguredModel[1];
+
+        models[0] = new ConfiguredModel(models().crop(modelName + state.getValue(((BurgerCropBlock) block).getAgeProperty()),
+                new ResourceLocation(BurgerMod.MOD_ID, "block/" + textureName + state.getValue(((BurgerCropBlock) block).getAgeProperty()))).renderType("cutout"));
+
+        return models;
     }
 
     private void blockWithItem(RegistryObject<Block> blockRegistryObject){

@@ -55,6 +55,7 @@ public class ModItemModelProvider extends ItemModelProvider {
         simpleItem(ModItems.BURGER_DETECTOR);
         simpleItem(ModItems.GREASE);
         simpleItem(ModItems.FRIES);
+        simpleItem(ModItems.BURGER_SEEDS);
         //simpleItem(ModItems.THROWABLE_BURGER);
 
         handheldItem(ModItems.BURGER_AXE);
@@ -64,6 +65,7 @@ public class ModItemModelProvider extends ItemModelProvider {
 
 
         fenceItem(ModBlocks.BLACK_FENCE, ModBlocks.BLACK_BLOCK);
+
 
 
         simpleBlockItem(ModBlocks.BURGER_DOOR);

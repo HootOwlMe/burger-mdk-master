@@ -1,6 +1,7 @@
 package net.hootowlme.burgermod.block;
 
 import net.hootowlme.burgermod.BurgerMod;
+import net.hootowlme.burgermod.block.custom.BurgerCropBlock;
 import net.hootowlme.burgermod.block.custom.BurgerSoundBlock;
 import net.hootowlme.burgermod.item.ModItems;
 import net.hootowlme.burgermod.item.custom.FuelItem;
@@ -58,6 +59,11 @@ public class ModBlocks {
 
     public static final RegistryObject<Block> BLACK_FENCE = registerBlock("black_fence",
             () -> new FenceBlock(BlockBehaviour.Properties.copy(Blocks.HAY_BLOCK).sound(SoundType.STONE)));
+
+
+
+    public static final RegistryObject<Block> BURGER_CROP = BLOCKS.register("burger_crop",
+            () -> new BurgerCropBlock(BlockBehaviour.Properties.copy(Blocks.WHEAT).sound(SoundType.STONE).noOcclusion().noCollission()));
 
 
 
