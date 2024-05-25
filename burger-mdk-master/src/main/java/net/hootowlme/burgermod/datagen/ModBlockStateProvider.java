@@ -3,6 +3,7 @@ package net.hootowlme.burgermod.datagen;
 import net.hootowlme.burgermod.BurgerMod;
 import net.hootowlme.burgermod.block.ModBlocks;
 import net.hootowlme.burgermod.block.custom.BurgerCropBlock;
+import net.hootowlme.burgermod.block.custom.TallBurgerCropBlock;
 import net.minecraft.data.PackOutput;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.level.block.*;
@@ -59,10 +60,28 @@ public class ModBlockStateProvider extends BlockStateProvider {
         trapdoorBlockWithRenderType(((TrapDoorBlock) ModBlocks.BURGER_TRAPDOOR.get()), modLoc("block/burger_trapdoor"),true, "cutout");
 
         makeBurgerCrop((CropBlock) ModBlocks.BURGER_CROP.get(), "burger_stage", "burger_stage");
+        makeTallBurgerCrop((CropBlock) ModBlocks.TALL_BURGER_CROP.get(), "tall_burger_stage", "tall_burger_stage");
 
 
 
     }
+
+
+    public void makeTallBurgerCrop (CropBlock block, String modelName, String textureName){
+
+        Function<BlockState, ConfiguredModel[]> function = blockState -> tallBurgerStates(blockState, block, modelName, textureName);
+        getVariantBuilder(block).forAllStates(function);
+    }
+
+    private ConfiguredModel[] tallBurgerStates(BlockState state, CropBlock block, String modelName, String textureName){
+        ConfiguredModel[] models = new ConfiguredModel[1];
+
+        models[0] = new ConfiguredModel(models().crop(modelName + state.getValue(((TallBurgerCropBlock) block).getAgeProperty()),
+                new ResourceLocation(BurgerMod.MOD_ID, "block/" + textureName + state.getValue(((TallBurgerCropBlock) block).getAgeProperty()))).renderType("cutout"));
+
+        return models;
+    }
+
 
     public void makeBurgerCrop(CropBlock block, String modelName, String textureName){
 

@@ -3,6 +3,7 @@ package net.hootowlme.burgermod.block;
 import net.hootowlme.burgermod.BurgerMod;
 import net.hootowlme.burgermod.block.custom.BurgerCropBlock;
 import net.hootowlme.burgermod.block.custom.BurgerSoundBlock;
+import net.hootowlme.burgermod.block.custom.TallBurgerCropBlock;
 import net.hootowlme.burgermod.item.ModItems;
 import net.hootowlme.burgermod.item.custom.FuelItem;
 import net.minecraft.sounds.SoundEvent;
@@ -65,6 +66,8 @@ public class ModBlocks {
     public static final RegistryObject<Block> BURGER_CROP = BLOCKS.register("burger_crop",
             () -> new BurgerCropBlock(BlockBehaviour.Properties.copy(Blocks.WHEAT).sound(SoundType.STONE).noOcclusion().noCollission()));
 
+    public static final RegistryObject<Block> TALL_BURGER_CROP = BLOCKS.register("tall_burger_crop",
+            () -> new TallBurgerCropBlock(BlockBehaviour.Properties.copy(Blocks.WHEAT).sound(SoundType.STONE).noOcclusion().noCollission()));
 
 
     public static final RegistryObject<Block> RESTAURANT_CEILING = registerBlock("restaurant_ceiling",

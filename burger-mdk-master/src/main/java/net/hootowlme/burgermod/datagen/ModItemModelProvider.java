@@ -56,6 +56,7 @@ public class ModItemModelProvider extends ItemModelProvider {
         simpleItem(ModItems.GREASE);
         simpleItem(ModItems.FRIES);
         simpleItem(ModItems.BURGER_SEEDS);
+        simpleItem(ModItems.TALL_BURGER_SEEDS);
         //simpleItem(ModItems.THROWABLE_BURGER);
 
         handheldItem(ModItems.BURGER_AXE);

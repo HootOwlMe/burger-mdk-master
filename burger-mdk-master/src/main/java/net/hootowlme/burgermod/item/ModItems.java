@@ -56,6 +56,7 @@ public class ModItems {
 
 
     public static final RegistryObject<Item> BURGER_SEEDS = ITEMS.register("burger_seeds",()-> new ItemNameBlockItem(ModBlocks.BURGER_CROP.get(), new Item.Properties()));
+    public static final RegistryObject<Item> TALL_BURGER_SEEDS = ITEMS.register("tall_burger_seeds",()-> new ItemNameBlockItem(ModBlocks.TALL_BURGER_CROP.get(), new Item.Properties()));
 
     public static final RegistryObject<Item> FRIES = ITEMS.register("fries",() -> new Item(new Item.Properties().food(ModFoods.FRIES)));
 

@@ -3,6 +3,7 @@ package net.hootowlme.burgermod.datagen.loot;
 import net.hootowlme.burgermod.BurgerMod;
 import net.hootowlme.burgermod.block.ModBlocks;
 import net.hootowlme.burgermod.block.custom.BurgerCropBlock;
+import net.hootowlme.burgermod.block.custom.TallBurgerCropBlock;
 import net.hootowlme.burgermod.item.ModItems;
 import net.minecraft.advancements.critereon.StatePropertiesPredicate;
 import net.minecraft.data.loot.BlockLootSubProvider;
@@ -12,9 +13,11 @@ import net.minecraft.world.item.Item;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.item.enchantment.Enchantments;
 import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.storage.loot.LootPool;
 import net.minecraft.world.level.storage.loot.LootTable;
 import net.minecraft.world.level.storage.loot.entries.LootItem;
 import net.minecraft.world.level.storage.loot.entries.LootPoolEntryContainer;
+import net.minecraft.world.level.storage.loot.entries.LootPoolSingletonContainer;
 import net.minecraft.world.level.storage.loot.functions.ApplyBonusCount;
 import net.minecraft.world.level.storage.loot.functions.SetItemCountFunction;
 import net.minecraft.world.level.storage.loot.predicates.LootItemBlockStatePropertyCondition;
@@ -72,8 +75,23 @@ public class ModBlockLootTables extends BlockLootSubProvider {
         this.add(ModBlocks.BURGER_CROP.get(), createCropDrops(ModBlocks.BURGER_CROP.get(), ModItems.BURGER.get(), ModItems.BURGER_SEEDS.get(), lootitemcondition$builder));
 
 
+        LootItemCondition.Builder lootitemcondition$builder2 = LootItemBlockStatePropertyCondition.hasBlockStateProperties(ModBlocks.TALL_BURGER_CROP.get())
+                .setProperties(StatePropertiesPredicate.Builder.properties().hasProperty(TallBurgerCropBlock.AGE, 3))
+                .or(LootItemBlockStatePropertyCondition.hasBlockStateProperties(ModBlocks.TALL_BURGER_CROP.get()).setProperties(StatePropertiesPredicate.Builder.properties()
+                        .hasProperty(TallBurgerCropBlock.AGE, 4)));
+
+        this.add(ModBlocks.TALL_BURGER_CROP.get(), createCropDrops(ModBlocks.TALL_BURGER_CROP.get(), ModItems.BURGER.get(),
+                ModItems.TALL_BURGER_SEEDS.get(), lootitemcondition$builder2));
+
+        /*
+        LootItemCondition.Builder lootitemcondition$builder2 = LootItemBlockStatePropertyCondition.hasBlockStateProperties(ModBlocks.TALL_BURGER_CROP.get())
+                .setProperties(StatePropertiesPredicate.Builder.properties().hasProperty(TallBurgerCropBlock.AGE, 4));
+
+         */
+
 
     }
+
 
     protected LootTable.Builder createCopperLikeOreDrops(Block pBlock, Item item) {
         return createSilkTouchDispatchTable(pBlock, (LootPoolEntryContainer.Builder)
