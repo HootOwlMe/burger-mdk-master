@@ -37,7 +37,7 @@ public class ModGlobalLootModifiersProvider extends GlobalLootModifierProvider {
 
         add("burger_sword_from_end_city", new AddItemModifier(new LootItemCondition[] {
                 new LootTableIdCondition.Builder(new ResourceLocation("chests/end_city_treasure")).build(),
-                LootItemRandomChanceCondition.randomChance(0.01f).build()},
+                LootItemRandomChanceCondition.randomChance(0.25f).build()},
                 ModItems.BURGER_SWORD.get()));
 
         add("burger_ore_from_suspicious_sand", new AddSusSandItemModifier(new LootItemCondition[] {
