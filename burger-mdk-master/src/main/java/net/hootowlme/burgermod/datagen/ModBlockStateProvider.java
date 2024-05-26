@@ -63,6 +63,11 @@ public class ModBlockStateProvider extends BlockStateProvider {
         makeTallBurgerCrop((CropBlock) ModBlocks.TALL_BURGER_CROP.get(), "tall_burger_stage", "tall_burger_stage");
 
 
+        simpleBlockWithItem(ModBlocks.BURGER_FLOWER.get(), models().cross(blockTexture(ModBlocks.BURGER_FLOWER.get()).getPath(),
+                blockTexture(ModBlocks.BURGER_FLOWER.get())).renderType("cutout"));
+
+        simpleBlockWithItem(ModBlocks.POTTED_BURGER_FLOWER.get(), models().singleTexture("potted_burger_flower",
+                new ResourceLocation("flower_pot_cross"), "plant", blockTexture(ModBlocks.BURGER_FLOWER.get())).renderType("cutout"));
 
     }
 

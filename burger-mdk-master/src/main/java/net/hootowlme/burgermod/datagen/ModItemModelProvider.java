@@ -91,6 +91,9 @@ public class ModItemModelProvider extends ItemModelProvider {
         trimmedArmorItem(ModItems.BURGER_LEGGINGS);
         trimmedArmorItem(ModItems.BURGER_HELMET);
 
+        simpleBlockItemBlockTexture(ModBlocks.BURGER_FLOWER);
+
+
     }
 
 
@@ -190,6 +193,15 @@ public class ModItemModelProvider extends ItemModelProvider {
                 .texture("wall", new ResourceLocation(BurgerMod.MOD_ID, "block/" + ForgeRegistries.BLOCKS.getKey(baseBlock.get()).getPath()));
 
     }
+
+
+    private ItemModelBuilder simpleBlockItemBlockTexture(RegistryObject<Block> item){
+
+        return withExistingParent(item.getId().getPath(),
+                new ResourceLocation("item/generated")).texture("layer0", new ResourceLocation(BurgerMod.MOD_ID,"block/" + item.getId().getPath()));
+
+    }
+
 
     private ItemModelBuilder simpleBlockItem(RegistryObject<Block> item){
 

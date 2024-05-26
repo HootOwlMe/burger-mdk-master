@@ -11,6 +11,8 @@ import net.minecraft.world.entity.ai.attributes.AttributeModifier;
 import net.minecraft.world.entity.player.Inventory;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.CreativeModeTabs;
+import net.minecraft.world.level.block.Blocks;
+import net.minecraft.world.level.block.FlowerPotBlock;
 import net.minecraft.world.level.storage.loot.functions.SetAttributesFunction;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.common.ForgeMod;
@@ -101,6 +103,13 @@ public class BurgerMod {
 
 
     private void commonSetup(final FMLCommonSetupEvent event) {
+
+        event.enqueueWork(() -> {
+            ((FlowerPotBlock) Blocks.FLOWER_POT).addPlant(ModBlocks.BURGER_FLOWER.getId(), ModBlocks.POTTED_BURGER_FLOWER);
+
+
+        });
+
 
     }
 

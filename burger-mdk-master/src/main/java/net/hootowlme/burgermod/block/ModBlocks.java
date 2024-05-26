@@ -9,6 +9,8 @@ import net.hootowlme.burgermod.item.custom.FuelItem;
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.util.valueproviders.UniformInt;
+import net.minecraft.world.effect.MobEffects;
+import net.minecraft.world.entity.ai.behavior.Behavior;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.level.block.*;
@@ -111,6 +113,16 @@ public class ModBlocks {
 
     public static final RegistryObject<Block> BURGER_TRAPDOOR = registerBlock("burger_trapdoor",
             () -> new TrapDoorBlock(BlockBehaviour.Properties.copy(Blocks.HAY_BLOCK).sound(SoundType.SLIME_BLOCK).noOcclusion(), BlockSetType.OAK));
+
+
+
+    public static final RegistryObject<Block>  BURGER_FLOWER = registerBlock("burger_flower",
+            () -> new FlowerBlock(() -> MobEffects.SATURATION, 5,
+                    BlockBehaviour.Properties.copy(Blocks.POPPY).sound(SoundType.SOUL_SAND).noOcclusion().noCollission()));
+
+    public static final RegistryObject<Block>  POTTED_BURGER_FLOWER = BLOCKS.register("potted_burger_flower",
+            () -> new FlowerPotBlock(() -> ((FlowerPotBlock) Blocks.FLOWER_POT), ModBlocks.BURGER_FLOWER,
+                    BlockBehaviour.Properties.copy(Blocks.POTTED_POPPY).sound(SoundType.SOUL_SAND).noOcclusion()));
 
 
 

@@ -52,12 +52,15 @@ public class ModBlockLootTables extends BlockLootSubProvider {
 
 
         this.dropSelf(ModBlocks.BURGER_FENCE.get());
+        this.dropSelf(ModBlocks.BURGER_FLOWER.get());
         this.dropSelf(ModBlocks.BURGER_STAIRS.get());
         this.dropSelf(ModBlocks.BURGER_BUTTON.get());
         this.dropSelf(ModBlocks.BURGER_PRESSURE_PLATE.get());
         this.dropSelf(ModBlocks.BURGER_TRAPDOOR.get());
         this.dropSelf(ModBlocks.BURGER_WALL.get());
         this.dropSelf(ModBlocks.BURGER_FENCE_GATE.get());
+
+        this.add(ModBlocks.POTTED_BURGER_FLOWER.get(), createPotFlowerItemTable(ModBlocks.BURGER_FLOWER.get()));
 
         this.add(ModBlocks.BURGER_SLAB.get(),
                 block -> createSlabItemTable(ModBlocks.BURGER_SLAB.get()));
