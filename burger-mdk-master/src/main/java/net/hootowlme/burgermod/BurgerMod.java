@@ -5,22 +5,30 @@ import net.hootowlme.burgermod.block.ModBlocks;
 import net.hootowlme.burgermod.item.ModCreativeModeTabs;
 import net.hootowlme.burgermod.item.ModItems;
 import net.hootowlme.burgermod.loot.ModLootModifiers;
+import net.minecraft.core.BlockPos;
 import net.minecraft.network.chat.Component;
 import net.minecraft.world.entity.ai.attributes.Attribute;
 import net.minecraft.world.entity.ai.attributes.AttributeModifier;
 import net.minecraft.world.entity.player.Inventory;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.CreativeModeTabs;
+import net.minecraft.world.level.Level;
+import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.FlowerPotBlock;
+import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.storage.loot.functions.SetAttributesFunction;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.common.ForgeMod;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.BuildCreativeModeTabContentsEvent;
+import net.minecraftforge.event.ForgeEventFactory;
 import net.minecraftforge.event.TickEvent;
+import net.minecraftforge.event.entity.living.LivingEvent;
+import net.minecraftforge.event.entity.living.LivingFallEvent;
 import net.minecraftforge.event.entity.player.EntityItemPickupEvent;
 import net.minecraftforge.event.server.ServerStartingEvent;
+import net.minecraftforge.eventbus.api.Event;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
@@ -75,6 +83,9 @@ public class BurgerMod {
             AttributeModifier burgerGravityDown = new AttributeModifier(player.getName().getString(), -0.01, AttributeModifier.Operation.ADDITION);
             AttributeModifier burgerGravityUp = new AttributeModifier(player.getName().getString(), 0.01, AttributeModifier.Operation.ADDITION);
 
+            BlockState blockStateUnderPlayer = player.level().getBlockState(new BlockPos((int)player.getX(),(int)player.getY()-1,(int)player.getZ()));
+            Block blockUnderPlayer = blockStateUnderPlayer.getBlock();
+
             boolean wearingBurgerSet = (
                     (player.getInventory().getArmor(2).getItem() == ModItems.BURGER_CHESTPLATE.get())
                             && (player.getInventory().getArmor(1).getItem() == ModItems.BURGER_LEGGINGS.get())
@@ -87,6 +98,14 @@ public class BurgerMod {
                     player.getAttribute(ForgeMod.ENTITY_GRAVITY.get()).addTransientModifier(burgerGravityDown);
                 }
 
+                if (player.fallDistance >= 3 && player.fallDistance <= 8){
+
+                    if (!(blockUnderPlayer == Blocks.AIR)){
+                        player.resetFallDistance();
+                    }
+
+                }
+
             }else{
 
                 if (player.getAttribute(ForgeMod.ENTITY_GRAVITY.get()).getValue() < 0.08){
@@ -97,6 +116,9 @@ public class BurgerMod {
                 }
 
             }
+
+
+
         }
 
     }
