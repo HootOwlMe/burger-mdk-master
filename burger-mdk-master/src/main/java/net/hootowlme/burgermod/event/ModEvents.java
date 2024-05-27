@@ -3,6 +3,7 @@ package net.hootowlme.burgermod.event;
 import it.unimi.dsi.fastutil.ints.Int2ObjectMap;
 import net.hootowlme.burgermod.BurgerMod;
 import net.hootowlme.burgermod.item.ModItems;
+import net.hootowlme.burgermod.villager.ModVillagers;
 import net.minecraft.world.entity.ai.attributes.AttributeModifier;
 import net.minecraft.world.entity.npc.VillagerProfession;
 import net.minecraft.world.entity.npc.VillagerTrades;
@@ -62,13 +63,43 @@ public class ModEvents {
                     5,20, 0.02f));
         }
 
+
+
+        if(event.getType() == ModVillagers.BURGER_MASTER.get()) {
+            Int2ObjectMap<List<VillagerTrades.ItemListing>> trades = event.getTrades();
+            ItemStack mending3 = EnchantedBookItem.createForEnchantment(new EnchantmentInstance(Enchantments.MENDING,3));
+            ItemStack sharp10 = EnchantedBookItem.createForEnchantment(new EnchantmentInstance(Enchantments.SHARPNESS,10));
+            ItemStack prot10 = EnchantedBookItem.createForEnchantment(new EnchantmentInstance(Enchantments.ALL_DAMAGE_PROTECTION,10));
+            ItemStack burger = new ItemStack(ModItems.BURGER.get(),2);
+            ItemStack dirt = new ItemStack(Items.DIRT,2);
+
+            trades.get(1).add((pTrader, pRandom) -> new MerchantOffer(
+                    new ItemStack(ModItems.BURGER.get(),64),
+                    mending3,
+                    5,20, 0.02f));
+            trades.get(2).add((pTrader, pRandom) -> new MerchantOffer(
+                    new ItemStack(ModItems.BURGER.get(),64),
+                    sharp10,
+                    5,20, 0.02f));
+            trades.get(3).add((pTrader, pRandom) -> new MerchantOffer(
+                    new ItemStack(ModItems.BURGER.get(),64),
+                    prot10,
+                    5,20, 0.02f));
+            trades.get(4).add((pTrader, pRandom) -> new MerchantOffer(
+                    new ItemStack(ModItems.BURGER.get(),64),
+                    dirt,
+                    5,20, 0.02f));
+            trades.get(5).add((pTrader, pRandom) -> new MerchantOffer(
+                    new ItemStack(ModItems.BURGER.get(),1),
+                    burger, 99999999,20, 0.02f));
+
+
+        }
+
+
+
     }
 
-/*
-    @SubscribeEvent
-    public static void
-
- */
 
     @SubscribeEvent
     public static void addCustomWanderingTrades(WandererTradesEvent event){

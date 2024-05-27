@@ -5,6 +5,7 @@ import net.hootowlme.burgermod.block.ModBlocks;
 import net.hootowlme.burgermod.item.ModCreativeModeTabs;
 import net.hootowlme.burgermod.item.ModItems;
 import net.hootowlme.burgermod.loot.ModLootModifiers;
+import net.hootowlme.burgermod.villager.ModVillagers;
 import net.minecraft.core.BlockPos;
 import net.minecraft.network.chat.Component;
 import net.minecraft.world.entity.ai.attributes.Attribute;
@@ -56,6 +57,7 @@ public class BurgerMod {
         modEventBus.addListener(this::commonSetup);
         MinecraftForge.EVENT_BUS.register(this);
         modEventBus.addListener(this::addCreative);
+        ModVillagers.register(modEventBus);
 
         //ModLoadingContext.get().registerConfig(ModConfig.Type.COMMON, Config.SPEC);
     }
@@ -69,7 +71,6 @@ public class BurgerMod {
 
         if (!event.player.level().isClientSide()){
             boolean holdingBurgerSword = (player.getMainHandItem().getItem() == ModItems.BURGER_SWORD.get());
-
             if(!holdingBurgerSword){
                 if (player.getAttribute(ForgeMod.BLOCK_REACH.get()).getValue() > 5){
                     player.getAttribute(ForgeMod.BLOCK_REACH.get()).addTransientModifier(blockReachDown);
@@ -79,19 +80,15 @@ public class BurgerMod {
                     player.getAttribute(ForgeMod.BLOCK_REACH.get()).addTransientModifier(blockReachUp);
                 }
             }
-
             AttributeModifier burgerGravityDown = new AttributeModifier(player.getName().getString(), -0.01, AttributeModifier.Operation.ADDITION);
             AttributeModifier burgerGravityUp = new AttributeModifier(player.getName().getString(), 0.01, AttributeModifier.Operation.ADDITION);
-
             BlockState blockStateUnderPlayer = player.level().getBlockState(new BlockPos((int)player.getX(),(int)player.getY()-1,(int)player.getZ()));
             Block blockUnderPlayer = blockStateUnderPlayer.getBlock();
-
             boolean wearingBurgerSet = (
                     (player.getInventory().getArmor(2).getItem() == ModItems.BURGER_CHESTPLATE.get())
                             && (player.getInventory().getArmor(1).getItem() == ModItems.BURGER_LEGGINGS.get())
                             && (player.getInventory().getArmor(0).getItem() == ModItems.BURGER_BOOTS.get())
                             && (player.getInventory().getArmor(3).getItem() == ModItems.BURGER_HELMET.get()));
-
             if(wearingBurgerSet){
 
                 if (player.getAttribute(ForgeMod.ENTITY_GRAVITY.get()).getValue() > 0.04) {
@@ -107,15 +104,16 @@ public class BurgerMod {
                 }
 
             }else{
-
                 if (player.getAttribute(ForgeMod.ENTITY_GRAVITY.get()).getValue() < 0.08){
                     player.getAttribute(ForgeMod.ENTITY_GRAVITY.get()).addTransientModifier(burgerGravityUp);
                 }
                 if (player.getAttribute(ForgeMod.ENTITY_GRAVITY.get()).getValue() > 0.08){
                     player.getAttribute(ForgeMod.ENTITY_GRAVITY.get()).addTransientModifier(burgerGravityDown);
                 }
-
             }
+
+
+
 
 
 
