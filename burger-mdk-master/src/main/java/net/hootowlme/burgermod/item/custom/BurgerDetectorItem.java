@@ -2,11 +2,13 @@ package net.hootowlme.burgermod.item.custom;
 
 import net.hootowlme.burgermod.BurgerMod;
 import net.hootowlme.burgermod.block.ModBlocks;
+import net.hootowlme.burgermod.sound.ModSounds;
 import net.hootowlme.burgermod.util.ModTags;
 import net.minecraft.ChatFormatting;
 import net.minecraft.client.resources.language.I18n;
 import net.minecraft.core.BlockPos;
 import net.minecraft.network.chat.Component;
+import net.minecraft.sounds.SoundSource;
 import net.minecraft.tags.TagKey;
 import net.minecraft.world.InteractionResult;
 import net.minecraft.world.entity.player.Player;
@@ -46,6 +48,10 @@ public class BurgerDetectorItem extends Item {
 
                     outputValuableCoordinates(positionClicked.below(i), player, state.getBlock());
                     foundBlock = true;
+
+                    pContext.getLevel().playSeededSound(null, positionClicked.getX(), positionClicked.getY(), positionClicked.getZ(),
+                            ModSounds.BURGER_DETECTOR_FOUND.get(), SoundSource.BLOCKS, 1.5f, 1f, 0);
+
                     break;
 
                 }
@@ -71,7 +77,7 @@ public class BurgerDetectorItem extends Item {
 
     private void outputValuableCoordinates(BlockPos blockPos, Player player, Block block) {
 
-        player.sendSystemMessage(Component.literal("Found " + I18n.get(block.getDescriptionId()) + " at" +
+        player.sendSystemMessage(Component.literal("Found " + I18n.get(block.getDescriptionId()) + " at " +
         "(" + blockPos.getX() + "," + blockPos.getY() + "," +blockPos.getZ() + ")"));
 
     }

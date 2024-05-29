@@ -6,6 +6,7 @@ import net.hootowlme.burgermod.block.custom.BurgerSoundBlock;
 import net.hootowlme.burgermod.block.custom.TallBurgerCropBlock;
 import net.hootowlme.burgermod.item.ModItems;
 import net.hootowlme.burgermod.item.custom.FuelItem;
+import net.hootowlme.burgermod.sound.ModSounds;
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.util.valueproviders.UniformInt;
@@ -38,7 +39,7 @@ public class ModBlocks {
             DeferredRegister.create(ForgeRegistries.BLOCKS, BurgerMod.MOD_ID);
 
     public static final RegistryObject<Block> BURGER_BLOCK = registerBlock("burger_block",
-            () -> new Block(BlockBehaviour.Properties.copy(Blocks.HAY_BLOCK).sound(SoundType.SLIME_BLOCK)));
+            () -> new Block(BlockBehaviour.Properties.copy(Blocks.HAY_BLOCK).sound(ModSounds.BURGER_BLOCK_SOUNDS)));
 
     public static final RegistryObject<Block> WHITE_BLOCK = registerBlock("white_block",
             () -> new Block(BlockBehaviour.Properties.copy(Blocks.QUARTZ_BLOCK)));
@@ -47,10 +48,10 @@ public class ModBlocks {
             () -> new Block(BlockBehaviour.Properties.copy(Blocks.QUARTZ_BLOCK)));
 
     public static final RegistryObject<Block> BURGER_SOUND = registerBlock("burger_sound",
-            () -> new BurgerSoundBlock(BlockBehaviour.Properties.copy(Blocks.IRON_BLOCK)));
+            () -> new BurgerSoundBlock(BlockBehaviour.Properties.copy(Blocks.IRON_BLOCK).sound(ModSounds.BURGER_BLOCK_SOUNDS)));
 
     public static final RegistryObject<Block> BURGER_ORE = registerBlock("burger_ore",
-            () -> new DropExperienceBlock(BlockBehaviour.Properties.copy(Blocks.LAPIS_ORE)
+            () -> new DropExperienceBlock(BlockBehaviour.Properties.copy(Blocks.LAPIS_ORE).sound(ModSounds.BURGER_BLOCK_SOUNDS)
                     .strength(1f).requiresCorrectToolForDrops(), UniformInt.of(1, 9999)));
 
     public static final RegistryObject<Block> RESTAURANT_LOW = registerBlock("restaurant_low",
@@ -89,13 +90,13 @@ public class ModBlocks {
                     BlockSetType.OAK, 20, true));
 
     public static final RegistryObject<Block> BURGER_SLAB = registerBlock("burger_slab",
-            () -> new SlabBlock(BlockBehaviour.Properties.copy(Blocks.HAY_BLOCK).sound(SoundType.SLIME_BLOCK)));
+            () -> new SlabBlock(BlockBehaviour.Properties.copy(Blocks.HAY_BLOCK).sound(ModSounds.BURGER_BLOCK_SOUNDS)));
 
     public static final RegistryObject<Block> BURGER_WALL = registerBlock("burger_wall",
-            () -> new WallBlock(BlockBehaviour.Properties.copy(Blocks.HAY_BLOCK).sound(SoundType.SLIME_BLOCK)));
+            () -> new WallBlock(BlockBehaviour.Properties.copy(Blocks.HAY_BLOCK).sound(ModSounds.BURGER_BLOCK_SOUNDS)));
 
     public static final RegistryObject<Block> BURGER_PRESSURE_PLATE = registerBlock("burger_pressure_plate",
-            () -> new PressurePlateBlock(PressurePlateBlock.Sensitivity.EVERYTHING, BlockBehaviour.Properties.copy(Blocks.HAY_BLOCK).sound(SoundType.SLIME_BLOCK),
+            () -> new PressurePlateBlock(PressurePlateBlock.Sensitivity.EVERYTHING, BlockBehaviour.Properties.copy(Blocks.HAY_BLOCK).sound(ModSounds.BURGER_BLOCK_SOUNDS),
                     BlockSetType.OAK));
 
     public static final RegistryObject<Block> WHITE_PRESSURE_PLATE = registerBlock("white_pressure_plate",
@@ -103,16 +104,16 @@ public class ModBlocks {
                     BlockSetType.GOLD));
 
     public static final RegistryObject<Block> BURGER_FENCE = registerBlock("burger_fence",
-            () -> new FenceBlock(BlockBehaviour.Properties.copy(Blocks.HAY_BLOCK).sound(SoundType.SLIME_BLOCK)));
+            () -> new FenceBlock(BlockBehaviour.Properties.copy(Blocks.HAY_BLOCK).sound(ModSounds.BURGER_BLOCK_SOUNDS)));
 
     public static final RegistryObject<Block> BURGER_FENCE_GATE = registerBlock("burger_fence_gate",
-            () -> new FenceGateBlock(BlockBehaviour.Properties.copy(Blocks.HAY_BLOCK).sound(SoundType.SLIME_BLOCK), SoundEvents.GHAST_SCREAM, SoundEvents.LLAMA_SPIT));
+            () -> new FenceGateBlock(BlockBehaviour.Properties.copy(Blocks.HAY_BLOCK).sound(ModSounds.BURGER_BLOCK_SOUNDS), SoundEvents.LLAMA_EAT, SoundEvents.LLAMA_SPIT));
 
     public static final RegistryObject<Block>  BURGER_DOOR = registerBlock("burger_door",
-            () -> new DoorBlock(BlockBehaviour.Properties.copy(Blocks.HAY_BLOCK).sound(SoundType.SLIME_BLOCK).noOcclusion(), BlockSetType.OAK));
+            () -> new DoorBlock(BlockBehaviour.Properties.copy(Blocks.HAY_BLOCK).sound(ModSounds.BURGER_BLOCK_SOUNDS).noOcclusion(), BlockSetType.OAK));
 
     public static final RegistryObject<Block> BURGER_TRAPDOOR = registerBlock("burger_trapdoor",
-            () -> new TrapDoorBlock(BlockBehaviour.Properties.copy(Blocks.HAY_BLOCK).sound(SoundType.SLIME_BLOCK).noOcclusion(), BlockSetType.OAK));
+            () -> new TrapDoorBlock(BlockBehaviour.Properties.copy(Blocks.HAY_BLOCK).sound(ModSounds.BURGER_BLOCK_SOUNDS).noOcclusion(), BlockSetType.OAK));
 
 
 

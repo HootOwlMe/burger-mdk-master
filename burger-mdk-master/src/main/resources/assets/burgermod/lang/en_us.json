@@ -40,7 +40,14 @@
     "item.burgermod.tall_burger_seeds": "Tall Burger Seeds",
     "block.burgermod.burger_flower": "Burger Flower",
     "entity.minecraft.villager.burgermod.burgermaster": "Burger Master",
-    "creativetab.burger_tab": "Burger Mod"
+    "creativetab.burger_tab": "Burger Mod",
+    "sounds.burgermod.burger_detector_found": "FOUND ONE",
+    "sounds.burgermod.burger_block_break": "Burger Broken",
+    "sounds.burgermod.burger_block_step": "Burger Footstep",
+    "sounds.burgermod.burger_block_fall": "Something fell on a burger nearby, just so you know.",
+    "sounds.burgermod.burger_block_hit": "idek what it means, but burger block did a hit sound",
+    "sounds.burgermod.burger_block_place": "Burger Placed"
+
     //"item.burgermod.throwable_burger": "Throwable Burger"
 
 

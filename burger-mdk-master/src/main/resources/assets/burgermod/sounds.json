@@ -1,0 +1,41 @@
+{
+
+  "burger_detector_found": {
+    "subtitle": "sounds.burgermod.burger_detector_found",
+    "sounds": [
+      "burgermod:burger_detector_found"
+    ]
+  },
+
+  "burger_block_place": {
+    "subtitle": "sounds.burgermod.burger_block_place",
+    "sounds": [
+      "burgermod:burger_block_place"
+    ]
+  },
+  "burger_block_break": {
+    "subtitle": "sounds.burgermod.burger_block_break",
+    "sounds": [
+      "burgermod:burger_block_break"
+    ]
+  },
+  "burger_block_step": {
+    "subtitle": "sounds.burgermod.burger_block_step",
+    "sounds": [
+      "burgermod:burger_block_step"
+    ]
+  },
+  "burger_block_hit": {
+    "subtitle": "sounds.burgermod.burger_block_fall",
+    "sounds": [
+      "burgermod:burger_block_fall"
+    ]
+  },
+  "burger_block_fall": {
+    "subtitle": "sounds.burgermod.burger_block_fall",
+    "sounds": [
+      "burgermod:burger_block_fall"
+    ]
+  }
+
+}

@@ -5,6 +5,7 @@ import net.hootowlme.burgermod.block.ModBlocks;
 import net.hootowlme.burgermod.item.ModCreativeModeTabs;
 import net.hootowlme.burgermod.item.ModItems;
 import net.hootowlme.burgermod.loot.ModLootModifiers;
+import net.hootowlme.burgermod.sound.ModSounds;
 import net.hootowlme.burgermod.villager.ModVillagers;
 import net.minecraft.core.BlockPos;
 import net.minecraft.network.chat.Component;
@@ -58,6 +59,7 @@ public class BurgerMod {
         MinecraftForge.EVENT_BUS.register(this);
         modEventBus.addListener(this::addCreative);
         ModVillagers.register(modEventBus);
+        ModSounds.register(modEventBus);
 
         //ModLoadingContext.get().registerConfig(ModConfig.Type.COMMON, Config.SPEC);
     }
