@@ -6,6 +6,7 @@ import net.hootowlme.burgermod.item.custom.BurgerArmor;
 import net.hootowlme.burgermod.item.custom.BurgerDetectorItem;
 import net.hootowlme.burgermod.item.custom.BurgerSwordItem;
 import net.hootowlme.burgermod.item.custom.FuelItem;
+import net.hootowlme.burgermod.sound.ModSounds;
 import net.minecraft.ChatFormatting;
 import net.minecraft.network.chat.Component;
 import net.minecraft.world.item.*;
@@ -59,6 +60,8 @@ public class ModItems {
     public static final RegistryObject<Item> TALL_BURGER_SEEDS = ITEMS.register("tall_burger_seeds",()-> new ItemNameBlockItem(ModBlocks.TALL_BURGER_CROP.get(), new Item.Properties()));
 
     public static final RegistryObject<Item> FRIES = ITEMS.register("fries",() -> new Item(new Item.Properties().food(ModFoods.FRIES)));
+
+    public static final RegistryObject<Item> BLOOPIN_DISC = ITEMS.register("bloopin_disc",() -> new RecordItem(6, ModSounds.BLOOPIN_DISC, new Item.Properties().food(ModFoods.FRIES).stacksTo(1), 1620));
 
     public static final RegistryObject<Item> BURGER_SWORD = ITEMS.register("burger_sword",() -> new BurgerSwordItem(Tiers.NETHERITE,14,2.5F,new Item.Properties().durability(420).fireResistant()));
 

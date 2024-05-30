@@ -67,7 +67,7 @@ public class ModItemModelProvider extends ItemModelProvider {
 
         fenceItem(ModBlocks.BLACK_FENCE, ModBlocks.BLACK_BLOCK);
 
-
+        simpleItem(ModItems.BLOOPIN_DISC);
 
         simpleBlockItem(ModBlocks.BURGER_DOOR);
         fenceItem(ModBlocks.BURGER_FENCE, ModBlocks.BURGER_BLOCK);

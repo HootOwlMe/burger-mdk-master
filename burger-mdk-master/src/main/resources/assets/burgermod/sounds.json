@@ -36,6 +36,13 @@
     "sounds": [
       "burgermod:burger_block_fall"
     ]
+  },
+  "bloopin_disc": {
+    "sounds": [
+      {
+        "name": "burgermod:bloopin_disc",
+        "stream": true
+      }
+    ]
   }
-
 }

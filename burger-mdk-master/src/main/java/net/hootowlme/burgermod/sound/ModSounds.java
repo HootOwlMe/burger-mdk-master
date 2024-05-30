@@ -25,7 +25,7 @@ public class ModSounds {
     public static final RegistryObject<SoundEvent> BURGER_SOUND_PLACE = registerSoundEvents("burger_block_place");
     public static final RegistryObject<SoundEvent> BURGER_BLOCK_HIT = registerSoundEvents("burger_block_hit");
 
-
+    public static final RegistryObject<SoundEvent> BLOOPIN_DISC = registerSoundEvents("bloopin_disc");
 
 
     public static final ForgeSoundType BURGER_BLOCK_SOUNDS = new ForgeSoundType(1.25f,1.25f,
