@@ -48,9 +48,10 @@
     "sounds.burgermod.burger_block_hit": "idek what it means, but burger block did a hit sound",
     "sounds.burgermod.burger_block_place": "Burger Placed",
     "item.burgermod.bloopin_disc": "Bloopin Disc",
-    "item.burgermod.bloopin_disc.desc": "Eddie EWI - Bloopin"
+    "item.burgermod.bloopin_disc.desc": "Eddie EWI - Bloopin",
+    "entity.burgermod.living_burger": "Living Burger",
+    "item.burgermod.living_burger_spawn_egg": "Living Burger Spawn Egg"
 
-    //"item.burgermod.throwable_burger": "Throwable Burger"
 
 
 }

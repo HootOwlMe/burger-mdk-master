@@ -93,6 +93,8 @@ public class ModItemModelProvider extends ItemModelProvider {
 
         simpleBlockItemBlockTexture(ModBlocks.BURGER_FLOWER);
 
+        withExistingParent(ModItems.LIVING_BURGER_SPAWN_EGG.getId().getPath(), mcLoc("item/template_spawn_egg"));
+
 
     }
 

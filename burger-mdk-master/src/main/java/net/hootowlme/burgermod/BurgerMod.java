@@ -2,11 +2,14 @@ package net.hootowlme.burgermod;
 
 import com.mojang.logging.LogUtils;
 import net.hootowlme.burgermod.block.ModBlocks;
+import net.hootowlme.burgermod.entity.ModEntities;
+import net.hootowlme.burgermod.entity.client.LivingBurgerRenderer;
 import net.hootowlme.burgermod.item.ModCreativeModeTabs;
 import net.hootowlme.burgermod.item.ModItems;
 import net.hootowlme.burgermod.loot.ModLootModifiers;
 import net.hootowlme.burgermod.sound.ModSounds;
 import net.hootowlme.burgermod.villager.ModVillagers;
+import net.minecraft.client.renderer.entity.EntityRenderers;
 import net.minecraft.core.BlockPos;
 import net.minecraft.network.chat.Component;
 import net.minecraft.world.entity.ai.attributes.Attribute;
@@ -60,9 +63,11 @@ public class BurgerMod {
         modEventBus.addListener(this::addCreative);
         ModVillagers.register(modEventBus);
         ModSounds.register(modEventBus);
+        ModEntities.register(modEventBus);
 
         //ModLoadingContext.get().registerConfig(ModConfig.Type.COMMON, Config.SPEC);
     }
+
 
     @SubscribeEvent
     public void PlayerTickEvent(TickEvent.PlayerTickEvent event){
@@ -157,7 +162,7 @@ public class BurgerMod {
     public static class ClientModEvents {
         @SubscribeEvent
         public static void onClientSetup(FMLClientSetupEvent event){
-
+            EntityRenderers.register(ModEntities.LIVING_BURGER.get(), LivingBurgerRenderer::new);
         }
     }
 }

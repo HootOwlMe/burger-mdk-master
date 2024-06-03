@@ -2,6 +2,7 @@ package net.hootowlme.burgermod.item;
 
 import net.hootowlme.burgermod.BurgerMod;
 import net.hootowlme.burgermod.block.ModBlocks;
+import net.hootowlme.burgermod.entity.ModEntities;
 import net.hootowlme.burgermod.item.custom.BurgerArmor;
 import net.hootowlme.burgermod.item.custom.BurgerDetectorItem;
 import net.hootowlme.burgermod.item.custom.BurgerSwordItem;
@@ -11,6 +12,7 @@ import net.minecraft.ChatFormatting;
 import net.minecraft.network.chat.Component;
 import net.minecraft.world.item.*;
 import net.minecraft.world.level.Level;
+import net.minecraftforge.common.ForgeSpawnEggItem;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
@@ -54,6 +56,8 @@ public class ModItems {
     public static final RegistryObject<Item> BURGER_DETECTOR = ITEMS.register("burger_detector",() -> new BurgerDetectorItem(new Item.Properties().durability(6969)));
 
     public static final RegistryObject<Item> GREASE = ITEMS.register("grease",()-> new FuelItem(new Item.Properties(),800));
+
+    public static final RegistryObject<Item> LIVING_BURGER_SPAWN_EGG = ITEMS.register("living_burger_spawn_egg",()-> new ForgeSpawnEggItem(ModEntities.LIVING_BURGER,0xe9680,0xc5d1c5, new Item.Properties()));
 
 
     public static final RegistryObject<Item> BURGER_SEEDS = ITEMS.register("burger_seeds",()-> new ItemNameBlockItem(ModBlocks.BURGER_CROP.get(), new Item.Properties()));

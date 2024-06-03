@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "equipment",
+  "key": {
+    "b": {
+      "item": "minecraft:bread"
+    },
+    "n": {
+      "item": "minecraft:cooked_beef"
+    }
+  },
+  "pattern": [
+    "b",
+    "n",
+    "b"
+  ],
+  "result": {
+    "item": "burgermod:burger"
+  },
+  "show_notification": true
+}

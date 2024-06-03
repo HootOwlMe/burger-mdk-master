@@ -44,6 +44,9 @@ public class ModGlobalLootModifiersProvider extends GlobalLootModifierProvider {
                 new LootTableIdCondition.Builder(new ResourceLocation("archaeology/desert_pyramid")).build()},
                 ModBlocks.BURGER_ORE.get().asItem()));
 
+        add("burger_from_living_burger", new AddItemModifier(new LootItemCondition[] {
+                new LootTableIdCondition.Builder(new ResourceLocation("entities/living_burger")).build()}, ModItems.BURGER.get()));
+
     }
 
 }
