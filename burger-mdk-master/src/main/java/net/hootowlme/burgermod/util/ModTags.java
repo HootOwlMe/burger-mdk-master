@@ -14,6 +14,7 @@ public class ModTags {
     public static class Blocks{
 
         public static final TagKey<Block> BURGER_DETECTOR_VALUABLES = tag("burger_detector_valuables");
+        public static final TagKey<Block> BURGER_DETECTOR = tag("burger_detector");
         public static final TagKey<Block> NEEDS_BURGER_TOOL = tag("needs_burger_tool");
 
 

@@ -44,17 +44,35 @@ public class BurgerDetectorItem extends Item {
 
                 BlockState state = pContext.getLevel().getBlockState(positionClicked.below(i));
 
-                if(isValuableBlock(state)){
+                if(player.isCrouching()){
 
-                    outputValuableCoordinates(positionClicked.below(i), player, state.getBlock());
-                    foundBlock = true;
+                    if(isValuableBlock(state)){
 
-                    pContext.getLevel().playSeededSound(null, positionClicked.getX(), positionClicked.getY(), positionClicked.getZ(),
-                            ModSounds.BURGER_DETECTOR_FOUND.get(), SoundSource.BLOCKS, 1.5f, 1f, 0);
+                        outputValuableCoordinates(positionClicked.below(i), player, state.getBlock());
+                        foundBlock = true;
 
-                    break;
+                        pContext.getLevel().playSeededSound(null, positionClicked.getX(), positionClicked.getY(), positionClicked.getZ(),
+                                ModSounds.BURGER_DETECTOR_FOUND.get(), SoundSource.BLOCKS, 1.5f, 1f, 0);
 
+                        break;
+
+                    }
+
+                }else{
+                    if(isBurgerBlock(state)){
+
+                        outputValuableCoordinates(positionClicked.below(i), player, state.getBlock());
+                        foundBlock = true;
+
+                        pContext.getLevel().playSeededSound(null, positionClicked.getX(), positionClicked.getY(), positionClicked.getZ(),
+                                ModSounds.BURGER_DETECTOR_FOUND.get(), SoundSource.BLOCKS, 1.5f, 1f, 0);
+
+                        break;
+
+                    }
                 }
+
+
 
             }
 
@@ -85,6 +103,11 @@ public class BurgerDetectorItem extends Item {
     private boolean isValuableBlock(BlockState state) {
 
         return state.is(ModTags.Blocks.BURGER_DETECTOR_VALUABLES);
+
+    }
+    private boolean isBurgerBlock(BlockState state) {
+
+        return state.is(ModTags.Blocks.BURGER_DETECTOR);
 
     }
 }

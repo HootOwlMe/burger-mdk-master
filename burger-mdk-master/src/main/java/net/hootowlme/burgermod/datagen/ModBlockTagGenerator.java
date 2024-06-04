@@ -25,7 +25,8 @@ public class ModBlockTagGenerator extends BlockTagsProvider {
 
     @Override
     protected void addTags(HolderLookup.Provider provider) {
-        this.tag(ModTags.Blocks.BURGER_DETECTOR_VALUABLES).add(ModBlocks.BURGER_BLOCK.get()).addTags(Tags.Blocks.ORES);
+        this.tag(ModTags.Blocks.BURGER_DETECTOR_VALUABLES).addTags(Tags.Blocks.ORES);
+        this.tag(ModTags.Blocks.BURGER_DETECTOR).add(ModBlocks.BURGER_BLOCK.get()).add(ModBlocks.BURGER_ORE.get()).add(ModBlocks.BURGER_SOUND.get()).add(ModBlocks.BURGER_SLAB.get());
 
         this.tag(BlockTags.NEEDS_IRON_TOOL)
                 .add(ModBlocks.BURGER_ORE.get());

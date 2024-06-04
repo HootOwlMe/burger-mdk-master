@@ -14,6 +14,8 @@ import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.*;
 import net.minecraft.world.item.context.UseOnContext;
 import net.minecraft.world.level.Level;
+import net.minecraft.world.level.block.Blocks;
+import net.minecraft.world.level.block.state.BlockState;
 import net.minecraftforge.common.ForgeMod;
 import net.minecraftforge.event.TickEvent;
 import net.minecraftforge.event.entity.player.EntityItemPickupEvent;
@@ -36,32 +38,55 @@ public class BurgerSwordItem extends SwordItem {
 
         Player player = pContext.getPlayer();
         BlockPos positionClicked = pContext.getClickedPos();
-
+        BlockState stateUnderPlayer = pContext.getLevel().getBlockState(player.blockPosition().below());
+        BlockState stateWhereClicked = pContext.getLevel().getBlockState(positionClicked);
+        BlockState stateAboveWhereClicked = pContext.getLevel().getBlockState(positionClicked.above());
+        BlockState state2AboveWhereClicked = pContext.getLevel().getBlockState(positionClicked.above().above());
 
         int xPos = positionClicked.getX();
         int yPos = positionClicked.getY();
         int zPos = positionClicked.getZ();
+        boolean teleportedSuccessfully = false;
 
-        /*
-        AttributeModifier blockReachUp = new AttributeModifier(player.getName().getString(), 25D, AttributeModifier.Operation.ADDITION);
-        AttributeModifier blockReachDown = new AttributeModifier(player.getName().getString(), 0.04D, AttributeModifier.Operation.MULTIPLY_BASE);
-        */
         if(!pContext.getLevel().isClientSide()){
 
-            /*
-            if (player.getAttribute(ForgeMod.BLOCK_REACH.get()).getValue() < 5){
-                player.getAttribute(ForgeMod.BLOCK_REACH.get()).addTransientModifier(blockReachUp);
-            }
-            */
             pContext.getPlayer().addEffect(new MobEffectInstance(MobEffects.MOVEMENT_SPEED,100,3));
             pContext.getPlayer().addEffect(new MobEffectInstance(MobEffects.JUMP,100,2));
-            pContext.getPlayer().teleportTo(xPos+0.5, yPos+1, zPos+0.5);
+
+
+            if (!player.isCrouching()){
+
+                if(!(stateWhereClicked.is(Blocks.BEDROCK) || stateAboveWhereClicked.is(Blocks.BEDROCK) || state2AboveWhereClicked.is(Blocks.BEDROCK))){
+                    pContext.getPlayer().teleportTo(xPos + 0.5, yPos + 1, zPos + 0.5);
+
+                    teleportedSuccessfully = true;
+                }
+
+            }else{
+
+                //works for sizes one less than the value that i <=
+                for(int i = 1; i <= 11; i++){
+
+                    if(pContext.getLevel().getBlockState(player.blockPosition().below(i)).is(Blocks.AIR) || pContext.getLevel().getBlockState(player.blockPosition().below(i)).is(Blocks.CAVE_AIR)){
+                        pContext.getPlayer().teleportTo(player.getX(), player.blockPosition().below(i).getY()-0.5, player.getZ());
+                        teleportedSuccessfully = true;
+
+                        break;
+                    }
+
+                }
+
+            }
 
         }
 
-        //player.getAttribute(Attributes.FOLLOW_RANGE).addTransientModifier(blockReach);
+
         pContext.getPlayer().playSound(SoundEvents.BEACON_ACTIVATE);
-        pContext.getItemInHand().hurtAndBreak(1, pContext.getPlayer(), player1 -> player.broadcastBreakEvent(player.getUsedItemHand()));
+
+        if(teleportedSuccessfully){
+            pContext.getItemInHand().hurtAndBreak(1, pContext.getPlayer(), player1 -> player.broadcastBreakEvent(player.getUsedItemHand()));
+            teleportedSuccessfully = false;
+        }
 
         return InteractionResult.SUCCESS;
     }

@@ -102,13 +102,32 @@ public class BurgerMod {
                     player.getAttribute(ForgeMod.ENTITY_GRAVITY.get()).addTransientModifier(burgerGravityDown);
                 }
 
-                if (player.fallDistance >= 3 && player.fallDistance <= 8){
+
+                if (player.fallDistance >= 3){
+                    if(!(blockUnderPlayer == Blocks.AIR)){
+                        player.fallDistance = player.fallDistance - 2;
+                    }
+                }
+
+
+                /*
+                if (player.fallDistance >= 3 && player.fallDistance <= 5){
 
                     if (!(blockUnderPlayer == Blocks.AIR)){
                         player.resetFallDistance();
                     }
 
                 }
+
+                if (player.fallDistance > 5){
+                    if(!(blockUnderPlayer == Blocks.AIR)){
+                        player.fallDistance = player.fallDistance - 2;
+                    }
+                }
+
+                 */
+
+
 
             }else{
                 if (player.getAttribute(ForgeMod.ENTITY_GRAVITY.get()).getValue() < 0.08){
