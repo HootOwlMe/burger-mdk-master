@@ -2,6 +2,7 @@ package net.hootowlme.burgermod;
 
 import com.mojang.logging.LogUtils;
 import net.hootowlme.burgermod.block.ModBlocks;
+import net.hootowlme.burgermod.enchantment.ModEnchantments;
 import net.hootowlme.burgermod.entity.ModEntities;
 import net.hootowlme.burgermod.entity.client.LivingBurgerRenderer;
 import net.hootowlme.burgermod.item.ModCreativeModeTabs;
@@ -9,8 +10,10 @@ import net.hootowlme.burgermod.item.ModItems;
 import net.hootowlme.burgermod.loot.ModLootModifiers;
 import net.hootowlme.burgermod.sound.ModSounds;
 import net.hootowlme.burgermod.villager.ModVillagers;
+
 import net.minecraft.client.renderer.entity.EntityRenderers;
 import net.minecraft.core.BlockPos;
+import net.minecraft.core.Position;
 import net.minecraft.network.chat.Component;
 import net.minecraft.world.entity.ai.attributes.Attribute;
 import net.minecraft.world.entity.ai.attributes.AttributeModifier;
@@ -42,6 +45,9 @@ import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 import org.slf4j.Logger;
 
+import java.util.Timer;
+import java.util.TimerTask;
+
 // The value here should match an entry in the META-INF/mods.toml file
 @Mod(BurgerMod.MOD_ID)
 public class BurgerMod {
@@ -64,6 +70,7 @@ public class BurgerMod {
         ModVillagers.register(modEventBus);
         ModSounds.register(modEventBus);
         ModEntities.register(modEventBus);
+        ModEnchantments.register(modEventBus);
 
         //ModLoadingContext.get().registerConfig(ModConfig.Type.COMMON, Config.SPEC);
     }
@@ -96,6 +103,7 @@ public class BurgerMod {
                             && (player.getInventory().getArmor(1).getItem() == ModItems.BURGER_LEGGINGS.get())
                             && (player.getInventory().getArmor(0).getItem() == ModItems.BURGER_BOOTS.get())
                             && (player.getInventory().getArmor(3).getItem() == ModItems.BURGER_HELMET.get()));
+
             if(wearingBurgerSet){
 
                 if (player.getAttribute(ForgeMod.ENTITY_GRAVITY.get()).getValue() > 0.04) {
@@ -104,28 +112,11 @@ public class BurgerMod {
 
 
                 if (player.fallDistance >= 3){
-                    if(!(blockUnderPlayer == Blocks.AIR)){
+                    if(!((blockUnderPlayer == Blocks.AIR) || (blockUnderPlayer == Blocks.CAVE_AIR))){
                         player.fallDistance = player.fallDistance - 2;
                     }
                 }
 
-
-                /*
-                if (player.fallDistance >= 3 && player.fallDistance <= 5){
-
-                    if (!(blockUnderPlayer == Blocks.AIR)){
-                        player.resetFallDistance();
-                    }
-
-                }
-
-                if (player.fallDistance > 5){
-                    if(!(blockUnderPlayer == Blocks.AIR)){
-                        player.fallDistance = player.fallDistance - 2;
-                    }
-                }
-
-                 */
 
 
 
@@ -139,13 +130,28 @@ public class BurgerMod {
             }
 
 
+        }
 
+        BlockState blockStateUnderPlayer = player.level().getBlockState(new BlockPos((int)player.getX(),(int)player.getY()-1,(int)player.getZ()));
+        BlockState blockState2UnderPlayer = player.level().getBlockState(new BlockPos((int)player.getX(),(int)player.getY()-2,(int)player.getZ()));
+        Block blockUnderPlayer = blockStateUnderPlayer.getBlock();
+        Block block2UnderPlayer = blockState2UnderPlayer.getBlock();
+        BlockPos location = player.blockPosition();
+        if(player.getInventory().getArmor(0).getEnchantmentLevel(ModEnchantments.AIR_WALKER.get()) > 0){
 
+            boolean airUnderPlayer = (blockUnderPlayer == Blocks.AIR) || (blockUnderPlayer == Blocks.CAVE_AIR) || (blockUnderPlayer == Blocks.VOID_AIR);
+            boolean air2UnderPlayer = (block2UnderPlayer == Blocks.AIR) || (block2UnderPlayer == Blocks.CAVE_AIR) || (block2UnderPlayer == Blocks.VOID_AIR);
 
+            if(player.isCrouching()){
+                if(airUnderPlayer && air2UnderPlayer){
+                    player.level().setBlock(location.below(), ModBlocks.AIR_WALK_BLOCK.get().defaultBlockState(),1);
+                }
+            }
 
         }
 
     }
+
 
 
 

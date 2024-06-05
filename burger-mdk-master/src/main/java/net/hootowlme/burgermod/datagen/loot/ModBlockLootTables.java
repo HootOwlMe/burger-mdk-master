@@ -13,6 +13,7 @@ import net.minecraft.world.item.Item;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.item.enchantment.Enchantments;
 import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.storage.loot.LootPool;
 import net.minecraft.world.level.storage.loot.LootTable;
 import net.minecraft.world.level.storage.loot.entries.LootItem;
@@ -50,7 +51,7 @@ public class ModBlockLootTables extends BlockLootSubProvider {
 
         this.dropSelf(ModBlocks.WHITE_PRESSURE_PLATE.get());
 
-
+        this.dropOther(ModBlocks.AIR_WALK_BLOCK.get(), Blocks.AIR.asItem());
         this.dropSelf(ModBlocks.BURGER_FENCE.get());
         this.dropSelf(ModBlocks.BURGER_FLOWER.get());
         this.dropSelf(ModBlocks.BURGER_STAIRS.get());

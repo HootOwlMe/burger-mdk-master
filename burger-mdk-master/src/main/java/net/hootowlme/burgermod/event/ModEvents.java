@@ -2,8 +2,10 @@ package net.hootowlme.burgermod.event;
 
 import it.unimi.dsi.fastutil.ints.Int2ObjectMap;
 import net.hootowlme.burgermod.BurgerMod;
+import net.hootowlme.burgermod.block.ModBlocks;
 import net.hootowlme.burgermod.item.ModItems;
 import net.hootowlme.burgermod.villager.ModVillagers;
+import net.minecraft.core.BlockPos;
 import net.minecraft.world.entity.ai.attributes.AttributeModifier;
 import net.minecraft.world.entity.npc.VillagerProfession;
 import net.minecraft.world.entity.npc.VillagerTrades;
@@ -15,6 +17,7 @@ import net.minecraft.world.item.enchantment.Enchantment;
 import net.minecraft.world.item.enchantment.EnchantmentInstance;
 import net.minecraft.world.item.enchantment.Enchantments;
 import net.minecraft.world.item.trading.MerchantOffer;
+import net.minecraft.world.level.Level;
 import net.minecraftforge.common.ForgeMod;
 import net.minecraftforge.event.TickEvent;
 import net.minecraftforge.event.entity.living.LivingFallEvent;
@@ -41,6 +44,8 @@ public class ModEvents {
                     15,100, 0.02f));
 
         }
+
+
 
         if(event.getType() == VillagerProfession.WEAPONSMITH) {
             Int2ObjectMap<List<VillagerTrades.ItemListing>> trades = event.getTrades();
@@ -99,6 +104,7 @@ public class ModEvents {
 
 
     }
+
 
 
     @SubscribeEvent

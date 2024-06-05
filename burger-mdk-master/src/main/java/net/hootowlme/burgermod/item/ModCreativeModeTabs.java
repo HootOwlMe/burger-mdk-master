@@ -3,11 +3,16 @@ package net.hootowlme.burgermod.item;
 import net.hootowlme.burgermod.BurgerMod;
 import net.hootowlme.burgermod.block.ModBlocks;
 import net.hootowlme.burgermod.block.custom.BurgerSoundBlock;
+import net.hootowlme.burgermod.enchantment.ModEnchantments;
 import net.minecraft.core.registries.Registries;
+import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.chat.Component;
 import net.minecraft.world.item.CreativeModeTab;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
+import net.minecraft.world.item.enchantment.Enchantment;
+import net.minecraft.world.item.enchantment.Enchantments;
+import net.minecraft.world.level.ItemLike;
 import net.minecraft.world.level.block.Block;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.registries.DeferredRegister;
@@ -16,6 +21,7 @@ import net.minecraftforge.registries.RegistryObject;
 public class ModCreativeModeTabs {
 
     public static final DeferredRegister<CreativeModeTab> CREATIVE_MODE_TABS = DeferredRegister.create(Registries.CREATIVE_MODE_TAB, BurgerMod.MOD_ID);
+
 
     public static  final RegistryObject<CreativeModeTab> BURGER_TAB = CREATIVE_MODE_TABS.register("burger_tab",() -> CreativeModeTab.builder().icon(() -> new ItemStack(ModItems.BURGER.get()))
             .title(Component.translatable("creativetab.burger_tab"))
@@ -43,6 +49,7 @@ public class ModCreativeModeTabs {
                 pOutput.accept(ModBlocks.BLACK_BLOCK.get());
                 pOutput.accept(ModBlocks.BLACK_FENCE.get());
                 pOutput.accept(ModItems.BURGER_HOE.get());
+                pOutput.accept(ModBlocks.AIR_WALK_BLOCK.get());
                 pOutput.accept(ModItems.BURGER_PICKAXE.get());
                 pOutput.accept(ModItems.BURGER_SHOVEL.get());
                 pOutput.accept(ModItems.BLOOPIN_DISC.get());

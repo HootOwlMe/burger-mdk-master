@@ -1,17 +1,15 @@
 package net.hootowlme.burgermod.block;
 
 import net.hootowlme.burgermod.BurgerMod;
+import net.hootowlme.burgermod.block.custom.AirWalkBlock;
 import net.hootowlme.burgermod.block.custom.BurgerCropBlock;
 import net.hootowlme.burgermod.block.custom.BurgerSoundBlock;
 import net.hootowlme.burgermod.block.custom.TallBurgerCropBlock;
 import net.hootowlme.burgermod.item.ModItems;
-import net.hootowlme.burgermod.item.custom.FuelItem;
 import net.hootowlme.burgermod.sound.ModSounds;
-import net.minecraft.sounds.SoundEvent;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.util.valueproviders.UniformInt;
 import net.minecraft.world.effect.MobEffects;
-import net.minecraft.world.entity.ai.behavior.Behavior;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.level.block.*;
@@ -64,7 +62,8 @@ public class ModBlocks {
     public static final RegistryObject<Block> BLACK_FENCE = registerBlock("black_fence",
             () -> new FenceBlock(BlockBehaviour.Properties.copy(Blocks.HAY_BLOCK).sound(SoundType.STONE)));
 
-
+    public static final RegistryObject<Block> AIR_WALK_BLOCK = registerBlock("air_walk_block",
+            () -> new AirWalkBlock(BlockBehaviour.Properties.copy(Blocks.GLASS).noOcclusion()));
 
     public static final RegistryObject<Block> BURGER_CROP = BLOCKS.register("burger_crop",
             () -> new BurgerCropBlock(BlockBehaviour.Properties.copy(Blocks.WHEAT).sound(SoundType.STONE).noOcclusion().noCollission()));
