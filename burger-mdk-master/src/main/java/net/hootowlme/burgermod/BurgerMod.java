@@ -120,7 +120,7 @@ public class BurgerMod {
 
                 if (player.fallDistance >= 3){
                     if(!((blockUnderPlayer == Blocks.AIR) || (blockUnderPlayer == Blocks.CAVE_AIR))){
-                        player.fallDistance = player.fallDistance - 2;
+                        player.fallDistance = player.fallDistance - 3;
                     }
                 }
 
@@ -156,7 +156,7 @@ public class BurgerMod {
 
                 if((airUnderPlayer && air2UnderPlayer) || (airWalkUnderPlayer && air2UnderPlayer) || (airWalk3UnderPlayer)){
                     if(player.getInventory().getArmor(0).getEnchantmentLevel(ModEnchantments.AIR_WALKER.get()) > 1){
-                        player.addEffect(new MobEffectInstance(MobEffects.MOVEMENT_SPEED,2,7, true,false,false));
+                        player.addEffect(new MobEffectInstance(MobEffects.MOVEMENT_SPEED,2,5, true,false,false));
                     }
 
                     if(player.level().isClientSide()){
