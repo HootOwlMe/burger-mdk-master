@@ -11,10 +11,15 @@ import net.hootowlme.burgermod.loot.ModLootModifiers;
 import net.hootowlme.burgermod.sound.ModSounds;
 import net.hootowlme.burgermod.villager.ModVillagers;
 
+import net.minecraft.client.renderer.ItemBlockRenderTypes;
+import net.minecraft.client.renderer.RenderType;
 import net.minecraft.client.renderer.entity.EntityRenderers;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Position;
 import net.minecraft.network.chat.Component;
+import net.minecraft.world.effect.MobEffect;
+import net.minecraft.world.effect.MobEffectInstance;
+import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.entity.ai.attributes.Attribute;
 import net.minecraft.world.entity.ai.attributes.AttributeModifier;
 import net.minecraft.world.entity.player.Inventory;
@@ -26,6 +31,7 @@ import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.FlowerPotBlock;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.storage.loot.functions.SetAttributesFunction;
+import net.minecraft.world.ticks.TickPriority;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.common.ForgeMod;
 import net.minecraftforge.common.MinecraftForge;
@@ -74,6 +80,7 @@ public class BurgerMod {
 
         //ModLoadingContext.get().registerConfig(ModConfig.Type.COMMON, Config.SPEC);
     }
+
 
 
     @SubscribeEvent
@@ -134,23 +141,40 @@ public class BurgerMod {
 
         BlockState blockStateUnderPlayer = player.level().getBlockState(new BlockPos((int)player.getX(),(int)player.getY()-1,(int)player.getZ()));
         BlockState blockState2UnderPlayer = player.level().getBlockState(new BlockPos((int)player.getX(),(int)player.getY()-2,(int)player.getZ()));
+        BlockState blockState3UnderPlayer = player.level().getBlockState(new BlockPos((int)player.getX(),(int)player.getY()-3,(int)player.getZ()));
         Block blockUnderPlayer = blockStateUnderPlayer.getBlock();
         Block block2UnderPlayer = blockState2UnderPlayer.getBlock();
+        Block block3UnderPlayer = blockState2UnderPlayer.getBlock();
         BlockPos location = player.blockPosition();
         if(player.getInventory().getArmor(0).getEnchantmentLevel(ModEnchantments.AIR_WALKER.get()) > 0){
 
             boolean airUnderPlayer = (blockUnderPlayer == Blocks.AIR) || (blockUnderPlayer == Blocks.CAVE_AIR) || (blockUnderPlayer == Blocks.VOID_AIR);
             boolean air2UnderPlayer = (block2UnderPlayer == Blocks.AIR) || (block2UnderPlayer == Blocks.CAVE_AIR) || (block2UnderPlayer == Blocks.VOID_AIR);
-
+            boolean airWalkUnderPlayer = blockUnderPlayer == ModBlocks.AIR_WALK_BLOCK.get();
+            boolean airWalk3UnderPlayer = (block3UnderPlayer == ModBlocks.AIR_WALK_BLOCK.get());
             if(player.isCrouching()){
-                if(airUnderPlayer && air2UnderPlayer){
-                    player.level().setBlock(location.below(), ModBlocks.AIR_WALK_BLOCK.get().defaultBlockState(),1);
+
+                if((airUnderPlayer && air2UnderPlayer) || (airWalkUnderPlayer && air2UnderPlayer) || (airWalk3UnderPlayer)){
+                    if(player.getInventory().getArmor(0).getEnchantmentLevel(ModEnchantments.AIR_WALKER.get()) > 1){
+                        player.addEffect(new MobEffectInstance(MobEffects.MOVEMENT_SPEED,2,7, true,false,false));
+                    }
+
+                    if(player.level().isClientSide()){
+                        player.level().setBlock(location.below(), ModBlocks.AIR_WALK_BLOCK.get().defaultBlockState(),1);
+                    }
+
+                    if(!player.level().isClientSide()){
+                        player.level().setBlock(location.below(), ModBlocks.AIR_WALK_BLOCK.get().defaultBlockState(),1);
+                    }
+                    //player.level().scheduleTick(location.below(), ModBlocks.AIR_WALK_BLOCK.get(), 70, TickPriority.HIGH);
                 }
+
             }
 
         }
 
     }
+
 
 
 
@@ -188,6 +212,8 @@ public class BurgerMod {
         @SubscribeEvent
         public static void onClientSetup(FMLClientSetupEvent event){
             EntityRenderers.register(ModEntities.LIVING_BURGER.get(), LivingBurgerRenderer::new);
+            ItemBlockRenderTypes.setRenderLayer(ModBlocks.AIR_WALK_BLOCK.get(), RenderType.translucent());
         }
+
     }
 }

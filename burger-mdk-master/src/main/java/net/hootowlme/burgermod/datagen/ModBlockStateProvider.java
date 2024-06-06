@@ -35,6 +35,8 @@ public class ModBlockStateProvider extends BlockStateProvider {
         blockWithItem(ModBlocks.WHITE_BLOCK);
         blockWithItem(ModBlocks.FLOOR_BLOCK);
         blockWithItem(ModBlocks.RESTAURANT_CEILING);
+
+
         blockWithItem(ModBlocks.AIR_WALK_BLOCK);
 
         fenceBlock(((FenceBlock) ModBlocks.BLACK_FENCE.get()), blockTexture(ModBlocks.BLACK_BLOCK.get()));
