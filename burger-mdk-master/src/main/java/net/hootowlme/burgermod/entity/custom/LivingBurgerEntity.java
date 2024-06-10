@@ -83,8 +83,8 @@ public class LivingBurgerEntity extends Animal {
 
     public static AttributeSupplier.Builder createAttributes() {
         return Animal.createLivingAttributes().add(Attributes.MAX_HEALTH, 10D).add(Attributes.MOVEMENT_SPEED, 0.3D)
-                .add(Attributes.ARMOR, 0.5f).add(Attributes.ATTACK_DAMAGE,3f).add(Attributes.FOLLOW_RANGE,15D)
-                .add(Attributes.ATTACK_KNOCKBACK,1D);
+                .add(Attributes.ARMOR, 0.5f).add(Attributes.ATTACK_DAMAGE,2.5f).add(Attributes.FOLLOW_RANGE,15D)
+                .add(Attributes.ATTACK_KNOCKBACK,0.5D);
 
     }
 

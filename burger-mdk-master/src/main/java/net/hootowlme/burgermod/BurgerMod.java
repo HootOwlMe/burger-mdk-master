@@ -20,6 +20,7 @@ import net.minecraft.network.chat.Component;
 import net.minecraft.world.effect.MobEffect;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.effect.MobEffects;
+import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.ai.attributes.Attribute;
 import net.minecraft.world.entity.ai.attributes.AttributeModifier;
 import net.minecraft.world.entity.player.Inventory;
@@ -81,8 +82,6 @@ public class BurgerMod {
         //ModLoadingContext.get().registerConfig(ModConfig.Type.COMMON, Config.SPEC);
     }
 
-
-
     @SubscribeEvent
     public void PlayerTickEvent(TickEvent.PlayerTickEvent event){
 
@@ -120,7 +119,7 @@ public class BurgerMod {
 
                 if (player.fallDistance >= 3){
                     if(!((blockUnderPlayer == Blocks.AIR) || (blockUnderPlayer == Blocks.CAVE_AIR))){
-                        player.fallDistance = player.fallDistance - 3;
+                        player.fallDistance = player.fallDistance - 2;
                     }
                 }
 
@@ -174,7 +173,6 @@ public class BurgerMod {
         }
 
     }
-
 
 
 

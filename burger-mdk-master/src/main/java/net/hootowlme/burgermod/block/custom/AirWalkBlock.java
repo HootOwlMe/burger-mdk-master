@@ -24,7 +24,6 @@ import net.minecraftforge.fml.common.Mod;
 
 public class AirWalkBlock extends GlassBlock {
 
-
     public AirWalkBlock(Properties pProperties) {
         super(pProperties);
     }
@@ -33,7 +32,17 @@ public class AirWalkBlock extends GlassBlock {
     public void onPlace(BlockState pState, Level pLevel, BlockPos pPos, BlockState pOldState, boolean pIsMoving) {
         //pLevel.removeBlock(pPos,pIsMoving);
 
-        pLevel.scheduleTick(pPos, ModBlocks.AIR_WALK_BLOCK.get(), 60, TickPriority.HIGH);
+        pLevel.scheduleTick(pPos, ModBlocks.AIR_WALK_BLOCK.get(), 80, TickPriority.VERY_HIGH);
+        pLevel.scheduleTick(pPos, ModBlocks.AIR_WALK_BLOCK.get(), 81, TickPriority.VERY_HIGH);
+        pLevel.scheduleTick(pPos, ModBlocks.AIR_WALK_BLOCK.get(), 82, TickPriority.VERY_HIGH);
+        pLevel.scheduleTick(pPos, ModBlocks.AIR_WALK_BLOCK.get(), 83, TickPriority.VERY_HIGH);
+        pLevel.scheduleTick(pPos, ModBlocks.AIR_WALK_BLOCK.get(), 84, TickPriority.VERY_HIGH);
+        pLevel.scheduleTick(pPos, ModBlocks.AIR_WALK_BLOCK.get(), 85, TickPriority.VERY_HIGH);
+        pLevel.scheduleTick(pPos, ModBlocks.AIR_WALK_BLOCK.get(), 86, TickPriority.VERY_HIGH);
+        pLevel.scheduleTick(pPos, ModBlocks.AIR_WALK_BLOCK.get(), 87, TickPriority.VERY_HIGH);
+        pLevel.scheduleTick(pPos, ModBlocks.AIR_WALK_BLOCK.get(), 88, TickPriority.VERY_HIGH);
+        pLevel.scheduleTick(pPos, ModBlocks.AIR_WALK_BLOCK.get(), 89, TickPriority.VERY_HIGH);
+        pLevel.scheduleTick(pPos, ModBlocks.AIR_WALK_BLOCK.get(), 90, TickPriority.VERY_HIGH);
 
     }
 

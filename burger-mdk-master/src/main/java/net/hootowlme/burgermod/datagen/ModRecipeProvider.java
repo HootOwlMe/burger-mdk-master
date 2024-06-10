@@ -145,6 +145,15 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
                .requires(ModBlocks.BURGER_BLOCK.get())
                .unlockedBy(getHasName(ModBlocks.BURGER_BLOCK.get()), has(ModBlocks.BURGER_BLOCK.get())).save(pRecipeOutput);
 
+        ShapelessRecipeBuilder.shapeless(RecipeCategory.FOOD, ModItems.BURGER_SEEDS.get(),3)
+                .requires(ModItems.BURGER.get())
+                .unlockedBy(getHasName(ModItems.BURGER.get()), has(ModItems.BURGER.get())).save(pRecipeOutput);
+
+        ShapelessRecipeBuilder.shapeless(RecipeCategory.FOOD, ModItems.TALL_BURGER_SEEDS.get(),3)
+                .requires(ModItems.BURGER.get())
+                .requires(ModItems.BURGER.get())
+                .unlockedBy(getHasName(ModItems.BURGER.get()), has(ModItems.BURGER.get())).save(pRecipeOutput);
+
  /*
         ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModItems.THROWABLE_BURGER.get())
                 .pattern(" b ")
