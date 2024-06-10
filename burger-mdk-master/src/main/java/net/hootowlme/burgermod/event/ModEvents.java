@@ -3,6 +3,7 @@ package net.hootowlme.burgermod.event;
 import it.unimi.dsi.fastutil.ints.Int2ObjectMap;
 import net.hootowlme.burgermod.BurgerMod;
 import net.hootowlme.burgermod.block.ModBlocks;
+import net.hootowlme.burgermod.enchantment.ModEnchantments;
 import net.hootowlme.burgermod.item.ModItems;
 import net.hootowlme.burgermod.villager.ModVillagers;
 import net.minecraft.core.BlockPos;
@@ -11,6 +12,7 @@ import net.minecraft.world.entity.npc.VillagerProfession;
 import net.minecraft.world.entity.npc.VillagerTrades;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.EnchantedBookItem;
+import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.item.enchantment.Enchantment;
@@ -19,6 +21,7 @@ import net.minecraft.world.item.enchantment.Enchantments;
 import net.minecraft.world.item.trading.MerchantOffer;
 import net.minecraft.world.level.Level;
 import net.minecraftforge.common.ForgeMod;
+import net.minecraftforge.event.AnvilUpdateEvent;
 import net.minecraftforge.event.TickEvent;
 import net.minecraftforge.event.entity.living.LivingFallEvent;
 import net.minecraftforge.event.village.VillagerTradesEvent;
@@ -45,8 +48,6 @@ public class ModEvents {
 
         }
 
-
-
         if(event.getType() == VillagerProfession.WEAPONSMITH) {
             Int2ObjectMap<List<VillagerTrades.ItemListing>> trades = event.getTrades();
 
@@ -67,8 +68,6 @@ public class ModEvents {
                     unbreakingLvl5,
                     5,20, 0.02f));
         }
-
-
 
         if(event.getType() == ModVillagers.BURGER_MASTER.get()) {
             Int2ObjectMap<List<VillagerTrades.ItemListing>> trades = event.getTrades();
@@ -98,9 +97,7 @@ public class ModEvents {
                     new ItemStack(ModItems.BURGER.get(),1),
                     burger, 99999999,20, 0.02f));
 
-
         }
-
 
 
     }

@@ -85,5 +85,46 @@ public class ModAnimationDefinitions {
                             new Keyframe(2.0416765f, KeyframeAnimations.scaleVec(1f, 1f, 1f),
                                     AnimationChannel.Interpolations.CATMULLROM))).build();
 
+    public static final AnimationDefinition ATTACK = AnimationDefinition.Builder.withLength(0.75f)
+            .addAnimation("top_bun",
+                    new AnimationChannel(AnimationChannel.Targets.POSITION,
+                            new Keyframe(0f, KeyframeAnimations.posVec(0f, 0f, 0f),
+                                    AnimationChannel.Interpolations.CATMULLROM),
+                            new Keyframe(0.4583433f, KeyframeAnimations.posVec(0f, 1f, 0f),
+                                    AnimationChannel.Interpolations.CATMULLROM),
+                            new Keyframe(0.5834334f, KeyframeAnimations.posVec(0f, 0f, 0f),
+                                    AnimationChannel.Interpolations.CATMULLROM)))
+            .addAnimation("top_bun",
+                    new AnimationChannel(AnimationChannel.Targets.ROTATION,
+                            new Keyframe(0f, KeyframeAnimations.degreeVec(0f, 0f, 0f),
+                                    AnimationChannel.Interpolations.LINEAR),
+                            new Keyframe(0.4583433f, KeyframeAnimations.degreeVec(-10f, 0f, 0f),
+                                    AnimationChannel.Interpolations.LINEAR),
+                            new Keyframe(0.5834334f, KeyframeAnimations.degreeVec(0f, 0f, 0f),
+                                    AnimationChannel.Interpolations.LINEAR)))
+            .addAnimation("top_bun",
+                    new AnimationChannel(AnimationChannel.Targets.SCALE,
+                            new Keyframe(0f, KeyframeAnimations.scaleVec(1f, 1f, 1f),
+                                    AnimationChannel.Interpolations.LINEAR),
+                            new Keyframe(0.4583433f, KeyframeAnimations.scaleVec(1.05f, 1.05f, 1.05f),
+                                    AnimationChannel.Interpolations.LINEAR),
+                            new Keyframe(0.625f, KeyframeAnimations.scaleVec(1f, 1f, 1f),
+                                    AnimationChannel.Interpolations.LINEAR)))
+            .addAnimation("bottom_bun",
+                    new AnimationChannel(AnimationChannel.Targets.SCALE,
+                            new Keyframe(0f, KeyframeAnimations.scaleVec(1f, 1f, 1f),
+                                    AnimationChannel.Interpolations.LINEAR),
+                            new Keyframe(0.4583433f, KeyframeAnimations.scaleVec(1.05f, 1.05f, 1.05f),
+                                    AnimationChannel.Interpolations.LINEAR),
+                            new Keyframe(0.625f, KeyframeAnimations.scaleVec(1f, 1f, 1f),
+                                    AnimationChannel.Interpolations.LINEAR)))
+            .addAnimation("middle_section",
+                    new AnimationChannel(AnimationChannel.Targets.SCALE,
+                            new Keyframe(0f, KeyframeAnimations.scaleVec(1f, 1f, 1f),
+                                    AnimationChannel.Interpolations.LINEAR),
+                            new Keyframe(0.4583433f, KeyframeAnimations.scaleVec(1.05f, 1.05f, 1.05f),
+                                    AnimationChannel.Interpolations.LINEAR),
+                            new Keyframe(0.625f, KeyframeAnimations.scaleVec(1f, 1f, 1f),
+                                    AnimationChannel.Interpolations.LINEAR))).build();
 
 }

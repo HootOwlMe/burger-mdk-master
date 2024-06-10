@@ -158,6 +158,7 @@ public class LivingBurgerModel<T extends Entity> extends HierarchicalModel<T> {
 		this.applyHeadRotation(netHeadYaw, headPitch, ageInTicks);
 		this.animateWalk(ModAnimationDefinitions.BURGER_MOVE, limbSwing, limbSwingAmount, 2f, 2.5f);
 		this.animate(((LivingBurgerEntity) entity).idleAnimationState, ModAnimationDefinitions.BURGER_IDLE, ageInTicks, 1f);
+		this.animate(((LivingBurgerEntity) entity).attackAnimationState, ModAnimationDefinitions.ATTACK, ageInTicks, 1f);
 
 	}
 
