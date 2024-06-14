@@ -28,10 +28,14 @@ public class ModTags {
     public static class Items{
 
 
+        public static final TagKey<Item> IS_MENDING3 = tag("isMending3");
+        public static final TagKey<Item> IS_PROT10 = tag("isProt10");
+        public static final TagKey<Item> IS_SHARP10 = tag("isSharp10");
+
+
+
         private static TagKey<Item> tag(String name){
-
             return ItemTags.create(new ResourceLocation(BurgerMod.MOD_ID, name));
-
         }
 
     }

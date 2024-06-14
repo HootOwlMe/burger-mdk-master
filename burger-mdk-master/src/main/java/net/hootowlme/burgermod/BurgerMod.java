@@ -2,15 +2,20 @@ package net.hootowlme.burgermod;
 
 import com.mojang.logging.LogUtils;
 import net.hootowlme.burgermod.block.ModBlocks;
+import net.hootowlme.burgermod.block.entity.ModBlockEntities;
 import net.hootowlme.burgermod.enchantment.ModEnchantments;
 import net.hootowlme.burgermod.entity.ModEntities;
 import net.hootowlme.burgermod.entity.client.LivingBurgerRenderer;
 import net.hootowlme.burgermod.item.ModCreativeModeTabs;
 import net.hootowlme.burgermod.item.ModItems;
 import net.hootowlme.burgermod.loot.ModLootModifiers;
+import net.hootowlme.burgermod.recipe.ModRecipes;
+import net.hootowlme.burgermod.screen.AdvancedAnvilScreen;
+import net.hootowlme.burgermod.screen.ModMenuTypes;
 import net.hootowlme.burgermod.sound.ModSounds;
 import net.hootowlme.burgermod.villager.ModVillagers;
 
+import net.minecraft.client.gui.screens.MenuScreens;
 import net.minecraft.client.renderer.ItemBlockRenderTypes;
 import net.minecraft.client.renderer.RenderType;
 import net.minecraft.client.renderer.entity.EntityRenderers;
@@ -78,6 +83,9 @@ public class BurgerMod {
         ModSounds.register(modEventBus);
         ModEntities.register(modEventBus);
         ModEnchantments.register(modEventBus);
+        ModBlockEntities.register(modEventBus);
+        ModMenuTypes.register(modEventBus);
+        //ModRecipes.register(modEventBus);
 
         //ModLoadingContext.get().registerConfig(ModConfig.Type.COMMON, Config.SPEC);
     }
@@ -211,6 +219,7 @@ public class BurgerMod {
         public static void onClientSetup(FMLClientSetupEvent event){
             EntityRenderers.register(ModEntities.LIVING_BURGER.get(), LivingBurgerRenderer::new);
             ItemBlockRenderTypes.setRenderLayer(ModBlocks.AIR_WALK_BLOCK.get(), RenderType.translucent());
+            MenuScreens.register(ModMenuTypes.ADVANCED_ANVIL_MENU.get(), AdvancedAnvilScreen::new);
         }
 
     }

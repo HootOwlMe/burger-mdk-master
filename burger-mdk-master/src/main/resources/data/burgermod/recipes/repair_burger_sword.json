@@ -1,0 +1,16 @@
+{
+  "type": "burgermod:advanced_anvil_enchanting",
+  "ingredients": [
+    {
+      "item": "burgermod:burger_sword"
+    },
+    {
+      "item": "burgermod:burger"
+    }
+  ],
+  "output": {
+    "count": 1,
+    "item": "burgermod:burger_sword"
+  }
+
+}

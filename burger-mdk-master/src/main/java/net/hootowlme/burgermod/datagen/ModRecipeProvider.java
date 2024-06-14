@@ -34,6 +34,8 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
         oreBlasting(pRecipeOutput,BURGER_SMELTTABLES, RecipeCategory.MISC, ModItems.GREASE.get(),1.1f, 200,"burger");
         oreSmelting(pRecipeOutput,BURGER_SMELTTABLES, RecipeCategory.MISC, ModItems.GREASE.get(),1.1f,200,"burger");
 
+
+
         ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModBlocks.BURGER_BLOCK.get())
                 .pattern("bbb")
                 .pattern("bbb")
@@ -64,7 +66,7 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
                 .pattern("bbb")
                 .pattern("bnb")
                 .pattern("bbb")
-                .define('b', ModItems.BURGER.get())
+                .define('b',ModItems.BURGER.get())
                 .define('n',ModBlocks.BURGER_BLOCK.get())
                 .unlockedBy(getHasName(ModItems.BURGER.get()),has(ModItems.BURGER.get()))
                 .save(pRecipeOutput);
@@ -73,7 +75,7 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
                 .pattern(" bb")
                 .pattern(" nb")
                 .pattern(" n ")
-                .define('b', ModItems.BURGER.get())
+                .define('b',ModItems.BURGER.get())
                 .define('n',Items.STICK)
                 .unlockedBy(getHasName(ModItems.BURGER.get()),has(ModItems.BURGER.get()))
                 .save(pRecipeOutput);
@@ -87,7 +89,14 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
                 .unlockedBy(getHasName(ModItems.BURGER.get()),has(ModItems.BURGER.get()))
                 .save(pRecipeOutput);
 
-
+        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModBlocks.ADVANCED_ANVIL.get().asItem())
+                .pattern(" b ")
+                .pattern("bab")
+                .pattern(" b ")
+                .define('b',ModBlocks.BURGER_BLOCK.get().asItem())
+                .define('a',Items.ANVIL)
+                .unlockedBy(getHasName(ModItems.BURGER.get()),has(ModItems.BURGER.get()))
+                .save(pRecipeOutput);
 
         ShapedRecipeBuilder.shaped(RecipeCategory.TOOLS, ModItems.BURGER_HELMET.get())
                 .pattern("bbb")
@@ -140,6 +149,11 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
                 .define('n',Items.STICK)
                 .unlockedBy(getHasName(ModItems.BURGER.get()),has(ModItems.BURGER.get()))
                 .save(pRecipeOutput);
+
+        ShapelessRecipeBuilder.shapeless(RecipeCategory.FOOD, ModItems.FRIES.get(),1)
+                .requires(Items.POTATO)
+                .requires(Items.POTATO)
+                .unlockedBy(getHasName(ModBlocks.BURGER_BLOCK.get()), has(ModBlocks.BURGER_BLOCK.get())).save(pRecipeOutput);
 
         ShapelessRecipeBuilder.shapeless(RecipeCategory.FOOD, ModItems.BURGER.get(),9)
                .requires(ModBlocks.BURGER_BLOCK.get())

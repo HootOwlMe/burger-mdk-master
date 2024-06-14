@@ -3,6 +3,7 @@ package net.hootowlme.burgermod.item;
 import net.hootowlme.burgermod.BurgerMod;
 import net.hootowlme.burgermod.block.ModBlocks;
 import net.hootowlme.burgermod.block.custom.BurgerSoundBlock;
+import net.hootowlme.burgermod.block.entity.ModBlockEntities;
 import net.hootowlme.burgermod.enchantment.ModEnchantments;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.nbt.CompoundTag;
@@ -53,6 +54,7 @@ public class ModCreativeModeTabs {
                 pOutput.accept(ModItems.BURGER_PICKAXE.get());
                 pOutput.accept(ModItems.BURGER_SHOVEL.get());
                 pOutput.accept(ModItems.BLOOPIN_DISC.get());
+                pOutput.accept(ModBlocks.ADVANCED_ANVIL.get());
                 pOutput.accept(ModItems.LIVING_BURGER_SPAWN_EGG.get());
 
                 pOutput.accept(ModBlocks.BURGER_FLOWER.get());

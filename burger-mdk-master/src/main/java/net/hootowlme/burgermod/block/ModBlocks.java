@@ -1,10 +1,7 @@
 package net.hootowlme.burgermod.block;
 
 import net.hootowlme.burgermod.BurgerMod;
-import net.hootowlme.burgermod.block.custom.AirWalkBlock;
-import net.hootowlme.burgermod.block.custom.BurgerCropBlock;
-import net.hootowlme.burgermod.block.custom.BurgerSoundBlock;
-import net.hootowlme.burgermod.block.custom.TallBurgerCropBlock;
+import net.hootowlme.burgermod.block.custom.*;
 import net.hootowlme.burgermod.item.ModItems;
 import net.hootowlme.burgermod.sound.ModSounds;
 import net.minecraft.sounds.SoundEvents;
@@ -113,6 +110,9 @@ public class ModBlocks {
 
     public static final RegistryObject<Block> BURGER_TRAPDOOR = registerBlock("burger_trapdoor",
             () -> new TrapDoorBlock(BlockBehaviour.Properties.copy(Blocks.HAY_BLOCK).sound(ModSounds.BURGER_BLOCK_SOUNDS).noOcclusion(), BlockSetType.OAK));
+
+    public static final RegistryObject<Block> ADVANCED_ANVIL = registerBlock("advanced_anvil",
+            () -> new AdvancedAnvilBlock(BlockBehaviour.Properties.copy(Blocks.ANVIL).noOcclusion()));
 
 
 

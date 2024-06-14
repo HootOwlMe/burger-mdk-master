@@ -5,22 +5,24 @@ import net.hootowlme.burgermod.BurgerMod;
 import net.hootowlme.burgermod.block.ModBlocks;
 import net.hootowlme.burgermod.enchantment.ModEnchantments;
 import net.hootowlme.burgermod.item.ModItems;
+import net.hootowlme.burgermod.util.ModTags;
 import net.hootowlme.burgermod.villager.ModVillagers;
 import net.minecraft.core.BlockPos;
+import net.minecraft.data.tags.TagsProvider;
+import net.minecraft.nbt.CompoundTag;
+import net.minecraft.nbt.Tag;
 import net.minecraft.world.entity.ai.attributes.AttributeModifier;
 import net.minecraft.world.entity.npc.VillagerProfession;
 import net.minecraft.world.entity.npc.VillagerTrades;
 import net.minecraft.world.entity.player.Player;
-import net.minecraft.world.item.EnchantedBookItem;
-import net.minecraft.world.item.Item;
-import net.minecraft.world.item.ItemStack;
-import net.minecraft.world.item.Items;
+import net.minecraft.world.item.*;
 import net.minecraft.world.item.enchantment.Enchantment;
 import net.minecraft.world.item.enchantment.EnchantmentInstance;
 import net.minecraft.world.item.enchantment.Enchantments;
 import net.minecraft.world.item.trading.MerchantOffer;
 import net.minecraft.world.level.Level;
 import net.minecraftforge.common.ForgeMod;
+import net.minecraftforge.common.Tags;
 import net.minecraftforge.event.AnvilUpdateEvent;
 import net.minecraftforge.event.TickEvent;
 import net.minecraftforge.event.entity.living.LivingFallEvent;
@@ -29,7 +31,9 @@ import net.minecraftforge.event.village.WandererTradesEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
 
+import java.awt.print.Book;
 import java.util.List;
+import java.util.function.Predicate;
 
 @Mod.EventBusSubscriber(modid = BurgerMod.MOD_ID)
 public class ModEvents {
@@ -72,8 +76,17 @@ public class ModEvents {
         if(event.getType() == ModVillagers.BURGER_MASTER.get()) {
             Int2ObjectMap<List<VillagerTrades.ItemListing>> trades = event.getTrades();
             ItemStack mending3 = EnchantedBookItem.createForEnchantment(new EnchantmentInstance(Enchantments.MENDING,3));
+            //mending3.enchant(Enchantments.MENDING,3);
+
+
             ItemStack sharp10 = EnchantedBookItem.createForEnchantment(new EnchantmentInstance(Enchantments.SHARPNESS,10));
+            //sharp10.enchant(Enchantments.SHARPNESS,10);
+
+
             ItemStack prot10 = EnchantedBookItem.createForEnchantment(new EnchantmentInstance(Enchantments.ALL_DAMAGE_PROTECTION,10));
+            //prot10.enchant(Enchantments.ALL_DAMAGE_PROTECTION,10);
+
+
             ItemStack burger = new ItemStack(ModItems.BURGER.get(),2);
             ItemStack dirt = new ItemStack(Items.DIRT,2);
 

@@ -4,12 +4,14 @@ import net.hootowlme.burgermod.BurgerMod;
 import net.hootowlme.burgermod.block.ModBlocks;
 import net.hootowlme.burgermod.block.custom.BurgerCropBlock;
 import net.hootowlme.burgermod.block.custom.TallBurgerCropBlock;
+import net.minecraft.client.model.Model;
 import net.minecraft.data.PackOutput;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.level.block.*;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraftforge.client.model.generators.BlockStateProvider;
 import net.minecraftforge.client.model.generators.ConfiguredModel;
+import net.minecraftforge.client.model.generators.ModelFile;
 import net.minecraftforge.common.data.ExistingFileHelper;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.registries.RegistryObject;
@@ -57,7 +59,7 @@ public class ModBlockStateProvider extends BlockStateProvider {
 
         pressurePlateBlock(((PressurePlateBlock) ModBlocks.WHITE_PRESSURE_PLATE.get()), blockTexture((ModBlocks.WHITE_BLOCK.get())));
 
-
+        simpleBlockWithItem(ModBlocks.ADVANCED_ANVIL.get(), new ModelFile.UncheckedModelFile(modLoc("block/advanced_anvil")));
 
         doorBlockWithRenderType(((DoorBlock) ModBlocks.BURGER_DOOR.get()), modLoc("block/burger_door_bottom"), modLoc("block/burger_door_top"), "cutout");
         trapdoorBlockWithRenderType(((TrapDoorBlock) ModBlocks.BURGER_TRAPDOOR.get()), modLoc("block/burger_trapdoor"),true, "cutout");
