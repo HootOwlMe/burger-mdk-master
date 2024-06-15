@@ -6,6 +6,7 @@ import net.hootowlme.burgermod.block.entity.ModBlockEntities;
 import net.hootowlme.burgermod.enchantment.ModEnchantments;
 import net.hootowlme.burgermod.entity.ModEntities;
 import net.hootowlme.burgermod.entity.client.LivingBurgerRenderer;
+import net.hootowlme.burgermod.entity.client.SlendermanRenderer;
 import net.hootowlme.burgermod.item.ModCreativeModeTabs;
 import net.hootowlme.burgermod.item.ModItems;
 import net.hootowlme.burgermod.loot.ModLootModifiers;
@@ -190,10 +191,7 @@ public class BurgerMod {
 
         event.enqueueWork(() -> {
             ((FlowerPotBlock) Blocks.FLOWER_POT).addPlant(ModBlocks.BURGER_FLOWER.getId(), ModBlocks.POTTED_BURGER_FLOWER);
-
-
         });
-
 
     }
 
@@ -218,6 +216,7 @@ public class BurgerMod {
         @SubscribeEvent
         public static void onClientSetup(FMLClientSetupEvent event){
             EntityRenderers.register(ModEntities.LIVING_BURGER.get(), LivingBurgerRenderer::new);
+            EntityRenderers.register(ModEntities.SLENDERMAN.get(), SlendermanRenderer::new);
             ItemBlockRenderTypes.setRenderLayer(ModBlocks.AIR_WALK_BLOCK.get(), RenderType.translucent());
             MenuScreens.register(ModMenuTypes.ADVANCED_ANVIL_MENU.get(), AdvancedAnvilScreen::new);
         }

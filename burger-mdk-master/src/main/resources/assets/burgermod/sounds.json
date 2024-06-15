@@ -6,6 +6,12 @@
       "burgermod:burger_detector_found"
     ]
   },
+  "white_noise": {
+    "subtitle": "RUN",
+    "sounds": [
+      "burgermod:white_noise"
+    ]
+  },
 
   "burger_block_place": {
     "subtitle": "sounds.burgermod.burger_block_place",

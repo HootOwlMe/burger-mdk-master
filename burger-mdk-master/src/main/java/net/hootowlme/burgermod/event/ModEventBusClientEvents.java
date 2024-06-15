@@ -4,6 +4,7 @@ package net.hootowlme.burgermod.event;
 import net.hootowlme.burgermod.BurgerMod;
 import net.hootowlme.burgermod.entity.client.LivingBurgerModel;
 import net.hootowlme.burgermod.entity.client.ModModelLayers;
+import net.hootowlme.burgermod.entity.client.SlendermanModel;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.client.event.EntityRenderersEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
@@ -16,6 +17,7 @@ public class ModEventBusClientEvents {
     public static void registerLayer(EntityRenderersEvent.RegisterLayerDefinitions event){
 
         event.registerLayerDefinition(ModModelLayers.LIVING_BURGER_LAYER, LivingBurgerModel::createBodyLayer);
+        event.registerLayerDefinition(ModModelLayers.SLENDERMAN_LAYER, SlendermanModel::createBodyLayer);
 
     }
 

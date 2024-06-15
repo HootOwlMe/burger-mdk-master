@@ -7,6 +7,7 @@ import net.hootowlme.burgermod.entity.client.LivingBurgerModel;
 import net.hootowlme.burgermod.entity.client.LivingBurgerRenderer;
 import net.hootowlme.burgermod.entity.client.ModModelLayers;
 import net.hootowlme.burgermod.entity.custom.LivingBurgerEntity;
+import net.hootowlme.burgermod.entity.custom.SlendermanEntity;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.client.event.EntityRenderersEvent;
 import net.minecraftforge.event.entity.EntityAttributeCreationEvent;
@@ -19,6 +20,7 @@ public class ModEventBusEvents {
     @SubscribeEvent
    public static void registerAttributes(EntityAttributeCreationEvent event){
        event.put(ModEntities.LIVING_BURGER.get(), LivingBurgerEntity.createAttributes().build());
+       event.put(ModEntities.SLENDERMAN.get(), SlendermanEntity.createAttributes().build());
    }
 
 }

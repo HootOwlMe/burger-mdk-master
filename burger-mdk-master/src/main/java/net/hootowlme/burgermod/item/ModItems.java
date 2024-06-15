@@ -19,6 +19,7 @@ import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
 import org.jetbrains.annotations.Nullable;
 
+import java.awt.*;
 import java.util.List;
 
 public class ModItems {
@@ -57,7 +58,8 @@ public class ModItems {
 
     public static final RegistryObject<Item> GREASE = ITEMS.register("grease",()-> new FuelItem(new Item.Properties(),800));
 
-    public static final RegistryObject<Item> LIVING_BURGER_SPAWN_EGG = ITEMS.register("living_burger_spawn_egg",()-> new ForgeSpawnEggItem(ModEntities.LIVING_BURGER,0xe9680,0xc5d1c5, new Item.Properties()));
+    public static final RegistryObject<Item> LIVING_BURGER_SPAWN_EGG = ITEMS.register("living_burger_spawn_egg",()-> new ForgeSpawnEggItem(ModEntities.LIVING_BURGER,Color.ORANGE.getRGB(),Color.RED.getRGB(), new Item.Properties()));
+    public static final RegistryObject<Item> SLENDERMAN_SPAWN_EGG = ITEMS.register("slenderman_spawn_egg",()-> new ForgeSpawnEggItem(ModEntities.SLENDERMAN, Color.BLACK.getRGB(),Color.WHITE.getRGB(), new Item.Properties()));
 
 
     public static final RegistryObject<Item> BURGER_SEEDS = ITEMS.register("burger_seeds",()-> new ItemNameBlockItem(ModBlocks.BURGER_CROP.get(), new Item.Properties()));

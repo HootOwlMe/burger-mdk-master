@@ -11,6 +11,7 @@ import net.minecraft.data.worldgen.biome.OverworldBiomes;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.tags.BiomeTags;
+import net.minecraft.util.random.Weight;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.MobCategory;
 import net.minecraft.world.entity.animal.Animal;
@@ -32,6 +33,8 @@ public class ModBiomeModifiers {
     public static final ResourceKey<BiomeModifier> ADD_LIVING_BURGER_SPAWN1 = registerKey("add_living_burger_spawn_one");
     public static final ResourceKey<BiomeModifier> ADD_LIVING_BURGER_SPAWN2 = registerKey("add_living_burger_spawn_two");
 
+    public static final ResourceKey<BiomeModifier> ADD_SLENDERMAN = registerKey("add_slenderman");
+
 
 
     public static void bootstrap(BootstapContext<BiomeModifier> context){
@@ -41,21 +44,26 @@ public class ModBiomeModifiers {
 
 
         MobSpawnSettings.Builder spawnBuilder = new MobSpawnSettings.Builder();
-        MobSpawnSettings.SpawnerData spawnData = new MobSpawnSettings.SpawnerData(ModEntities.LIVING_BURGER.get(),10,1,3);
+        MobSpawnSettings.SpawnerData livingBurgerSpawnData = new MobSpawnSettings.SpawnerData(ModEntities.LIVING_BURGER.get(),10,1,3);
+        MobSpawnSettings.SpawnerData slendermanSpawnData = new MobSpawnSettings.SpawnerData(ModEntities.SLENDERMAN.get(),1,1,1);
 
-        //spawnBuilder.addSpawn(MobCategory.CREATURE, new MobSpawnSettings.SpawnerData(ModEntities.LIVING_BURGER.get(),2,3,4));
-        //BiomeDefaultFeatures.commonSpawns(spawnBuilder);
-        //BiomeDefaultFeatures.farmAnimals(spawnBuilder);
+
 
 
         context.register(ADD_LIVING_BURGER_SPAWN1, new ForgeBiomeModifiers.AddSpawnsBiomeModifier(
-                biomes.getOrThrow(BiomeTags.IS_FOREST), List.of(spawnData)));
+                biomes.getOrThrow(BiomeTags.IS_FOREST), List.of(livingBurgerSpawnData)));
+
+
 
         context.register(ADD_LIVING_BURGER_SPAWN2, new ForgeBiomeModifiers.AddSpawnsBiomeModifier(
-                biomes.getOrThrow(BiomeTags.IS_HILL), List.of(spawnData)));
+                biomes.getOrThrow(BiomeTags.IS_HILL), List.of(livingBurgerSpawnData)));
 
         context.register(ADD_LIVING_BURGER_SPAWN, new ForgeBiomeModifiers.AddSpawnsBiomeModifier(
-                biomes.getOrThrow(BiomeTags.HAS_VILLAGE_PLAINS), List.of(spawnData)));
+                biomes.getOrThrow(BiomeTags.HAS_VILLAGE_PLAINS), List.of(livingBurgerSpawnData)));
+
+
+        context.register(ADD_SLENDERMAN, new ForgeBiomeModifiers.AddSpawnsBiomeModifier(
+                biomes.getOrThrow(BiomeTags.IS_FOREST), List.of(slendermanSpawnData)));
 
 
         context.register(ADD_BURGER_ORE, new ForgeBiomeModifiers.AddFeaturesBiomeModifier(

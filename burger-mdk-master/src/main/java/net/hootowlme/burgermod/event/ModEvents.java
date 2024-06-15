@@ -4,6 +4,8 @@ import it.unimi.dsi.fastutil.ints.Int2ObjectMap;
 import net.hootowlme.burgermod.BurgerMod;
 import net.hootowlme.burgermod.block.ModBlocks;
 import net.hootowlme.burgermod.enchantment.ModEnchantments;
+import net.hootowlme.burgermod.entity.ModEntities;
+import net.hootowlme.burgermod.entity.custom.SlendermanEntity;
 import net.hootowlme.burgermod.item.ModItems;
 import net.hootowlme.burgermod.util.ModTags;
 import net.hootowlme.burgermod.villager.ModVillagers;
@@ -11,7 +13,9 @@ import net.minecraft.core.BlockPos;
 import net.minecraft.data.tags.TagsProvider;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.nbt.Tag;
+import net.minecraft.world.entity.*;
 import net.minecraft.world.entity.ai.attributes.AttributeModifier;
+import net.minecraft.world.entity.ai.targeting.TargetingConditions;
 import net.minecraft.world.entity.npc.VillagerProfession;
 import net.minecraft.world.entity.npc.VillagerTrades;
 import net.minecraft.world.entity.player.Player;
@@ -21,11 +25,17 @@ import net.minecraft.world.item.enchantment.EnchantmentInstance;
 import net.minecraft.world.item.enchantment.Enchantments;
 import net.minecraft.world.item.trading.MerchantOffer;
 import net.minecraft.world.level.Level;
+import net.minecraft.world.phys.AABB;
+import net.minecraft.world.phys.Vec3;
 import net.minecraftforge.common.ForgeMod;
 import net.minecraftforge.common.Tags;
 import net.minecraftforge.event.AnvilUpdateEvent;
 import net.minecraftforge.event.TickEvent;
+import net.minecraftforge.event.entity.living.LivingDeathEvent;
+import net.minecraftforge.event.entity.living.LivingEvent;
 import net.minecraftforge.event.entity.living.LivingFallEvent;
+import net.minecraftforge.event.entity.living.LivingHurtEvent;
+import net.minecraftforge.event.entity.player.AttackEntityEvent;
 import net.minecraftforge.event.village.VillagerTradesEvent;
 import net.minecraftforge.event.village.WandererTradesEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
@@ -37,6 +47,7 @@ import java.util.function.Predicate;
 
 @Mod.EventBusSubscriber(modid = BurgerMod.MOD_ID)
 public class ModEvents {
+
 
     @SubscribeEvent
     public static void addCustomTrades(VillagerTradesEvent event){
@@ -109,12 +120,8 @@ public class ModEvents {
             trades.get(5).add((pTrader, pRandom) -> new MerchantOffer(
                     new ItemStack(ModItems.BURGER.get(),1),
                     burger, 99999999,20, 0.02f));
-
         }
-
-
     }
-
 
 
     @SubscribeEvent

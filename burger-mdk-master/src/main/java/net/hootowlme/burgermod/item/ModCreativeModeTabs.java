@@ -56,6 +56,7 @@ public class ModCreativeModeTabs {
                 pOutput.accept(ModItems.BLOOPIN_DISC.get());
                 pOutput.accept(ModBlocks.ADVANCED_ANVIL.get());
                 pOutput.accept(ModItems.LIVING_BURGER_SPAWN_EGG.get());
+                pOutput.accept(ModItems.SLENDERMAN_SPAWN_EGG.get());
 
                 pOutput.accept(ModBlocks.BURGER_FLOWER.get());
                 //pOutput.accept(ModBlocks.POTTED_BURGER_FLOWER.get());
