@@ -67,7 +67,7 @@ public class ModItems {
 
     public static final RegistryObject<Item> FRIES = ITEMS.register("fries",() -> new Item(new Item.Properties().food(ModFoods.FRIES)));
 
-    public static final RegistryObject<Item> BLOOPIN_DISC = ITEMS.register("bloopin_disc",() -> new RecordItem(6, ModSounds.BLOOPIN_DISC, new Item.Properties().food(ModFoods.FRIES).stacksTo(1), 1620));
+    public static final RegistryObject<Item> SCHEMING_WEASEL_DISC = ITEMS.register("scheming_weasel_disc",() -> new RecordItem(6, ModSounds.SCHEMING_WEASEL, new Item.Properties().food(ModFoods.FRIES).stacksTo(1), 1780));
 
     public static final RegistryObject<Item> BURGER_SWORD = ITEMS.register("burger_sword",() -> new BurgerSwordItem(Tiers.NETHERITE,14,2.5F,new Item.Properties().durability(420).fireResistant()));
 

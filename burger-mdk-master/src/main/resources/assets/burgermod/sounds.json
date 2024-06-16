@@ -43,10 +43,10 @@
       "burgermod:burger_block_fall"
     ]
   },
-  "bloopin_disc": {
+  "scheming_weasel_disc": {
     "sounds": [
       {
-        "name": "burgermod:bloopin_disc",
+        "name": "burgermod:scheming_weasel",
         "stream": true
       }
     ]

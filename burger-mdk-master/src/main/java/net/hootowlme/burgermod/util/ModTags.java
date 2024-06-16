@@ -31,6 +31,10 @@ public class ModTags {
         public static final TagKey<Item> IS_MENDING3 = tag("isMending3");
         public static final TagKey<Item> IS_PROT10 = tag("isProt10");
         public static final TagKey<Item> IS_SHARP10 = tag("isSharp10");
+        public static final TagKey<Item> IS_AIRWALKER1 = tag("isAirwalker1");
+        public static final TagKey<Item> IS_AIRWALKER2 = tag("isAirwalker2");
+        public static final TagKey<Item> IS_LIGHTNINGSTRIKER1 = tag("isLightningStriker1");
+        public static final TagKey<Item> IS_LIGHTNINGSTRIKER2 = tag("isLightningStriker2");
 
 
 

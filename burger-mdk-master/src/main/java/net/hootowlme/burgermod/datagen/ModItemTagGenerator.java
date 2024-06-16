@@ -2,6 +2,7 @@ package net.hootowlme.burgermod.datagen;
 
 
 import net.hootowlme.burgermod.BurgerMod;
+import net.hootowlme.burgermod.enchantment.ModEnchantments;
 import net.hootowlme.burgermod.item.ModItems;
 import net.hootowlme.burgermod.util.ModTags;
 import net.minecraft.core.HolderLookup;
@@ -39,8 +40,8 @@ public class ModItemTagGenerator extends ItemTagsProvider {
                         );
 
 
-        this.tag(ItemTags.MUSIC_DISCS).add(ModItems.BLOOPIN_DISC.get());
-        this.tag(ItemTags.CREEPER_DROP_MUSIC_DISCS).add(ModItems.BLOOPIN_DISC.get());
+        this.tag(ItemTags.MUSIC_DISCS).add(ModItems.SCHEMING_WEASEL_DISC.get());
+        this.tag(ItemTags.CREEPER_DROP_MUSIC_DISCS).add(ModItems.SCHEMING_WEASEL_DISC.get());
 
 
     }

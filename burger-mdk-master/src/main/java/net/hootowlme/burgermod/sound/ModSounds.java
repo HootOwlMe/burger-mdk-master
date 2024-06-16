@@ -28,7 +28,7 @@ public class ModSounds {
 
     public static final RegistryObject<SoundEvent> WHITE_NOISE = registerSoundEvents("white_noise");
 
-    public static final RegistryObject<SoundEvent> BLOOPIN_DISC = registerSoundEvents("bloopin_disc");
+    public static final RegistryObject<SoundEvent> SCHEMING_WEASEL = registerSoundEvents("scheming_weasel_disc");
 
 
     public static final ForgeSoundType BURGER_BLOCK_SOUNDS = new ForgeSoundType(1.25f,1.25f,

@@ -53,7 +53,7 @@ public class ModCreativeModeTabs {
                 pOutput.accept(ModBlocks.AIR_WALK_BLOCK.get());
                 pOutput.accept(ModItems.BURGER_PICKAXE.get());
                 pOutput.accept(ModItems.BURGER_SHOVEL.get());
-                pOutput.accept(ModItems.BLOOPIN_DISC.get());
+                pOutput.accept(ModItems.SCHEMING_WEASEL_DISC.get());
                 pOutput.accept(ModBlocks.ADVANCED_ANVIL.get());
                 pOutput.accept(ModItems.LIVING_BURGER_SPAWN_EGG.get());
                 pOutput.accept(ModItems.SLENDERMAN_SPAWN_EGG.get());

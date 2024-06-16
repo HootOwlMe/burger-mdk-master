@@ -53,12 +53,9 @@ public class SlendermanEntity extends PathfinderMob {
             this.addEffect(new MobEffectInstance(MobEffects.BLINDNESS,999));
         }
 
-        /*
         if(this.level().isDay()){
             this.remove(RemovalReason.DISCARDED);
         }
-
-         */
 
         if(this.getHealth() < this.getMaxHealth()-100){
             //this.remove(RemovalReason.valueOf("t h o u g h t  y o u  c o u l d  k i l l  m e ?"));

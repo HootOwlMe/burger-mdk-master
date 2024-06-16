@@ -9,6 +9,7 @@ import net.hootowlme.burgermod.screen.AdvancedAnvilMenu;
 import net.minecraft.client.player.Input;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
+import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.nbt.ListTag;
 import net.minecraft.network.chat.Component;
@@ -21,6 +22,7 @@ import net.minecraft.world.entity.player.Inventory;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.inventory.AbstractContainerMenu;
 import net.minecraft.world.inventory.ContainerData;
+import net.minecraft.world.inventory.EnchantmentMenu;
 import net.minecraft.world.item.*;
 import net.minecraft.world.item.enchantment.*;
 import net.minecraft.world.level.Level;
@@ -157,54 +159,64 @@ public class AdvancedAnvilBlockEntity extends BlockEntity implements MenuProvide
         progress = 0;
     }
 
+
+
     private void craftItem() {
         ItemStack result = new ItemStack(this.itemHandler.getStackInSlot(LEFT_INPUT_SLOT).getItem(),1);
         ItemStack leftInputItem = this.itemHandler.getStackInSlot(LEFT_INPUT_SLOT);
         ItemStack rightInputItem = this.itemHandler.getStackInSlot(RIGHT_INPUT_SLOT);
         Map<Enchantment,Integer> initialEnchantmentsMap = leftInputItem.getAllEnchantments();
         Set<Enchantment> initialEnchantmentsSet = initialEnchantmentsMap.keySet();
+        Map<Enchantment,Integer> additionalEnchantmentsMap = rightInputItem.getAllEnchantments();
+        Set<Enchantment> additionalEnchantmentsSet = additionalEnchantmentsMap.keySet();
+        int totalGameEnchants = BuiltInRegistries.ENCHANTMENT.size() + ModEnchantments.size();
 
 
-        //mending 3
-        if((rightInputItem.getEnchantmentLevel(Enchantments.MENDING) >= 3) || isEnchantedBook(rightInputItem, Enchantments.MENDING,3)){
-            if(!(result.getEnchantmentLevel(Enchantments.MENDING) >= 3)){
-                initialEnchantmentsMap.remove(Enchantments.MENDING);
-                result.enchant(Enchantments.MENDING,3);
+        //we LOVE nested for-loops!!
+        if((rightInputItem.is(Items.ENCHANTED_BOOK)) || (leftInputItem.is(Items.ENCHANTED_BOOK))){
+            for (int v = 0; v < totalGameEnchants; v++){
+                if(BuiltInRegistries.ENCHANTMENT.byId(v) != null){
+                    Enchantment ench4 = BuiltInRegistries.ENCHANTMENT.byId(v);
+                    for(int c = ench4.getMaxLevel(); c > -1; c--){
+                        if((isEnchantedBook(rightInputItem,ench4,c)) || isEnchantedBook(leftInputItem,ench4,c)){
+                            if(result.getEnchantmentLevel(ench4) < c){
+                                initialEnchantmentsMap.remove(ench4);
+                                result.enchant(ench4,c);
+                            }
+                        }
+                    }
+                }
             }
-            this.itemHandler.setStackInSlot(OUTPUT_SLOT, result);
-            this.itemHandler.extractItem(LEFT_INPUT_SLOT,1,false);
-            this.itemHandler.extractItem(RIGHT_INPUT_SLOT,1,false);
-        }
-        //sharp 10
-        if((rightInputItem.getEnchantmentLevel(Enchantments.SHARPNESS) >= 10) || isEnchantedBook(rightInputItem, Enchantments.SHARPNESS,10)){
-            if(!(result.getEnchantmentLevel(Enchantments.SHARPNESS) >= 10)){
-                initialEnchantmentsMap.remove(Enchantments.SHARPNESS);
-                result.enchant(Enchantments.SHARPNESS,10);
-            }
-            this.itemHandler.setStackInSlot(OUTPUT_SLOT, result);
-            this.itemHandler.extractItem(LEFT_INPUT_SLOT,1,false);
-            this.itemHandler.extractItem(RIGHT_INPUT_SLOT,1,false);
-        }
-        //prot 10
-        if((rightInputItem.getEnchantmentLevel(Enchantments.ALL_DAMAGE_PROTECTION) >= 10) || isEnchantedBook(rightInputItem,Enchantments.ALL_DAMAGE_PROTECTION,10)){
-            if(!(result.getEnchantmentLevel(Enchantments.ALL_DAMAGE_PROTECTION) >= 10)){
-                initialEnchantmentsMap.remove(Enchantments.ALL_DAMAGE_PROTECTION);
-                result.enchant(Enchantments.ALL_DAMAGE_PROTECTION,10);
-            }
-            this.itemHandler.setStackInSlot(OUTPUT_SLOT, result);
-            this.itemHandler.extractItem(LEFT_INPUT_SLOT,1,false);
-            this.itemHandler.extractItem(RIGHT_INPUT_SLOT,1,false);
         }
 
-        //adds previous enchants
+
+
+        //adds previous left item enchants
         Iterator<Enchantment> iterator = initialEnchantmentsSet.iterator();
         for (int i = 0; i < initialEnchantmentsSet.size(); i++){
             Enchantment ench = iterator.next();
             int enchLvl = leftInputItem.getEnchantmentLevel(ench);
-            result.enchant(ench,enchLvl);
+
+            if((result.getEnchantmentLevel(ench) < enchLvl) && (leftInputItem.getEnchantmentLevel(ench) >= rightInputItem.getEnchantmentLevel(ench))){
+                result.enchant(ench,enchLvl);
+            }
+        }
+        //adds previous right item enchantments
+        Iterator<Enchantment> iterator2 = additionalEnchantmentsSet.iterator();
+        for (int i = 0; i < additionalEnchantmentsSet.size(); i++){
+            Enchantment ench1 = iterator2.next();
+            int enchLvl1 = rightInputItem.getEnchantmentLevel(ench1);
+
+            if((result.getEnchantmentLevel(ench1) < enchLvl1) && (leftInputItem.getEnchantmentLevel(ench1) <= rightInputItem.getEnchantmentLevel(ench1))){
+                result.enchant(ench1,enchLvl1);
+            }
         }
 
-
+        if(!leftInputItem.isEmpty() && !rightInputItem.isEmpty()){
+            this.itemHandler.setStackInSlot(OUTPUT_SLOT, result);
+            this.itemHandler.extractItem(LEFT_INPUT_SLOT,1,false);
+            this.itemHandler.extractItem(RIGHT_INPUT_SLOT,1,false);
+        }
         //RECIPE CODE - NOT USED FOR THIS BlockEntity
         //Optional<AdvancedAnvilRecipe> recipe = getCurrentRecipe();
         //ItemStack result1 = recipe.get().getResultItem(getLevel().registryAccess());
@@ -231,6 +243,7 @@ public class AdvancedAnvilBlockEntity extends BlockEntity implements MenuProvide
     private void increaseCraftingProgress() {
         progress++;
     }
+
 
     private boolean hasRecipe() {
 

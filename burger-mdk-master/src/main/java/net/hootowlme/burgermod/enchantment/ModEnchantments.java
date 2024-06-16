@@ -16,6 +16,12 @@ public class ModEnchantments {
     public static RegistryObject<Enchantment> LIGHTNING_STRIKER = ENCHANTMENTS.register("lightning_striker", () -> new LightningStrikerEnchantment(Enchantment.Rarity.RARE, EquipmentSlot.HEAD));
     public static RegistryObject<Enchantment> AIR_WALKER = ENCHANTMENTS.register("air_walker", () -> new AirWalkerEnchantment(Enchantment.Rarity.VERY_RARE, EquipmentSlot.FEET));
 
+
+
+    public static int size(){
+        return 2;
+    }
+
     public static void register(IEventBus eventBus){
         ENCHANTMENTS.register(eventBus);
     }

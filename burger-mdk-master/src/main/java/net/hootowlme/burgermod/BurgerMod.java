@@ -120,21 +120,14 @@ public class BurgerMod {
                             && (player.getInventory().getArmor(3).getItem() == ModItems.BURGER_HELMET.get()));
 
             if(wearingBurgerSet){
-
                 if (player.getAttribute(ForgeMod.ENTITY_GRAVITY.get()).getValue() > 0.04) {
                     player.getAttribute(ForgeMod.ENTITY_GRAVITY.get()).addTransientModifier(burgerGravityDown);
                 }
-
-
                 if (player.fallDistance >= 3){
                     if(!((blockUnderPlayer == Blocks.AIR) || (blockUnderPlayer == Blocks.CAVE_AIR))){
                         player.fallDistance = player.fallDistance - 2;
                     }
                 }
-
-
-
-
             }else{
                 if (player.getAttribute(ForgeMod.ENTITY_GRAVITY.get()).getValue() < 0.08){
                     player.getAttribute(ForgeMod.ENTITY_GRAVITY.get()).addTransientModifier(burgerGravityUp);
@@ -143,6 +136,7 @@ public class BurgerMod {
                     player.getAttribute(ForgeMod.ENTITY_GRAVITY.get()).addTransientModifier(burgerGravityDown);
                 }
             }
+
 
 
         }
@@ -161,21 +155,26 @@ public class BurgerMod {
             boolean airWalkUnderPlayer = blockUnderPlayer == ModBlocks.AIR_WALK_BLOCK.get();
             boolean airWalk3UnderPlayer = (block3UnderPlayer == ModBlocks.AIR_WALK_BLOCK.get());
             if(player.isCrouching()){
+                if(!player.isFallFlying()){
 
-                if((airUnderPlayer && air2UnderPlayer) || (airWalkUnderPlayer && air2UnderPlayer) || (airWalk3UnderPlayer)){
-                    if(player.getInventory().getArmor(0).getEnchantmentLevel(ModEnchantments.AIR_WALKER.get()) > 1){
-                        player.addEffect(new MobEffectInstance(MobEffects.MOVEMENT_SPEED,2,5, true,false,false));
+                    if((airUnderPlayer && air2UnderPlayer) || (airWalkUnderPlayer && air2UnderPlayer) || (airWalk3UnderPlayer)){
+                        if(player.getInventory().getArmor(0).getEnchantmentLevel(ModEnchantments.AIR_WALKER.get()) > 1){
+                            player.addEffect(new MobEffectInstance(MobEffects.MOVEMENT_SPEED,2,5, true,false,false));
+                        }
+
+                        if(player.level().isClientSide()){
+                            player.level().setBlock(location.below(), ModBlocks.AIR_WALK_BLOCK.get().defaultBlockState(),1);
+                        }
+
+                        if(!player.level().isClientSide()){
+                            player.level().setBlock(location.below(), ModBlocks.AIR_WALK_BLOCK.get().defaultBlockState(),1);
+                        }
+                        //player.level().scheduleTick(location.below(), ModBlocks.AIR_WALK_BLOCK.get(), 70, TickPriority.HIGH);
                     }
 
-                    if(player.level().isClientSide()){
-                        player.level().setBlock(location.below(), ModBlocks.AIR_WALK_BLOCK.get().defaultBlockState(),1);
-                    }
 
-                    if(!player.level().isClientSide()){
-                        player.level().setBlock(location.below(), ModBlocks.AIR_WALK_BLOCK.get().defaultBlockState(),1);
-                    }
-                    //player.level().scheduleTick(location.below(), ModBlocks.AIR_WALK_BLOCK.get(), 70, TickPriority.HIGH);
                 }
+
 
             }
 
