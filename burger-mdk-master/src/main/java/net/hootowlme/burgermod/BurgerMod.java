@@ -153,22 +153,70 @@ public class BurgerMod {
             boolean airUnderPlayer = (blockUnderPlayer == Blocks.AIR) || (blockUnderPlayer == Blocks.CAVE_AIR) || (blockUnderPlayer == Blocks.VOID_AIR);
             boolean air2UnderPlayer = (block2UnderPlayer == Blocks.AIR) || (block2UnderPlayer == Blocks.CAVE_AIR) || (block2UnderPlayer == Blocks.VOID_AIR);
             boolean airWalkUnderPlayer = blockUnderPlayer == ModBlocks.AIR_WALK_BLOCK.get();
-            boolean airWalk3UnderPlayer = (block3UnderPlayer == ModBlocks.AIR_WALK_BLOCK.get());
+            boolean airWalk2UnderPlayer = (block2UnderPlayer == ModBlocks.AIR_WALK_BLOCK.get());
+            boolean airAroundPlayer1 =
+                    (player.level().getBlockState(new BlockPos((int)player.getX()-1,(int)player.getY()-1,(int)player.getZ())).is(ModBlocks.AIR_WALK_BLOCK.get())
+                            || player.level().getBlockState(new BlockPos((int)player.getX()-1,(int)player.getY()-1,(int)player.getZ())).is(Blocks.AIR)
+                            || player.level().getBlockState(new BlockPos((int)player.getX()-1,(int)player.getY()-1,(int)player.getZ())).is(Blocks.CAVE_AIR)
+                            || player.level().getBlockState(new BlockPos((int)player.getX()-1,(int)player.getY()-1,(int)player.getZ())).is(Blocks.VOID_AIR));
+
+            boolean airAroundPlayer2 =
+                    (player.level().getBlockState(new BlockPos((int)player.getX()+1,(int)player.getY()-1,(int)player.getZ())).is(ModBlocks.AIR_WALK_BLOCK.get())
+                    || player.level().getBlockState(new BlockPos((int)player.getX()+1,(int)player.getY()-1,(int)player.getZ())).is(Blocks.AIR)
+                    || player.level().getBlockState(new BlockPos((int)player.getX()+1,(int)player.getY()-1,(int)player.getZ())).is(Blocks.CAVE_AIR)
+                    || player.level().getBlockState(new BlockPos((int)player.getX()+1,(int)player.getY()-1,(int)player.getZ())).is(Blocks.VOID_AIR));
+
+            boolean airAroundPlayer3 =
+                    (player.level().getBlockState(new BlockPos((int)player.getX(),(int)player.getY()-1,(int)player.getZ()+1)).is(ModBlocks.AIR_WALK_BLOCK.get())
+                    || player.level().getBlockState(new BlockPos((int)player.getX(),(int)player.getY()-1,(int)player.getZ()+1)).is(Blocks.AIR)
+                    || player.level().getBlockState(new BlockPos((int)player.getX(),(int)player.getY()-1,(int)player.getZ()+1)).is(Blocks.VOID_AIR)
+                    || player.level().getBlockState(new BlockPos((int)player.getX(),(int)player.getY()-1,(int)player.getZ()+1)).is(Blocks.CAVE_AIR));
+
+            boolean airAroundPlayer4 =
+                    (player.level().getBlockState(new BlockPos((int)player.getX(),(int)player.getY()-1,(int)player.getZ()-1)).is(ModBlocks.AIR_WALK_BLOCK.get())
+                            || player.level().getBlockState(new BlockPos((int)player.getX(),(int)player.getY()-1,(int)player.getZ()-1)).is(Blocks.AIR)
+                            || player.level().getBlockState(new BlockPos((int)player.getX(),(int)player.getY()-1,(int)player.getZ()-1)).is(Blocks.CAVE_AIR)
+                            || player.level().getBlockState(new BlockPos((int)player.getX(),(int)player.getY()-1,(int)player.getZ()-1)).is(Blocks.VOID_AIR));
+
+            boolean airAroundPlayer5 =
+                    (player.level().getBlockState(new BlockPos((int)player.getX()-1,(int)player.getY()-1,(int)player.getZ()-1)).is(ModBlocks.AIR_WALK_BLOCK.get())
+                            || player.level().getBlockState(new BlockPos((int)player.getX()-1,(int)player.getY()-1,(int)player.getZ()-1)).is(Blocks.AIR)
+                            || player.level().getBlockState(new BlockPos((int)player.getX()-1,(int)player.getY()-1,(int)player.getZ()-1)).is(Blocks.CAVE_AIR)
+                            || player.level().getBlockState(new BlockPos((int)player.getX()-1,(int)player.getY()-1,(int)player.getZ()-1)).is(Blocks.VOID_AIR));
+
+            boolean airAroundPlayer6 =
+                    (player.level().getBlockState(new BlockPos((int)player.getX()+1,(int)player.getY()-1,(int)player.getZ()+1)).is(ModBlocks.AIR_WALK_BLOCK.get())
+                            || player.level().getBlockState(new BlockPos((int)player.getX()+1,(int)player.getY()-1,(int)player.getZ()+1)).is(Blocks.AIR)
+                            || player.level().getBlockState(new BlockPos((int)player.getX()+1,(int)player.getY()-1,(int)player.getZ()+1)).is(Blocks.CAVE_AIR)
+                            || player.level().getBlockState(new BlockPos((int)player.getX()+1,(int)player.getY()-1,(int)player.getZ()+1)).is(Blocks.VOID_AIR));
+
+            boolean airAroundPlayer7 =
+                    (player.level().getBlockState(new BlockPos((int)player.getX()-1,(int)player.getY()-1,(int)player.getZ()+1)).is(ModBlocks.AIR_WALK_BLOCK.get())
+                            || player.level().getBlockState(new BlockPos((int)player.getX()-1,(int)player.getY()-1,(int)player.getZ()+1)).is(Blocks.VOID_AIR)
+                            || player.level().getBlockState(new BlockPos((int)player.getX()-1,(int)player.getY()-1,(int)player.getZ()+1)).is(Blocks.CAVE_AIR)
+                            || player.level().getBlockState(new BlockPos((int)player.getX()-1,(int)player.getY()-1,(int)player.getZ()+1)).is(Blocks.AIR));
+
+            boolean airAroundPlayer8 =
+                    (player.level().getBlockState(new BlockPos((int)player.getX()+1,(int)player.getY()-1,(int)player.getZ()-1)).is(ModBlocks.AIR_WALK_BLOCK.get())
+                            || player.level().getBlockState(new BlockPos((int)player.getX()+1,(int)player.getY()-1,(int)player.getZ()-1)).is(Blocks.CAVE_AIR)
+                            || player.level().getBlockState(new BlockPos((int)player.getX()+1,(int)player.getY()-1,(int)player.getZ()-1)).is(Blocks.VOID_AIR)
+                            || player.level().getBlockState(new BlockPos((int)player.getX()+1,(int)player.getY()-1,(int)player.getZ()-1)).is(Blocks.AIR));
+
+            boolean noBlocksAroundPlayer = airAroundPlayer1 && airAroundPlayer2 && airAroundPlayer3 && airAroundPlayer4 && airAroundPlayer5 && airAroundPlayer6 && airAroundPlayer8 && airAroundPlayer7;
+
             if(player.isCrouching()){
                 if(!player.isFallFlying()){
 
-                    if((airUnderPlayer && air2UnderPlayer) || (airWalkUnderPlayer && air2UnderPlayer) || (airWalk3UnderPlayer)){
+                    if((airUnderPlayer && air2UnderPlayer) || (airWalkUnderPlayer && air2UnderPlayer) || (airWalkUnderPlayer && airWalk2UnderPlayer)){
                         if(player.getInventory().getArmor(0).getEnchantmentLevel(ModEnchantments.AIR_WALKER.get()) > 1){
                             player.addEffect(new MobEffectInstance(MobEffects.MOVEMENT_SPEED,2,5, true,false,false));
                         }
 
-                        if(player.level().isClientSide()){
+                        if(noBlocksAroundPlayer){
                             player.level().setBlock(location.below(), ModBlocks.AIR_WALK_BLOCK.get().defaultBlockState(),1);
                         }
 
-                        if(!player.level().isClientSide()){
-                            player.level().setBlock(location.below(), ModBlocks.AIR_WALK_BLOCK.get().defaultBlockState(),1);
-                        }
+
                         //player.level().scheduleTick(location.below(), ModBlocks.AIR_WALK_BLOCK.get(), 70, TickPriority.HIGH);
                     }
 
