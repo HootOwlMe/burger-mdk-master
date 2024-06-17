@@ -205,7 +205,7 @@ public class BurgerMod {
             boolean noBlocksAroundPlayer = airAroundPlayer1 && airAroundPlayer2 && airAroundPlayer3 && airAroundPlayer4 && airAroundPlayer5 && airAroundPlayer6 && airAroundPlayer8 && airAroundPlayer7;
             if(player.isCrouching()){
                 if(!player.isFallFlying()){
-                    if((airUnderPlayer && air2UnderPlayer) || (airWalkUnderPlayer && air2UnderPlayer) || (airWalkUnderPlayer && airWalk2UnderPlayer)){
+                    if((airUnderPlayer && air2UnderPlayer) || (airWalkUnderPlayer && air2UnderPlayer) || (airWalkUnderPlayer && airWalk2UnderPlayer) || (airUnderPlayer && airWalk2UnderPlayer)){
                         if(noBlocksAroundPlayer){
                             if(player.getInventory().getArmor(0).getEnchantmentLevel(ModEnchantments.AIR_WALKER.get()) > 1){
                                 player.addEffect(new MobEffectInstance(MobEffects.MOVEMENT_SPEED,2,5, true,false,false));
