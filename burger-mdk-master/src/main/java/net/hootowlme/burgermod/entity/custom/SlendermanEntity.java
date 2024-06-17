@@ -53,32 +53,30 @@ public class SlendermanEntity extends PathfinderMob {
             this.addEffect(new MobEffectInstance(MobEffects.BLINDNESS,999));
         }
 
-        if(this.level().isDay()){
-            this.remove(RemovalReason.DISCARDED);
-        }
-
         if(this.getHealth() < this.getMaxHealth()-100){
-            //this.remove(RemovalReason.valueOf("t h o u g h t  y o u  c o u l d  k i l l  m e ?"));
-
             List<? extends Player> list = this.level().players();
             for(int i = 0; i < list.size(); i++){
                 list.get(i).sendSystemMessage(Component.literal("t h o u g h t  y o u  c o u l d  k i l l  m e ?").withStyle(ChatFormatting.RED).withStyle(ChatFormatting.ITALIC).withStyle(ChatFormatting.BOLD));
             }
-
             this.remove(RemovalReason.DISCARDED);
         }
+
 
         if(this.level().isClientSide()){
             setupAnimationStates();
         }
 
+        boolean isDay = false;
+        if(this.level().getServer() != null){
+            isDay = this.level().getServer().overworld().isDay();
+        }
+
         Vec3 firstVec = new Vec3(this.getX(),this.getY(),this.getZ());
-        if(this.level().getEntitiesOfClass(SlendermanEntity.class,AABB.ofSize(firstVec,400,150,400)).size() > 1){
+        if((this.level().getEntitiesOfClass(SlendermanEntity.class,AABB.ofSize(firstVec,400,150,400)).size() > 1) || (isDay)){
             this.remove(RemovalReason.DISCARDED);
         }
 
     }
-
 
 
     @Override
