@@ -52,6 +52,11 @@ public class ModItemModelProvider extends ItemModelProvider {
     protected void registerModels() {
 
         simpleItem(ModItems.BURGER);
+        simpleItem(ModItems.BURGER_VEGETARIAN);
+        simpleItem(ModItems.BURGER_METAL);
+        simpleItem(ModItems.BURGER_HEALTHY);
+        simpleItem(ModItems.BURGER_OP);
+
         simpleItem(ModItems.BURGER_DETECTOR);
         simpleItem(ModItems.GREASE);
         simpleItem(ModItems.FRIES);
@@ -82,7 +87,6 @@ public class ModItemModelProvider extends ItemModelProvider {
         simplerBlockItem(ModBlocks.BURGER_FENCE_GATE);
 
         simplerBlockItem(ModBlocks.WHITE_PRESSURE_PLATE);
-
 
         trapdoorItem(ModBlocks.BURGER_TRAPDOOR);
 

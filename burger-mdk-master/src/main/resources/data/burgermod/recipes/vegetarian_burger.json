@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "equipment",
+  "key": {
+    "b": {
+      "item": "minecraft:bread"
+    },
+    "n": {
+      "item": "minecraft:wheat"
+    }
+  },
+  "pattern": [
+    "b",
+    "n",
+    "b"
+  ],
+  "result": {
+    "item": "burgermod:vegetarian_burger"
+  },
+  "show_notification": true
+}

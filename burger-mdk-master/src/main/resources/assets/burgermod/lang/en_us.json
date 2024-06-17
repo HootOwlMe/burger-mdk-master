@@ -1,5 +1,9 @@
 {
     "item.burgermod.burger": "Cheese Burger",
+    "item.burgermod.op_burger": "OP Burger",
+    "item.burgermod.healthy_burger": "Healthy Burger",
+    "item.burgermod.metal_burger": "Metal Burger",
+    "item.burgermod.vegetarian_burger": "Vegetarian Burger",
     "item.burgermod.fries": "French Fries",
 
     "block.burgermod.burger_block": "Block of Burger",
@@ -44,7 +48,7 @@
     "sounds.burgermod.burger_detector_found": "FOUND ONE",
     "sounds.burgermod.burger_block_break": "Burger Broken",
     "sounds.burgermod.burger_block_step": "Burger Footstep",
-    "sounds.burgermod.burger_block_fall": "Something fell on a burger nearby, just so you know.",
+    "sounds.burgermod.burger_block_fall": "burger block did a hit sound",
     "sounds.burgermod.burger_block_hit": "burger block did a hit sound",
     "sounds.burgermod.burger_block_place": "Burger Placed",
     "item.burgermod.scheming_weasel_disc": "Scheming Weasel Disc",

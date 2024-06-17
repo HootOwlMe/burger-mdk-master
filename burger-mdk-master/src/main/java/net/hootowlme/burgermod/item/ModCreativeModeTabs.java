@@ -28,6 +28,10 @@ public class ModCreativeModeTabs {
             .title(Component.translatable("creativetab.burger_tab"))
             .displayItems((pParameters, pOutput) -> {
                 pOutput.accept(ModItems.BURGER.get());
+                pOutput.accept(ModItems.BURGER_VEGETARIAN.get());
+                pOutput.accept(ModItems.BURGER_OP.get());
+                pOutput.accept(ModItems.BURGER_METAL.get());
+                pOutput.accept(ModItems.BURGER_HEALTHY.get());
                 pOutput.accept(ModItems.FRIES.get());
                 pOutput.accept(Items.HONEY_BOTTLE);
                 pOutput.accept(ModBlocks.BURGER_BLOCK.get());

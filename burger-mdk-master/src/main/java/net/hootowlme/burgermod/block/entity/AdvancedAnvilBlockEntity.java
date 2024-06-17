@@ -117,6 +117,7 @@ public class AdvancedAnvilBlockEntity extends BlockEntity implements MenuProvide
     @Override
     public Component getDisplayName() {
         return Component.translatable("block.burgermod.advanced_anvil");
+
     }
 
     @Nullable
@@ -190,7 +191,6 @@ public class AdvancedAnvilBlockEntity extends BlockEntity implements MenuProvide
         }
 
 
-
         //adds previous left item enchants
         Iterator<Enchantment> iterator = initialEnchantmentsSet.iterator();
         for (int i = 0; i < initialEnchantmentsSet.size(); i++){
@@ -227,6 +227,8 @@ public class AdvancedAnvilBlockEntity extends BlockEntity implements MenuProvide
                // this.itemHandler.getStackInSlot(OUTPUT_SLOT).getCount() + result1.getCount()));
 
     }
+
+
 
     private boolean isEnchantedBook(ItemStack item, Enchantment enchantment, int level){
         boolean isBook = false;

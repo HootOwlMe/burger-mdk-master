@@ -46,6 +46,10 @@ public class ModItems {
     public static final DeferredRegister<Item> ITEMS = DeferredRegister.create(ForgeRegistries.ITEMS, BurgerMod.MOD_ID);
 
     public static final RegistryObject<Item> BURGER = ITEMS.register("burger",() -> new Item(new Item.Properties().food(ModFoods.BURGER)));
+    public static final RegistryObject<Item> BURGER_VEGETARIAN = ITEMS.register("vegetarian_burger",() -> new Item(new Item.Properties().food(ModFoods.BURGER_VEGETARIAN)));
+    public static final RegistryObject<Item> BURGER_METAL = ITEMS.register("metal_burger",() -> new Item(new Item.Properties().food(ModFoods.BURGER_METAL)));
+    public static final RegistryObject<Item> BURGER_HEALTHY = ITEMS.register("healthy_burger",() -> new Item(new Item.Properties().food(ModFoods.BURGER_HEALTHY)));
+    public static final RegistryObject<Item> BURGER_OP = ITEMS.register("op_burger",() -> new Item(new Item.Properties().food(ModFoods.BURGER_OP)));
 
     public static final RegistryObject<Item> BURGER_PICKAXE = ITEMS.register("burger_pickaxe",() -> new PickaxeItem(ModToolTiers.BURGER, 3, 1.2F, new Item.Properties()));
     public static final RegistryObject<Item> BURGER_SHOVEL = ITEMS.register("burger_shovel",() -> new ShovelItem(ModToolTiers.BURGER, 3, 1.5F, new Item.Properties()));

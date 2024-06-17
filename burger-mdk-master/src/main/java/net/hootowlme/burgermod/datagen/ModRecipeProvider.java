@@ -35,6 +35,75 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
         oreSmelting(pRecipeOutput,BURGER_SMELTTABLES, RecipeCategory.MISC, ModItems.GREASE.get(),1.1f,200,"burger");
 
 
+        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModBlocks.BURGER_STAIRS.get().asItem(),4)
+                .pattern("b  ")
+                .pattern("bb ")
+                .pattern("bbb")
+                .define('b',ModBlocks.BURGER_BLOCK.get().asItem())
+                .unlockedBy(getHasName(ModItems.BURGER.get()),has(ModItems.BURGER.get()))
+                .save(pRecipeOutput);
+
+        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModBlocks.BURGER_WALL.get().asItem(),6)
+                .pattern("bbb")
+                .pattern("bbb")
+                .define('b',ModBlocks.BURGER_BLOCK.get().asItem())
+                .unlockedBy(getHasName(ModItems.BURGER.get()),has(ModItems.BURGER.get()))
+                .save(pRecipeOutput);
+
+        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModBlocks.BURGER_TRAPDOOR.get().asItem(),2)
+                .pattern("bbb")
+                .pattern("bbb")
+                .define('b',ModItems.BURGER.get())
+                .unlockedBy(getHasName(ModItems.BURGER.get()),has(ModItems.BURGER.get()))
+                .save(pRecipeOutput);
+
+        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModBlocks.BURGER_DOOR.get().asItem(),3)
+                .pattern("bb")
+                .pattern("bb")
+                .pattern("bb")
+                .define('b', ModItems.BURGER.get())
+                .unlockedBy(getHasName(ModItems.BURGER.get()),has(ModItems.BURGER.get()))
+                .save(pRecipeOutput);
+
+        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModBlocks.BURGER_FLOWER.get(),3)
+                .pattern(" b ")
+                .pattern(" b ")
+                .pattern("bbb")
+                .define('b', ModItems.BURGER_SEEDS.get())
+                .unlockedBy(getHasName(ModItems.BURGER.get()),has(ModItems.BURGER.get()))
+                .save(pRecipeOutput);
+
+        ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, ModBlocks.BURGER_BUTTON.get().asItem())
+                .requires(ModItems.BURGER_SEEDS.get())
+                .unlockedBy(getHasName(ModItems.BURGER.get()), has(ModItems.BURGER.get())).save(pRecipeOutput);
+
+        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModBlocks.BURGER_PRESSURE_PLATE.get().asItem())
+                .pattern("bb")
+                .define('b',ModItems.BURGER.get())
+                .unlockedBy(getHasName(ModItems.BURGER.get()),has(ModItems.BURGER.get()))
+                .save(pRecipeOutput);
+
+        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModBlocks.BURGER_SLAB.get().asItem(),3)
+                .pattern("bbb")
+                .define('b',ModBlocks.BURGER_BLOCK.get().asItem())
+                .unlockedBy(getHasName(ModItems.BURGER.get()),has(ModItems.BURGER.get()))
+                .save(pRecipeOutput);
+
+        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModBlocks.BURGER_FENCE_GATE.get().asItem())
+                .pattern("sbs")
+                .pattern("sbs")
+                .define('b',ModBlocks.BURGER_BLOCK.get().asItem())
+                .define('s',Items.STICK)
+                .unlockedBy(getHasName(ModItems.BURGER.get()),has(ModItems.BURGER.get()))
+                .save(pRecipeOutput);
+
+        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModBlocks.BURGER_FENCE.get().asItem(),3)
+                .pattern("bsb")
+                .pattern("bsb")
+                .define('b',ModBlocks.BURGER_BLOCK.get().asItem())
+                .define('s',Items.STICK)
+                .unlockedBy(getHasName(ModItems.BURGER.get()),has(ModItems.BURGER.get()))
+                .save(pRecipeOutput);
 
         ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModBlocks.BURGER_BLOCK.get())
                 .pattern("bbb")
@@ -131,7 +200,6 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
                 .save(pRecipeOutput);
 
 
-
         ShapedRecipeBuilder.shaped(RecipeCategory.TOOLS, ModItems.BURGER_PICKAXE.get())
                 .pattern("bbb")
                 .pattern(" n ")
@@ -150,6 +218,42 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
                 .unlockedBy(getHasName(ModItems.BURGER.get()),has(ModItems.BURGER.get()))
                 .save(pRecipeOutput);
 
+        ShapedRecipeBuilder.shaped(RecipeCategory.BUILDING_BLOCKS, ModBlocks.WHITE_BLOCK.get().asItem(),4)
+                .pattern("nn")
+                .pattern("nn")
+                .define('n',Items.WHITE_DYE)
+                .unlockedBy(getHasName(ModItems.BURGER.get()),has(ModItems.BURGER.get()))
+                .save(pRecipeOutput);
+
+        ShapedRecipeBuilder.shaped(RecipeCategory.BUILDING_BLOCKS, ModBlocks.WHITE_PRESSURE_PLATE.get().asItem())
+                .pattern("nn")
+                .define('n',Items.WHITE_DYE)
+                .unlockedBy(getHasName(ModItems.BURGER.get()),has(ModItems.BURGER.get()))
+                .save(pRecipeOutput);
+
+        ShapedRecipeBuilder.shaped(RecipeCategory.BUILDING_BLOCKS, ModBlocks.BLACK_BLOCK.get().asItem(),4)
+                .pattern("nn")
+                .pattern("nn")
+                .define('n',Items.BLACK_DYE)
+                .unlockedBy(getHasName(ModItems.BURGER.get()),has(ModItems.BURGER.get()))
+                .save(pRecipeOutput);
+
+        ShapedRecipeBuilder.shaped(RecipeCategory.BUILDING_BLOCKS, ModBlocks.BLACK_FENCE.get().asItem(),3)
+                .pattern("nnn")
+                .pattern("nnn")
+                .define('n',Items.BLACK_DYE)
+                .unlockedBy(getHasName(ModItems.BURGER.get()),has(ModItems.BURGER.get()))
+                .save(pRecipeOutput);
+
+        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModBlocks.RED_STAIRS.get().asItem(),4)
+                .pattern("b  ")
+                .pattern("bb ")
+                .pattern("bbb")
+                .define('b',Items.RED_DYE)
+                .unlockedBy(getHasName(ModItems.BURGER.get()),has(ModItems.BURGER.get()))
+                .save(pRecipeOutput);
+
+
         ShapelessRecipeBuilder.shapeless(RecipeCategory.FOOD, ModItems.FRIES.get(),1)
                 .requires(Items.POTATO)
                 .requires(Items.POTATO)
@@ -159,13 +263,38 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
                .requires(ModBlocks.BURGER_BLOCK.get())
                .unlockedBy(getHasName(ModBlocks.BURGER_BLOCK.get()), has(ModBlocks.BURGER_BLOCK.get())).save(pRecipeOutput);
 
-        ShapelessRecipeBuilder.shapeless(RecipeCategory.FOOD, ModItems.BURGER_SEEDS.get(),3)
+        ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, ModItems.BURGER_SEEDS.get(),3)
                 .requires(ModItems.BURGER.get())
                 .unlockedBy(getHasName(ModItems.BURGER.get()), has(ModItems.BURGER.get())).save(pRecipeOutput);
 
-        ShapelessRecipeBuilder.shapeless(RecipeCategory.FOOD, ModItems.TALL_BURGER_SEEDS.get(),3)
+        ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, ModItems.TALL_BURGER_SEEDS.get(),3)
                 .requires(ModItems.BURGER.get())
                 .requires(ModItems.BURGER.get())
+                .requires(ModItems.BURGER.get())
+                .unlockedBy(getHasName(ModItems.BURGER.get()), has(ModItems.BURGER.get())).save(pRecipeOutput);
+
+        ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, ModBlocks.RESTAURANT_TOP.get(),1)
+                .requires(ModBlocks.RED_STAIRS.get().asItem())
+                .requires(Items.WHITE_DYE)
+                .unlockedBy(getHasName(ModItems.BURGER.get()), has(ModItems.BURGER.get())).save(pRecipeOutput);
+
+        ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, ModBlocks.RESTAURANT_LOW.get(),1)
+                .requires(ModBlocks.WHITE_BLOCK.get().asItem())
+                .requires(Items.RED_DYE)
+                .unlockedBy(getHasName(ModItems.BURGER.get()), has(ModItems.BURGER.get())).save(pRecipeOutput);
+
+        ShapelessRecipeBuilder.shapeless(RecipeCategory.BUILDING_BLOCKS, ModBlocks.RESTAURANT_CEILING.get().asItem(),4)
+                .requires(ModBlocks.BLACK_BLOCK.get().asItem())
+                .requires(ModBlocks.BLACK_BLOCK.get().asItem())
+                .requires(Items.STONE)
+                .requires(Items.STONE)
+                .unlockedBy(getHasName(ModItems.BURGER.get()), has(ModItems.BURGER.get())).save(pRecipeOutput);
+
+        ShapelessRecipeBuilder.shapeless(RecipeCategory.BUILDING_BLOCKS, ModBlocks.FLOOR_BLOCK.get().asItem(),4)
+                .requires(ModBlocks.BLACK_BLOCK.get().asItem())
+                .requires(ModBlocks.BLACK_BLOCK.get().asItem())
+                .requires(ModBlocks.WHITE_BLOCK.get().asItem())
+                .requires(ModBlocks.WHITE_BLOCK.get().asItem())
                 .unlockedBy(getHasName(ModItems.BURGER.get()), has(ModItems.BURGER.get())).save(pRecipeOutput);
 
  /*

@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "equipment",
+  "key": {
+    "b": {
+      "item": "minecraft:bread"
+    },
+    "n": {
+      "item": "minecraft:enchanted_golden_apple"
+    }
+  },
+  "pattern": [
+    "b",
+    "n",
+    "b"
+  ],
+  "result": {
+    "item": "burgermod:op_burger"
+  },
+  "show_notification": true
+}

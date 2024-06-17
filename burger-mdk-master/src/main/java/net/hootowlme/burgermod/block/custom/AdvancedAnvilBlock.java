@@ -3,11 +3,15 @@ package net.hootowlme.burgermod.block.custom;
 import net.hootowlme.burgermod.block.ModBlocks;
 import net.hootowlme.burgermod.block.entity.AdvancedAnvilBlockEntity;
 import net.hootowlme.burgermod.block.entity.ModBlockEntities;
+import net.minecraft.ChatFormatting;
 import net.minecraft.core.BlockPos;
+import net.minecraft.network.chat.Component;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;
 import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.TooltipFlag;
 import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.BaseEntityBlock;
@@ -22,6 +26,8 @@ import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.VoxelShape;
 import net.minecraftforge.network.NetworkHooks;
 import org.jetbrains.annotations.Nullable;
+
+import java.util.List;
 
 public class AdvancedAnvilBlock extends BaseEntityBlock {
 
@@ -40,6 +46,12 @@ public class AdvancedAnvilBlock extends BaseEntityBlock {
     @Override
     public RenderShape getRenderShape(BlockState pState) {
         return RenderShape.MODEL;
+    }
+
+    @Override
+    public void appendHoverText(ItemStack pStack, @Nullable BlockGetter pLevel, List<Component> pTooltip, TooltipFlag pFlag) {
+        pTooltip.add(Component.literal("Transfers Enchantments!").withStyle(ChatFormatting.YELLOW));
+        super.appendHoverText(pStack, pLevel, pTooltip, pFlag);
     }
 
     @Override

@@ -3,6 +3,11 @@ package net.hootowlme.burgermod.item.custom;
 import net.hootowlme.burgermod.item.ModItems;
 import net.minecraft.ChatFormatting;
 import net.minecraft.network.chat.Component;
+import net.minecraft.tags.TagKey;
+import net.minecraft.util.RandomSource;
+import net.minecraft.world.damagesource.DamageSource;
+import net.minecraft.world.damagesource.DamageType;
+import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.item.ArmorItem;
 import net.minecraft.world.item.ArmorMaterial;
 import net.minecraft.world.item.ItemStack;
@@ -29,6 +34,8 @@ public class BurgerArmor extends ArmorItem {
         }
     }
 
+
+
     @Override
     public boolean canElytraFly(ItemStack stack, net.minecraft.world.entity.LivingEntity entity) {
         return true;
@@ -40,7 +47,7 @@ public class BurgerArmor extends ArmorItem {
             int nextFlightTick = flightTicks + 1;
             if (nextFlightTick % 10 == 0) {
                 if (nextFlightTick % 20 == 0) {
-                    stack.hurtAndBreak(1, entity, e -> e.broadcastBreakEvent(net.minecraft.world.entity.EquipmentSlot.CHEST));
+                    //stack.hurtAndBreak(1, entity, e -> e.broadcastBreakEvent(net.minecraft.world.entity.EquipmentSlot.CHEST));
                 }
                 entity.gameEvent(GameEvent.ELYTRA_GLIDE);
             }
