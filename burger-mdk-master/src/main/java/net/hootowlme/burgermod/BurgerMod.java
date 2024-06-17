@@ -203,31 +203,19 @@ public class BurgerMod {
                             || player.level().getBlockState(new BlockPos((int)player.getX()+1,(int)player.getY()-1,(int)player.getZ()-1)).is(Blocks.AIR));
 
             boolean noBlocksAroundPlayer = airAroundPlayer1 && airAroundPlayer2 && airAroundPlayer3 && airAroundPlayer4 && airAroundPlayer5 && airAroundPlayer6 && airAroundPlayer8 && airAroundPlayer7;
-
             if(player.isCrouching()){
                 if(!player.isFallFlying()){
-
                     if((airUnderPlayer && air2UnderPlayer) || (airWalkUnderPlayer && air2UnderPlayer) || (airWalkUnderPlayer && airWalk2UnderPlayer)){
-                        if(player.getInventory().getArmor(0).getEnchantmentLevel(ModEnchantments.AIR_WALKER.get()) > 1){
-                            player.addEffect(new MobEffectInstance(MobEffects.MOVEMENT_SPEED,2,5, true,false,false));
-                        }
-
                         if(noBlocksAroundPlayer){
+                            if(player.getInventory().getArmor(0).getEnchantmentLevel(ModEnchantments.AIR_WALKER.get()) > 1){
+                                player.addEffect(new MobEffectInstance(MobEffects.MOVEMENT_SPEED,2,5, true,false,false));
+                            }
                             player.level().setBlock(location.below(), ModBlocks.AIR_WALK_BLOCK.get().defaultBlockState(),1);
                         }
-
-
-                        //player.level().scheduleTick(location.below(), ModBlocks.AIR_WALK_BLOCK.get(), 70, TickPriority.HIGH);
                     }
-
-
                 }
-
-
             }
-
         }
-
     }
 
 

@@ -167,16 +167,20 @@ public class AdvancedAnvilBlockEntity extends BlockEntity implements MenuProvide
 
     private void craftItem() {
         ItemStack result = new ItemStack(this.itemHandler.getStackInSlot(LEFT_INPUT_SLOT).getItem(),1);
-
         ItemStack leftInputItem = this.itemHandler.getStackInSlot(LEFT_INPUT_SLOT);
         ItemStack rightInputItem = this.itemHandler.getStackInSlot(RIGHT_INPUT_SLOT);
+
+        if(leftInputItem.getDamageValue() > 0){
+            result.setDamageValue(leftInputItem.getDamageValue());
+        }
+
         if (leftInputItem.hasTag()){
             if(leftInputItem.getTagElement("Trim") != null){
                 CompoundTag trimTag1 = leftInputItem.getTagElement("Trim");
-                //result.setTag(trimTag1);
-                result.addTagElement("Trim",trimTag1);
+                result.addTagElement("Trim", trimTag1);
             }
         }
+
 
         Map<Enchantment,Integer> initialEnchantmentsMap = leftInputItem.getAllEnchantments();
         Set<Enchantment> initialEnchantmentsSet = initialEnchantmentsMap.keySet();

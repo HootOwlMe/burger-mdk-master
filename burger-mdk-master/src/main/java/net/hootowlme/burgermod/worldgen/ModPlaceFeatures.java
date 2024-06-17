@@ -24,7 +24,7 @@ public class ModPlaceFeatures {
         HolderGetter<ConfiguredFeature<?, ?>> configuredFeatures = context.lookup(Registries.CONFIGURED_FEATURE);
 
         register(context, BURGER_ORE_PLACED_KEY, configuredFeatures.getOrThrow(ModConfiguredFeatures.OVERWORLD_BURGER_ORE_KEY),
-               ModOrePlacement.commonOrePlacement(12, HeightRangePlacement.triangle(VerticalAnchor.absolute(-64),VerticalAnchor.absolute(70))));
+               ModOrePlacement.commonOrePlacement(4, HeightRangePlacement.triangle(VerticalAnchor.absolute(-64),VerticalAnchor.absolute(70))));
 
         register(context, END_BURGER_ORE_PLACED_KEY, configuredFeatures.getOrThrow(ModConfiguredFeatures.END_BURGER_ORE_KEY),
                 ModOrePlacement.commonOrePlacement(12, HeightRangePlacement.uniform(VerticalAnchor.absolute(-64),VerticalAnchor.absolute(80))));
