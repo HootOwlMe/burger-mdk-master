@@ -29,7 +29,8 @@ public class ModBlockTagGenerator extends BlockTagsProvider {
         this.tag(ModTags.Blocks.BURGER_DETECTOR).add(ModBlocks.BURGER_BLOCK.get()).add(ModBlocks.BURGER_ORE.get()).add(ModBlocks.BURGER_SOUND.get()).add(ModBlocks.BURGER_SLAB.get());
 
         this.tag(BlockTags.NEEDS_IRON_TOOL)
-                .add(ModBlocks.BURGER_ORE.get());
+                .add(ModBlocks.BURGER_ORE.get())
+                .add(ModBlocks.ADVANCED_ANVIL.get());
 
         this.tag(BlockTags.NEEDS_STONE_TOOL)
                 .add(ModBlocks.BURGER_BLOCK.get())
@@ -62,7 +63,8 @@ public class ModBlockTagGenerator extends BlockTagsProvider {
                         ModBlocks.BLACK_FENCE.get(),
                         ModBlocks.WHITE_BLOCK.get(),
                         ModBlocks.FLOOR_BLOCK.get(),
-                        ModBlocks.WHITE_PRESSURE_PLATE.get()
+                        ModBlocks.WHITE_PRESSURE_PLATE.get(),
+                        ModBlocks.ADVANCED_ANVIL.get()
                 );
 
         this.tag(BlockTags.MINEABLE_WITH_HOE)

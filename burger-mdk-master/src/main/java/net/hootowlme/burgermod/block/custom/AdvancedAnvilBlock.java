@@ -55,6 +55,11 @@ public class AdvancedAnvilBlock extends BaseEntityBlock {
     }
 
     @Override
+    public float defaultDestroyTime() {
+        return super.defaultDestroyTime();
+    }
+
+    @Override
     public void onRemove(BlockState pState, Level pLevel, BlockPos pPos, BlockState pNewState, boolean pIsMoving) {
 
         if(pState.getBlock() != pNewState.getBlock()){

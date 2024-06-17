@@ -37,11 +37,14 @@ import net.minecraftforge.common.capabilities.ForgeCapabilities;
 import net.minecraftforge.common.util.LazyOptional;
 import net.minecraftforge.items.IItemHandler;
 import net.minecraftforge.items.ItemStackHandler;
+import net.minecraftforge.registries.ForgeRegistries;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
 import java.lang.reflect.Array;
 import java.util.*;
+import java.util.function.Predicate;
+import java.util.stream.Stream;
 
 public class AdvancedAnvilBlockEntity extends BlockEntity implements MenuProvider {
 
@@ -164,8 +167,17 @@ public class AdvancedAnvilBlockEntity extends BlockEntity implements MenuProvide
 
     private void craftItem() {
         ItemStack result = new ItemStack(this.itemHandler.getStackInSlot(LEFT_INPUT_SLOT).getItem(),1);
+
         ItemStack leftInputItem = this.itemHandler.getStackInSlot(LEFT_INPUT_SLOT);
         ItemStack rightInputItem = this.itemHandler.getStackInSlot(RIGHT_INPUT_SLOT);
+        if (leftInputItem.hasTag()){
+            if(leftInputItem.getTagElement("Trim") != null){
+                CompoundTag trimTag1 = leftInputItem.getTagElement("Trim");
+                //result.setTag(trimTag1);
+                result.addTagElement("Trim",trimTag1);
+            }
+        }
+
         Map<Enchantment,Integer> initialEnchantmentsMap = leftInputItem.getAllEnchantments();
         Set<Enchantment> initialEnchantmentsSet = initialEnchantmentsMap.keySet();
         Map<Enchantment,Integer> additionalEnchantmentsMap = rightInputItem.getAllEnchantments();
