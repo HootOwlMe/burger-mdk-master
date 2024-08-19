@@ -196,7 +196,7 @@ public class AdvancedAnvilBlockEntity extends BlockEntity implements MenuProvide
             for (int v = 0; v < totalGameEnchants; v++){
                 if(BuiltInRegistries.ENCHANTMENT.byId(v) != null){
                     Enchantment ench4 = BuiltInRegistries.ENCHANTMENT.byId(v);
-                    for(int c = ench4.getMaxLevel(); c > -1; c--){
+                    for(int c = ench4.getMaxLevel()+5; c > -1; c--){
                         if(result.getEnchantmentLevel(ench4) < c){
 
                             if(leftInputItem.getEnchantmentLevel(ench4) >= c){

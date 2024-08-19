@@ -60,6 +60,7 @@ import org.slf4j.Logger;
 
 import java.util.Timer;
 import java.util.TimerTask;
+import java.util.UUID;
 
 // The value here should match an entry in the META-INF/mods.toml file
 @Mod(BurgerMod.MOD_ID)
@@ -91,26 +92,37 @@ public class BurgerMod {
         //ModLoadingContext.get().registerConfig(ModConfig.Type.COMMON, Config.SPEC);
     }
 
+    AttributeModifier burgerGravityDown = new AttributeModifier("burgerGravityDown", -0.04, AttributeModifier.Operation.ADDITION);
+    AttributeModifier burgerGravityUp = new AttributeModifier("burgerGravityUp", 0.04, AttributeModifier.Operation.ADDITION);
+    AttributeModifier blockReachDown = new AttributeModifier("blockReachDown", -150, AttributeModifier.Operation.ADDITION);
+    AttributeModifier blockReachUp = new AttributeModifier("blockReachUp", 150, AttributeModifier.Operation.ADDITION);
     @SubscribeEvent
     public void PlayerTickEvent(TickEvent.PlayerTickEvent event){
 
         Player player = event.player;
-        AttributeModifier blockReachDown = new AttributeModifier(player.getName().getString(), -150, AttributeModifier.Operation.ADDITION);
-        AttributeModifier blockReachUp = new AttributeModifier(player.getName().getString(), 150, AttributeModifier.Operation.ADDITION);
 
         if (!event.player.level().isClientSide()){
+
             boolean holdingBurgerSword = (player.getMainHandItem().getItem() == ModItems.BURGER_SWORD.get());
-            if(!holdingBurgerSword){
-                if (player.getAttribute(ForgeMod.BLOCK_REACH.get()).getValue() > 5){
-                    player.getAttribute(ForgeMod.BLOCK_REACH.get()).addTransientModifier(blockReachDown);
-                }
-            }else{
-                if (player.getAttribute(ForgeMod.BLOCK_REACH.get()).getValue() < 5){
+
+
+            if(holdingBurgerSword){
+                if(!player.getAttribute(ForgeMod.BLOCK_REACH.get()).hasModifier(blockReachUp)){
                     player.getAttribute(ForgeMod.BLOCK_REACH.get()).addTransientModifier(blockReachUp);
                 }
+            }else{
+                if(player.getAttribute(ForgeMod.BLOCK_REACH.get()).hasModifier(blockReachUp)){
+                    player.getAttribute(ForgeMod.BLOCK_REACH.get()).removeModifier(blockReachUp);
+                }
+                if(player.getAttribute(ForgeMod.BLOCK_REACH.get()).hasModifier(blockReachUp)){
+                    player.getAttribute(ForgeMod.BLOCK_REACH.get()).removeModifier(blockReachUp.getId());
+                }
+
             }
-            AttributeModifier burgerGravityDown = new AttributeModifier(player.getName().getString(), -0.01, AttributeModifier.Operation.ADDITION);
-            AttributeModifier burgerGravityUp = new AttributeModifier(player.getName().getString(), 0.01, AttributeModifier.Operation.ADDITION);
+
+
+
+
             BlockState blockStateUnderPlayer = player.level().getBlockState(new BlockPos((int)player.getX(),(int)player.getY()-1,(int)player.getZ()));
             Block blockUnderPlayer = blockStateUnderPlayer.getBlock();
             boolean wearingBurgerSet = (
@@ -120,20 +132,15 @@ public class BurgerMod {
                             && (player.getInventory().getArmor(3).getItem() == ModItems.BURGER_HELMET.get()));
 
             if(wearingBurgerSet){
-                if (player.getAttribute(ForgeMod.ENTITY_GRAVITY.get()).getValue() > 0.04) {
+                if(!player.getAttribute(ForgeMod.ENTITY_GRAVITY.get()).hasModifier(burgerGravityDown)){
                     player.getAttribute(ForgeMod.ENTITY_GRAVITY.get()).addTransientModifier(burgerGravityDown);
-                }
-                if (player.fallDistance >= 3){
-                    if(!((blockUnderPlayer == Blocks.AIR) || (blockUnderPlayer == Blocks.CAVE_AIR))){
-                        player.fallDistance = player.fallDistance - 2;
-                    }
                 }
             }else{
-                if (player.getAttribute(ForgeMod.ENTITY_GRAVITY.get()).getValue() < 0.08){
-                    player.getAttribute(ForgeMod.ENTITY_GRAVITY.get()).addTransientModifier(burgerGravityUp);
+                if(player.getAttribute(ForgeMod.ENTITY_GRAVITY.get()).hasModifier(burgerGravityDown)){
+                    player.getAttribute(ForgeMod.ENTITY_GRAVITY.get()).removeModifier(burgerGravityDown);
                 }
-                if (player.getAttribute(ForgeMod.ENTITY_GRAVITY.get()).getValue() > 0.08){
-                    player.getAttribute(ForgeMod.ENTITY_GRAVITY.get()).addTransientModifier(burgerGravityDown);
+                if(player.getAttribute(ForgeMod.ENTITY_GRAVITY.get()).hasModifier(burgerGravityDown)){
+                    player.getAttribute(ForgeMod.ENTITY_GRAVITY.get()).removeModifier(burgerGravityDown.getId());
                 }
             }
 
