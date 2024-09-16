@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "building",
+  "key": {
+    "n": {
+      "item": "minecraft:black_dye"
+    }
+  },
+  "pattern": [
+    "nnn",
+    "nnn"
+  ],
+  "result": {
+    "count": 3,
+    "item": "burgermod:black_fence"
+  },
+  "show_notification": true
+}

@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "b": {
+      "item": "minecraft:red_dye"
+    }
+  },
+  "pattern": [
+    "b  ",
+    "bb ",
+    "bbb"
+  ],
+  "result": {
+    "count": 4,
+    "item": "burgermod:red_stairs"
+  },
+  "show_notification": true
+}

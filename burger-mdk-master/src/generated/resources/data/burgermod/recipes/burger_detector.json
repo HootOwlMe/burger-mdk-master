@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "b": {
+      "item": "minecraft:iron_ingot"
+    },
+    "n": {
+      "item": "burgermod:burger"
+    }
+  },
+  "pattern": [
+    "bbb",
+    "bnb",
+    "bbb"
+  ],
+  "result": {
+    "item": "burgermod:burger_detector"
+  },
+  "show_notification": true
+}

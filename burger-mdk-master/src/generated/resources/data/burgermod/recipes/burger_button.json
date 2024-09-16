@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "burgermod:burger_seeds"
+    }
+  ],
+  "result": {
+    "item": "burgermod:burger_button"
+  }
+}

@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "b": {
+      "item": "burgermod:burger"
+    }
+  },
+  "pattern": [
+    "bbb",
+    "bbb",
+    "bbb"
+  ],
+  "result": {
+    "item": "burgermod:burger_block"
+  },
+  "show_notification": true
+}

@@ -1,0 +1,7 @@
+{
+  "variants": {
+    "": {
+      "model": "burgermod:block/restaurant_low"
+    }
+  }
+}

@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "b": {
+      "item": "burgermod:burger_seeds"
+    }
+  },
+  "pattern": [
+    " b ",
+    " b ",
+    "bbb"
+  ],
+  "result": {
+    "count": 3,
+    "item": "burgermod:burger_flower"
+  },
+  "show_notification": true
+}

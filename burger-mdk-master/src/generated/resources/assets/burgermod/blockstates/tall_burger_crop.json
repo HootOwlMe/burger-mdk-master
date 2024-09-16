@@ -1,0 +1,19 @@
+{
+  "variants": {
+    "age=0": {
+      "model": "burgermod:block/tall_burger_stage0"
+    },
+    "age=1": {
+      "model": "burgermod:block/tall_burger_stage1"
+    },
+    "age=2": {
+      "model": "burgermod:block/tall_burger_stage2"
+    },
+    "age=3": {
+      "model": "burgermod:block/tall_burger_stage3"
+    },
+    "age=4": {
+      "model": "burgermod:block/tall_burger_stage4"
+    }
+  }
+}

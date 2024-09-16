@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "b": {
+      "item": "burgermod:burger"
+    }
+  },
+  "pattern": [
+    "bbb",
+    "bbb"
+  ],
+  "result": {
+    "count": 2,
+    "item": "burgermod:burger_trapdoor"
+  },
+  "show_notification": true
+}

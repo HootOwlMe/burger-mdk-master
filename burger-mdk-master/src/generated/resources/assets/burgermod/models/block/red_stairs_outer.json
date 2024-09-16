@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/outer_stairs",
+  "textures": {
+    "bottom": "burgermod:block/red_stairs",
+    "side": "burgermod:block/red_stairs",
+    "top": "burgermod:block/red_stairs"
+  }
+}

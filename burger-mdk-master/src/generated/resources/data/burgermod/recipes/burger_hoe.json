@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "equipment",
+  "key": {
+    "b": {
+      "item": "burgermod:burger"
+    },
+    "n": {
+      "item": "minecraft:stick"
+    }
+  },
+  "pattern": [
+    " bb",
+    " n ",
+    " n "
+  ],
+  "result": {
+    "item": "burgermod:burger_hoe"
+  },
+  "show_notification": true
+}

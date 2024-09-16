@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "equipment",
+  "key": {
+    "b": {
+      "item": "burgermod:burger"
+    },
+    "n": {
+      "item": "burgermod:burger_detector"
+    }
+  },
+  "pattern": [
+    " b ",
+    " b ",
+    " n "
+  ],
+  "result": {
+    "item": "burgermod:burger_sword"
+  },
+  "show_notification": true
+}

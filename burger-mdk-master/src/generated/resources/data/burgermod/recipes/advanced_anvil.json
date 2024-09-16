@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "a": {
+      "item": "minecraft:anvil"
+    },
+    "b": {
+      "item": "burgermod:burger_block"
+    }
+  },
+  "pattern": [
+    " b ",
+    "bab",
+    " b "
+  ],
+  "result": {
+    "item": "burgermod:advanced_anvil"
+  },
+  "show_notification": true
+}

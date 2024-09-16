@@ -1,0 +1,11 @@
+{
+  "type": "minecraft:smelting",
+  "category": "misc",
+  "cookingtime": 200,
+  "experience": 1.1,
+  "group": "burger",
+  "ingredient": {
+    "item": "burgermod:burger_block"
+  },
+  "result": "burgermod:grease"
+}

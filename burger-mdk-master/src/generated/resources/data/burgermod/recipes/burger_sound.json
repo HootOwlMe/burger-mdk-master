@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "b": {
+      "item": "burgermod:burger"
+    },
+    "n": {
+      "item": "burgermod:burger_block"
+    }
+  },
+  "pattern": [
+    "bbb",
+    "bnb",
+    "bbb"
+  ],
+  "result": {
+    "item": "burgermod:burger_sound"
+  },
+  "show_notification": true
+}

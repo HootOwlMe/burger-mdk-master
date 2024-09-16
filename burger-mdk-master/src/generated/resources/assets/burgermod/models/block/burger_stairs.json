@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/stairs",
+  "textures": {
+    "bottom": "burgermod:block/burger_block",
+    "side": "burgermod:block/burger_block",
+    "top": "burgermod:block/burger_block"
+  }
+}

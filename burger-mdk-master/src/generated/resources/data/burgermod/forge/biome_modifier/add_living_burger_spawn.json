@@ -1,0 +1,10 @@
+{
+  "type": "forge:add_spawns",
+  "biomes": "#minecraft:has_structure/village_plains",
+  "spawners": {
+    "type": "burgermod:living_burger",
+    "maxCount": 3,
+    "minCount": 1,
+    "weight": 10
+  }
+}

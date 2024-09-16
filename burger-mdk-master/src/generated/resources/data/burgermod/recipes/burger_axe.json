@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "equipment",
+  "key": {
+    "b": {
+      "item": "burgermod:burger"
+    },
+    "n": {
+      "item": "minecraft:stick"
+    }
+  },
+  "pattern": [
+    " bb",
+    " nb",
+    " n "
+  ],
+  "result": {
+    "item": "burgermod:burger_axe"
+  },
+  "show_notification": true
+}

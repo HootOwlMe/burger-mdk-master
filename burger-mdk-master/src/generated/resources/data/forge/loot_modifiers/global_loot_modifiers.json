@@ -1,0 +1,10 @@
+{
+  "entries": [
+    "burgermod:burger_sword_from_end_city",
+    "burgermod:burger_ore_from_suspicious_sand",
+    "burgermod:burger_block_from_netherite_block",
+    "burgermod:burger_from_villager",
+    "burgermod:burger_from_living_burger"
+  ],
+  "replace": false
+}

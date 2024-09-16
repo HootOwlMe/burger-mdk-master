@@ -1,0 +1,9 @@
+{
+  "parent": "minecraft:block/outer_stairs",
+  "render_type": "minecraft:cutout",
+  "textures": {
+    "bottom": "burgermod:block/white_block",
+    "side": "burgermod:block/red_texture",
+    "top": "burgermod:block/white_block"
+  }
+}

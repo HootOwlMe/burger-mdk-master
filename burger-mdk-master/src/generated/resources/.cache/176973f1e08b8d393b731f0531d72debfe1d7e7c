@@ -1,0 +1,7 @@
+// 1.20.1	2024-06-02T16:58:51.7410547	Global Loot Modifiers : burgermod
+0cf7751a44b55c8b7b41c0cacee758d8beb66d17 data/burgermod/loot_modifiers/burger_block_from_netherite_block.json
+b3af860d57a3cc9b061f51dc5df17f3484bf95f2 data/burgermod/loot_modifiers/burger_from_living_burger.json
+ae631d6df9b2de6d0e522d5b00cf28a0fda4ca4b data/burgermod/loot_modifiers/burger_from_villager.json
+19c231657c08899d6af1c52dac29c2988b006f40 data/burgermod/loot_modifiers/burger_ore_from_suspicious_sand.json
+48e19292c97ed642398898dc8f16f9be27368a6b data/burgermod/loot_modifiers/burger_sword_from_end_city.json
+13d7b232696cc11509c85b68d2e77ba4f02d8f69 data/forge/loot_modifiers/global_loot_modifiers.json

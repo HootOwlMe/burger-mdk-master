@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "equipment",
+  "key": {
+    "b": {
+      "item": "burgermod:burger"
+    }
+  },
+  "pattern": [
+    "bbb",
+    "b b",
+    "   "
+  ],
+  "result": {
+    "item": "burgermod:burger_helmet"
+  },
+  "show_notification": true
+}

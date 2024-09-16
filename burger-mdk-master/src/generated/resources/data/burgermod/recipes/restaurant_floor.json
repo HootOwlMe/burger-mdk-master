@@ -1,0 +1,22 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "building",
+  "ingredients": [
+    {
+      "item": "burgermod:black_block"
+    },
+    {
+      "item": "burgermod:black_block"
+    },
+    {
+      "item": "burgermod:white_block"
+    },
+    {
+      "item": "burgermod:white_block"
+    }
+  ],
+  "result": {
+    "count": 4,
+    "item": "burgermod:restaurant_floor"
+  }
+}

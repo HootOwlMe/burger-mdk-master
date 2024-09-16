@@ -1,0 +1,20 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "b": {
+      "item": "burgermod:burger_block"
+    },
+    "s": {
+      "item": "minecraft:stick"
+    }
+  },
+  "pattern": [
+    "sbs",
+    "sbs"
+  ],
+  "result": {
+    "item": "burgermod:burger_fence_gate"
+  },
+  "show_notification": true
+}

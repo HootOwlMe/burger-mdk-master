@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "type=bottom": {
+      "model": "burgermod:block/burger_slab"
+    },
+    "type=double": {
+      "model": "burgermod:block/burger_block"
+    },
+    "type=top": {
+      "model": "burgermod:block/burger_slab_top"
+    }
+  }
+}
