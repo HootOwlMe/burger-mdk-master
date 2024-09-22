@@ -1,21 +1,13 @@
 package net.hootowlme.burgermod.block.entity;
 
-import com.mojang.datafixers.types.templates.Tag;
-import net.hootowlme.burgermod.block.ModBlocks;
 import net.hootowlme.burgermod.enchantment.ModEnchantments;
-import net.hootowlme.burgermod.event.ModEvents;
-import net.hootowlme.burgermod.item.ModItems;
 import net.hootowlme.burgermod.recipe.AdvancedAnvilRecipe;
 import net.hootowlme.burgermod.screen.AdvancedAnvilMenu;
-import net.minecraft.client.player.Input;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.nbt.CompoundTag;
-import net.minecraft.nbt.ListTag;
 import net.minecraft.network.chat.Component;
-import net.minecraft.resources.ResourceLocation;
-import net.minecraft.tags.TagKey;
 import net.minecraft.world.Containers;
 import net.minecraft.world.MenuProvider;
 import net.minecraft.world.SimpleContainer;
@@ -23,37 +15,30 @@ import net.minecraft.world.entity.player.Inventory;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.inventory.AbstractContainerMenu;
 import net.minecraft.world.inventory.ContainerData;
-import net.minecraft.world.inventory.EnchantmentMenu;
 import net.minecraft.world.item.*;
 import net.minecraft.world.item.enchantment.*;
 import net.minecraft.world.level.Level;
-import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.entity.BlockEntity;
-import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.minecraft.world.level.block.state.BlockState;
-import net.minecraftforge.client.model.generators.ConfiguredModel;
-import net.minecraftforge.common.Tags;
 import net.minecraftforge.common.capabilities.Capability;
 import net.minecraftforge.common.capabilities.ForgeCapabilities;
 import net.minecraftforge.common.util.LazyOptional;
 import net.minecraftforge.items.IItemHandler;
 import net.minecraftforge.items.ItemStackHandler;
-import net.minecraftforge.registries.ForgeRegistries;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
-import java.lang.reflect.Array;
 import java.util.*;
-import java.util.function.Predicate;
-import java.util.stream.Stream;
 
 public class AdvancedAnvilBlockEntity extends BlockEntity implements MenuProvider {
 
-    private final ItemStackHandler itemHandler = new ItemStackHandler(3);
+    private final ItemStackHandler itemHandler = new ItemStackHandler(4);
 
     private static int LEFT_INPUT_SLOT = 0;
     private static int RIGHT_INPUT_SLOT = 1;
     private static int OUTPUT_SLOT = 2;
+
+    private static int COST_SLOT = 3;
 
     private LazyOptional<IItemHandler> lazyItemHandler = LazyOptional.empty();
 
@@ -167,6 +152,7 @@ public class AdvancedAnvilBlockEntity extends BlockEntity implements MenuProvide
 
 
     private void craftItem() {
+
         ItemStack result = new ItemStack(this.itemHandler.getStackInSlot(LEFT_INPUT_SLOT).getItem(),1);
         ItemStack leftInputItem = this.itemHandler.getStackInSlot(LEFT_INPUT_SLOT);
         ItemStack rightInputItem = this.itemHandler.getStackInSlot(RIGHT_INPUT_SLOT);
@@ -186,73 +172,18 @@ public class AdvancedAnvilBlockEntity extends BlockEntity implements MenuProvide
         }
 
 
-        Map<Enchantment,Integer> initialEnchantmentsMap = leftInputItem.getAllEnchantments();
-        Set<Enchantment> initialEnchantmentsSet = initialEnchantmentsMap.keySet();
-        Map<Enchantment,Integer> additionalEnchantmentsMap = rightInputItem.getAllEnchantments();
-        Set<Enchantment> additionalEnchantmentsSet = additionalEnchantmentsMap.keySet();
-        int totalGameEnchants = BuiltInRegistries.ENCHANTMENT.size() + ModEnchantments.size();
-        //we LOVE nested for-loops!!
-        if((rightInputItem.is(Items.ENCHANTED_BOOK)) || (leftInputItem.is(Items.ENCHANTED_BOOK))){
-            for (int v = 0; v < totalGameEnchants; v++){
-                if(BuiltInRegistries.ENCHANTMENT.byId(v) != null){
-                    Enchantment ench4 = BuiltInRegistries.ENCHANTMENT.byId(v);
-                    for(int c = ench4.getMaxLevel()+5; c > -1; c--){
-                        if(result.getEnchantmentLevel(ench4) < c){
-
-                            if(leftInputItem.getEnchantmentLevel(ench4) >= c){
-                                initialEnchantmentsMap.remove(ench4);
-                                result.enchant(ench4,c);
-                            }else if (rightInputItem.getEnchantmentLevel(ench4) >= c){
-                                initialEnchantmentsMap.remove(ench4);
-                                result.enchant(ench4,c);
-                            }else{
-                                if(isEnchantedBook(rightInputItem,ench4,c)) {
-                                    initialEnchantmentsMap.remove(ench4);
-                                    result.enchant(ench4,c);
-                                }else if(isEnchantedBook(leftInputItem,ench4,c)){
-                                    initialEnchantmentsMap.remove(ench4);
-                                    result.enchant(ench4,c);
-                                }
-                            }
+        Map<Enchantment,Integer> leftEnchants = leftInputItem.getAllEnchantments();
+        Map<Enchantment,Integer> rightEnchants = rightInputItem.getAllEnchantments();
+        Map<Enchantment, Integer> combinedMap = combineMaps(leftEnchants, rightEnchants);
+        combinedMap.forEach(result::enchant);
 
 
-
-                        }
-                    }
-                }
-            }
-        }
-
-
-
-        //adds previous left item enchants
-        Iterator<Enchantment> iterator = initialEnchantmentsSet.iterator();
-        for (int i = 0; i < initialEnchantmentsSet.size(); i++){
-            Enchantment ench = iterator.next();
-            int enchLvl = leftInputItem.getEnchantmentLevel(ench);
-
-            if((result.getEnchantmentLevel(ench) < enchLvl) && (leftInputItem.getEnchantmentLevel(ench) >= rightInputItem.getEnchantmentLevel(ench))){
-                    result.enchant(ench,enchLvl);
-            }
-        }
-        //adds previous right item enchantments
-        Iterator<Enchantment> iterator2 = additionalEnchantmentsSet.iterator();
-        for (int i = 0; i < additionalEnchantmentsSet.size(); i++){
-            Enchantment ench1 = iterator2.next();
-            int enchLvl1 = rightInputItem.getEnchantmentLevel(ench1);
-
-            if((result.getEnchantmentLevel(ench1) < enchLvl1) && (leftInputItem.getEnchantmentLevel(ench1) <= rightInputItem.getEnchantmentLevel(ench1))){
-                result.enchant(ench1,enchLvl1);
-            }
-        }
-
-
-
-        if(!leftInputItem.isEmpty() && !rightInputItem.isEmpty()){
+        if((!leftInputItem.isEmpty()) && (!rightInputItem.isEmpty()) && (!leftInputItem.is(Items.ENCHANTED_BOOK)) && (!rightInputItem.is(Items.ENCHANTED_BOOK))){
             this.itemHandler.setStackInSlot(OUTPUT_SLOT, result);
             this.itemHandler.extractItem(LEFT_INPUT_SLOT,1,false);
             this.itemHandler.extractItem(RIGHT_INPUT_SLOT,1,false);
         }
+
         //RECIPE CODE - NOT USED FOR THIS BlockEntity
         //Optional<AdvancedAnvilRecipe> recipe = getCurrentRecipe();
         //ItemStack result1 = recipe.get().getResultItem(getLevel().registryAccess());
@@ -265,6 +196,37 @@ public class AdvancedAnvilBlockEntity extends BlockEntity implements MenuProvide
     }
 
 
+    public static Map<Enchantment, Integer> combineMaps(Map<Enchantment, Integer> map1, Map<Enchantment, Integer> map2) {
+        HashMap<Enchantment, Integer> result = new HashMap<>();
+
+
+        for (Map.Entry<Enchantment, Integer> entry : map1.entrySet()) {
+            result.put(entry.getKey(), entry.getValue());
+        }
+
+
+        for (Map.Entry<Enchantment, Integer> entry : map2.entrySet()) {
+            Enchantment key = entry.getKey();
+            Integer value = entry.getValue();
+
+
+            if (result.containsKey(key)) {
+                Integer existingValue = result.get(key);
+
+                if (existingValue.equals(value)) {
+
+                    result.put(key, existingValue + 1);
+                } else {
+
+                    result.put(key, Math.max(existingValue, value));
+                }
+            } else {
+                result.put(key, value);
+            }
+        }
+
+        return result;
+    }
 
     private boolean isEnchantedBook(ItemStack item, Enchantment enchantment, int level){
         return item.areShareTagsEqual(EnchantedBookItem.createForEnchantment(new EnchantmentInstance(enchantment,level)));

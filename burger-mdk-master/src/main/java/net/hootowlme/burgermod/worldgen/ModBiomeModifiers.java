@@ -33,6 +33,7 @@ public class ModBiomeModifiers {
     public static final ResourceKey<BiomeModifier> ADD_LIVING_BURGER_SPAWN1 = registerKey("add_living_burger_spawn_one");
     public static final ResourceKey<BiomeModifier> ADD_LIVING_BURGER_SPAWN2 = registerKey("add_living_burger_spawn_two");
 
+
     public static final ResourceKey<BiomeModifier> ADD_SLENDERMAN = registerKey("add_slenderman");
 
 
@@ -53,8 +54,6 @@ public class ModBiomeModifiers {
         context.register(ADD_LIVING_BURGER_SPAWN1, new ForgeBiomeModifiers.AddSpawnsBiomeModifier(
                 biomes.getOrThrow(BiomeTags.IS_FOREST), List.of(livingBurgerSpawnData)));
 
-
-
         context.register(ADD_LIVING_BURGER_SPAWN2, new ForgeBiomeModifiers.AddSpawnsBiomeModifier(
                 biomes.getOrThrow(BiomeTags.IS_HILL), List.of(livingBurgerSpawnData)));
 
@@ -62,9 +61,9 @@ public class ModBiomeModifiers {
                 biomes.getOrThrow(BiomeTags.HAS_VILLAGE_PLAINS), List.of(livingBurgerSpawnData)));
 
 
+
         context.register(ADD_SLENDERMAN, new ForgeBiomeModifiers.AddSpawnsBiomeModifier(
                 biomes.getOrThrow(BiomeTags.IS_FOREST), List.of(slendermanSpawnData)));
-
 
         context.register(ADD_BURGER_ORE, new ForgeBiomeModifiers.AddFeaturesBiomeModifier(
                 biomes.getOrThrow(BiomeTags.IS_OVERWORLD),

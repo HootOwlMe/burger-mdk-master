@@ -50,7 +50,7 @@ public class AdvancedAnvilBlock extends BaseEntityBlock {
 
     @Override
     public void appendHoverText(ItemStack pStack, @Nullable BlockGetter pLevel, List<Component> pTooltip, TooltipFlag pFlag) {
-        pTooltip.add(Component.literal("Transfers Enchantments!").withStyle(ChatFormatting.YELLOW));
+        pTooltip.add(Component.literal("Transfers Enchantments! (doesn't work with enchantment books").withStyle(ChatFormatting.YELLOW));
         super.appendHoverText(pStack, pLevel, pTooltip, pFlag);
     }
 

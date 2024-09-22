@@ -93,10 +93,7 @@ public class ModBlockLootTables extends BlockLootSubProvider {
                 .setProperties(StatePropertiesPredicate.Builder.properties().hasProperty(TallBurgerCropBlock.AGE, 4));
 
          */
-
-
     }
-
 
     protected LootTable.Builder createCopperLikeOreDrops(Block pBlock, Item item) {
         return createSilkTouchDispatchTable(pBlock, (LootPoolEntryContainer.Builder)

@@ -37,6 +37,7 @@ public class AdvancedAnvilMenu extends AbstractContainerMenu {
             this.addSlot(new SlotItemHandler(iItemHandler,0,27,47));
             this.addSlot(new SlotItemHandler(iItemHandler,1,76,47));
             this.addSlot(new SlotItemHandler(iItemHandler,2,134,47));
+
         });
 
         addDataSlots(data);

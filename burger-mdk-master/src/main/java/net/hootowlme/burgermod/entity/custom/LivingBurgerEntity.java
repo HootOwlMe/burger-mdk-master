@@ -151,7 +151,6 @@ public class LivingBurgerEntity extends Animal {
     }
 
 
-
     @Nullable
     @Override
     protected SoundEvent getDeathSound() {
