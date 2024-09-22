@@ -171,19 +171,43 @@ public class AdvancedAnvilBlockEntity extends BlockEntity implements MenuProvide
             result.removeTagKey("Enchantments");
         }
 
+        Map<Enchantment,Integer> leftBookEnchants = new HashMap<>();
+        if (leftInputItem.is(Items.ENCHANTED_BOOK)){
+             leftBookEnchants = EnchantmentHelper.getEnchantments(leftInputItem);
+        }
+
+        Map<Enchantment,Integer> rightBookEnchants = new HashMap<>();
+        if (rightInputItem.is(Items.ENCHANTED_BOOK)){
+            rightBookEnchants = EnchantmentHelper.getEnchantments(rightInputItem);
+        }
 
         Map<Enchantment,Integer> leftEnchants = leftInputItem.getAllEnchantments();
         Map<Enchantment,Integer> rightEnchants = rightInputItem.getAllEnchantments();
-        Map<Enchantment, Integer> combinedMap = combineMaps(leftEnchants, rightEnchants);
-        combinedMap.forEach(result::enchant);
+        Map<Enchantment, Integer> combinedMap1 = combineMaps(leftEnchants, rightEnchants);
+
+        if (!leftBookEnchants.isEmpty()){
+            combinedMap1 = combineMaps(combinedMap1,leftBookEnchants);
+        }
+
+        if (!rightBookEnchants.isEmpty()){
+            combinedMap1 = combineMaps(combinedMap1,rightBookEnchants);
+        }
+        combinedMap1.forEach(result::enchant);
 
 
-        if((!leftInputItem.isEmpty()) && (!rightInputItem.isEmpty()) && (!leftInputItem.is(Items.ENCHANTED_BOOK)) && (!rightInputItem.is(Items.ENCHANTED_BOOK))){
+        if((!leftInputItem.isEmpty()) && (!rightInputItem.isEmpty())){
             this.itemHandler.setStackInSlot(OUTPUT_SLOT, result);
             this.itemHandler.extractItem(LEFT_INPUT_SLOT,1,false);
             this.itemHandler.extractItem(RIGHT_INPUT_SLOT,1,false);
         }
 
+        /*
+        if((!leftInputItem.isEmpty()) && (!rightInputItem.isEmpty()) && (!leftInputItem.is(Items.ENCHANTED_BOOK)) && (!rightInputItem.is(Items.ENCHANTED_BOOK))){
+            this.itemHandler.setStackInSlot(OUTPUT_SLOT, result);
+            this.itemHandler.extractItem(LEFT_INPUT_SLOT,1,false);
+            this.itemHandler.extractItem(RIGHT_INPUT_SLOT,1,false);
+        }
+         */
         //RECIPE CODE - NOT USED FOR THIS BlockEntity
         //Optional<AdvancedAnvilRecipe> recipe = getCurrentRecipe();
         //ItemStack result1 = recipe.get().getResultItem(getLevel().registryAccess());
