@@ -20,12 +20,12 @@ public class AdvancedAnvilMenu extends AbstractContainerMenu {
     private final ContainerData data;
 
     public AdvancedAnvilMenu(int pContainerId, Inventory inv, FriendlyByteBuf extraData){
-        this(pContainerId,inv,inv.player.level().getBlockEntity(extraData.readBlockPos()),new SimpleContainerData(3));
+        this(pContainerId,inv,inv.player.level().getBlockEntity(extraData.readBlockPos()),new SimpleContainerData(4));
     }
 
     public AdvancedAnvilMenu(int pContainerId, Inventory inv, BlockEntity entity, ContainerData data){
         super(ModMenuTypes.ADVANCED_ANVIL_MENU.get(),pContainerId);
-        checkContainerSize(inv,3);
+        checkContainerSize(inv,4);
         blockEntity = ((AdvancedAnvilBlockEntity) entity);
         this.level = inv.player.level();
         this.data = data;
@@ -37,6 +37,7 @@ public class AdvancedAnvilMenu extends AbstractContainerMenu {
             this.addSlot(new SlotItemHandler(iItemHandler,0,27,47));
             this.addSlot(new SlotItemHandler(iItemHandler,1,76,47));
             this.addSlot(new SlotItemHandler(iItemHandler,2,134,47));
+            this.addSlot(new SlotItemHandler(iItemHandler,3,134,18));
 
         });
 
@@ -80,7 +81,7 @@ public class AdvancedAnvilMenu extends AbstractContainerMenu {
     private static final int VANILLA_FIRST_SLOT_INDEX = 0;
     private static final int TE_INVENTORY_FIRST_SLOT_INDEX = VANILLA_FIRST_SLOT_INDEX + VANILLA_SLOT_COUNT;
 
-    private static final int TE_INVENTORY_SLOT_COUNT = 3;
+    private static final int TE_INVENTORY_SLOT_COUNT = 4; //my slots
     @Override
     public ItemStack quickMoveStack(Player player, int pIndex) {
 
